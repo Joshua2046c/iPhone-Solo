@@ -1,13 +1,17 @@
 {
   "formatVersion": 4,
-  "name": "iPhone Duo 宝可梦图鉴手机壳",
-  "title": "iPhone Duo 宝可梦图鉴手机壳",
-  "summary": "以宝可梦图鉴为灵感，将经典外观元素融入 iPhone Duo 手机壳当中",
+  "name": "iPhone Solo",
+  "title": "iPhone  Solo Case",
+  "summary": "Make your iPhone Duo non-foldable. I don’t really know what it’s useful for.",
   "license": "MIT",
   "authors": [
     {
       "name": "Miles"
     }
   ],
+  "upstream": {
+    "repo": "https://github.com/Joshua2046c/iPhone-Duo-2",
+    "commit": "dc6fe096fb82e67055b002c7d8660e120dcd007a"
+  },
   "artifacts": "rebuild"
 }

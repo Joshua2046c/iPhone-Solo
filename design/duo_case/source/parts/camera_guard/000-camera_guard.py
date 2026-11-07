@@ -1,3 +1,4 @@
+# cell: camera_guard
 # Custom ring. The camera protrusion is an explicit prototype assumption, not a vendor dimension.
 w=param('camera_guard_inner_width',55.0)
 h=param('camera_guard_inner_height',23.0)
@@ -12,6 +13,8 @@ extension=max(0.0,inner_depth-back_plate)
 # Model local bond face at Z0, with outward crest in -Z. Placement binds to the flush exterior back plane.
 base_z=phone_z-back_plate-glue
 crest_z=phone_z-cam_height-margin-extension
+outer_raise=param('camera_guard_extra_outer_height',0.8)
+crest_z-=outer_raise
 thickness=base_z-crest_z
 assert wall>0 and thickness>0 and margin>0
 # Equal-radius symmetric ends, joined by parallel straight tangent segments.

@@ -2,68 +2,68 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "五件基础护轴壳、五件正面装饰和三件内侧嵌件；内侧五处浮雕与盖板一体。蓝白半球是一体双色件；背壳保留凹刻。",
+  "summary": "固定展开一体主框，左外屏开窗配180度卡扣盖板；侧防滑槽、对称长开孔、局部解扣边和加高0.8镜头圈。",
   "required_interfaces": [
     {
       "id": "phone_fit",
       "kind": "internal_fit",
-      "description": "按用户要求从转轴开口侧单侧缩减3.1 mm，前后盖与配套承载件同步缩减，内侧R角按手机图片轮廓拟合；保留按键通道和转轴出片口。此前84.1 mm手机宽为参考图值，缩减后的81 mm名义试配包络是派生默认，非实测认证。 前盖装饰面外周及后盖外背面外周均按标记做R0.8圆角，原外包络和内侧装配尺寸保留。 转轴开口两端围边顶部侧面直角均采用R3，原下部端面及凹槽定位凸台保留。",
+      "description": "展开机身164.6×117.8×5.2；内底贴0.2保护膜，手机落座面Z2.6，围边/扣边抬高0.2，屏幕侧间隙保持0.38；图3左直边内扣取消。",
       "source": "user_requested",
       "required": true
     },
     {
-      "id": "slider",
-      "kind": "sliding_fit",
-      "description": "护轴片框内厚0.75、其余厚1 mm，两侧各1 mm窄圆滑过渡，薄区局部X[-22,-2]按图估计；双槽整体图左移1 mm后保持18.479587×8.4/R2.1、中心距弯端0.489794/Y±25，自由端R3。新厚度在闭合参考与原内盖板相交995.587581 mm³、深约0.4；仅展平分件尺寸通过，按用户要求暂时保留收纳装配干涉、其他部件不动，不视为预期配合或装配通过。前盖深收纳槽上下R3和XY容量保持。",
-      "source": "user_requested",
-      "required": true
-    },
-    {
-      "id": "back_bond",
-      "kind": "adhesive_joint",
-      "description": "护轴片固定端直接胶接背盖浅槽；上下两端一体凸台顶Z2.4与内背板齐平，凸台内侧间距115.7，配115.3宽片每端0.2；凸台5.3×1.3、高1.2。前盖仍为滑动收纳端。",
+      "id": "permanent_bridge",
+      "kind": "internal_fit",
+      "description": "主框跨两半仍为同一个连续实体，左侧开窗与局部盖板不拆开主框。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "camera_guard_bond",
       "kind": "adhesive_joint",
-      "description": "镜头开孔和保护圈整体周边等距向外偏移0.4 mm，中心(10,43.9)保持；名义开孔与定位环外廓58.3×22.5，保护圈净孔56.3×20.5、外翼60.3×24.5。内侧避让每侧仍扩4、深3.9。保护圈为无止退凸边的胶粘结构；外翼宽1、内伸壁宽1、抬高0.40、胶层0.15，顶部Z-0.75仍低于孔缘0.05。实物镜头净空及胶接保持力待试样。 标记环面沿模型Z轴负方向垂直向下延长1 mm，面Z-3.6；外翼厚2.45、总高2.85，胶接面Z-1.15及内嵌定位环顶部Z-0.75保持。",
+      "description": "保护圈沿外向-Z增高0.8到Z-4.4，胶接面Z-1.15和定位环顶Z-0.75保持。",
       "source": "user_requested",
       "required": true
     },
     {
-      "id": "open_edge_meeting",
+      "id": "display_lid_hinge",
       "kind": "internal_fit",
-      "description": "打开两条直边名义零间隙并拢、无实体穿透，同时自由片及滑动尾片入前盖槽；胶端留背盖。实机连续驱动尚待验证。",
+      "description": "轴节外径5.2、跨度66.666667，轴心X-121.7/Z-3.85，最外X-124.3收在壳边X-124.4内。三固定轴耳为直边圆弧顶、底座连实；活动45度斜臂下方填实并直接连到盖板，无外露方块；Ø2.2无帽直销，中耳Ø2.05、其余Ø2.8，保持180度开合。",
       "source": "user_requested",
       "required": true
     },
     {
-      "id": "closed_hinge_wrap",
+      "id": "display_lid_snap",
       "kind": "internal_fit",
-      "description": "护轴片沿铰链方向接近整机宽，助手计算闭合包覆路径和展开料长，同时保留前盖完整收纳；实际机身/铰链外廓待测。",
+      "description": "双弹性卡扣加固：臂16×2，厚2.5，隔离槽1，钩接触长5、高1.1，实扣0.5，向内释放0.8；主框承力肩保留。",
       "source": "user_requested",
       "required": true
     },
     {
-      "id": "front_decoration_seats",
-      "kind": "adhesive_joint",
-      "description": "右中向内三角、左上蓝白一体半球及三个等距小球均坐入浅座；下部胶囊浅槽不贯穿。 上部增加按蓝色标注走向的窄浅折线槽，拐点圆滑过渡。 下部胶囊浅槽短边宽减去三分之一至1.6，长34、深0.2、中心(0,-44)保持，不设独立薄片。",
+      "id": "grip_and_symmetric_ports",
+      "kind": "internal_fit",
+      "description": "侧面四道浅槽深0.15、高0.6、节距1.2，居中于完整侧厚Z[-1,8.88]，槽中心2.14/3.34/4.54/5.74，上下余边各2.84；转轴安装区Y±35.333333截断。上下长开口对称及16×8指槽保留。",
       "source": "user_requested",
       "required": true
     },
     {
-      "id": "inner_decoration_seats",
-      "kind": "adhesive_joint",
-      "description": "框出的顶部长块、两圆角短条、底部两块与内侧装饰盖板融合为单一连续实体，不分件、不留胶接凹槽；凸高0.6与位置保持。仅蓝色十格块、白色双格块、黄色圆饼保留独立浅座胶接。",
+      "id": "table_support",
+      "kind": "internal_fit",
+      "description": "镜头圈保护顶维持Z-4.4，用户接受紧凑轴体外侧Z-6.45更高；无共面平放要求，不恢复两额外凸脚。",
       "source": "user_requested",
       "required": true
     },
     {
-      "id": "full_retainer_step",
-      "kind": "adhesive_joint",
-      "description": "略小于前盖同形轮廓的整面盖板，背面抬高0.90至Z16.05，左右同高齐平；装饰面及浅座保留。前盖转轴侧连续窄边删除，座槽开至外边，上下及右侧承台胶层0.2，滑道不涂胶。 转轴两端局部台阶对称补齐，均抬高1.4至Z14.85，与内盖板外露面齐平；内盖板不移动。 前盖内侧三处矩形磁铁槽及局部包围支承取消，深收纳腔边界连续；侧边长条磁铁位保留。",
+      "id": "inner_liner",
+      "kind": "internal_fit",
+      "description": "独立0.2总厚内保护贴片，避开屏幕和摄像头，壳体增高0.2进行补偿。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "plain_back",
+      "kind": "internal_fit",
+      "description": "取消外背板和盖板的全部胶囊凹槽，恢复名义3.4/2.5厚平整表面。",
       "source": "user_requested",
       "required": true
     }
@@ -464,18 +464,142 @@
       "source": "user_requested",
       "description": "上方两个横向磁铁与下方一处竖向磁铁，内侧左移2并加厚连通上方包围。",
       "path": "product/references/uploads/20261020T082454219Z-1-image.png"
+    },
+    {
+      "id": "open_phone_screen_20261107",
+      "source": "user_requested",
+      "description": "用户提供展开内屏外形与7.6英寸参考",
+      "path": "product/references/uploads/20261106T203749151Z-1-ishot-2026-11-07-4-29-10.png"
+    },
+    {
+      "id": "open_phone_size_20261107",
+      "source": "user_requested",
+      "description": "用户提供展开尺寸：117.8×164.6×5.2 mm",
+      "path": "product/references/uploads/20261106T203749151Z-2-ishot-2026-11-07-4-29-15.png"
+    },
+    {
+      "id": "pipes_3mf",
+      "path": "product/references/uploads/20261106T211009745Z-1-iphone-duo-case-pipes.3mf",
+      "description": "用户3MF，提供左屏幕开窗与横向环绕侧纹参考",
+      "source": "user_requested"
+    },
+    {
+      "id": "change_mark_1",
+      "path": "product/references/uploads/20261106T211009682Z-1-mark-1.png",
+      "description": "用户标记长孔延长或取消内扣",
+      "source": "user_requested"
+    },
+    {
+      "id": "change_mark_2",
+      "path": "product/references/uploads/20261106T211009682Z-2-mark-2.png",
+      "description": "用户标记长孔延长或取消内扣",
+      "source": "user_requested"
+    },
+    {
+      "id": "change_mark_3",
+      "path": "product/references/uploads/20261106T211009682Z-3-mark-3.png",
+      "description": "用户标记长孔延长或取消内扣",
+      "source": "user_requested"
+    },
+    {
+      "id": "frame_hinge_mark_1",
+      "path": "product/references/uploads/20261107T073953296Z-1-mark-1.png",
+      "source": "user_requested",
+      "description": "用户标记转轴收进边框并等高支承，或加大抠盖孔。"
+    },
+    {
+      "id": "frame_hinge_mark_2",
+      "path": "product/references/uploads/20261107T073953296Z-2-mark-2.png",
+      "source": "user_requested",
+      "description": "用户标记转轴收进边框并等高支承，或加大抠盖孔。"
+    },
+    {
+      "id": "short_headless_hinge_mark",
+      "path": "product/references/uploads/20261107T081253144Z-1-mark-1.png",
+      "source": "user_requested",
+      "description": "用户要求转轴减短三分之一、圆条两端无盖。"
+    },
+    {
+      "id": "hinge_cleanup_mark_1",
+      "source": "user_requested",
+      "description": "用户标记取消支承凸点、打通穿轴通道和清理轴耳残片",
+      "path": "product/references/uploads/20261107T083611202Z-1-mark-1.png"
+    },
+    {
+      "id": "hinge_cleanup_mark_2",
+      "source": "user_requested",
+      "description": "用户标记取消支承凸点、打通穿轴通道和清理轴耳残片",
+      "path": "product/references/uploads/20261107T083611202Z-2-mark-2.png"
+    },
+    {
+      "id": "hinge_cleanup_mark_3",
+      "source": "user_requested",
+      "description": "用户标记取消支承凸点、打通穿轴通道和清理轴耳残片",
+      "path": "product/references/uploads/20261107T083611202Z-3-mark-3.png"
+    },
+    {
+      "id": "raise_and_liner_mark_1",
+      "source": "user_requested",
+      "description": "用户标记转轴整体抬高恢复外框、加固卡扣和0.2内贴片",
+      "path": "product/references/uploads/20261107T105358927Z-1-mark-1.png"
+    },
+    {
+      "id": "raise_and_liner_mark_2",
+      "source": "user_requested",
+      "description": "用户标记转轴整体抬高恢复外框、加固卡扣和0.2内贴片",
+      "path": "product/references/uploads/20261107T105358927Z-2-mark-2.png"
+    },
+    {
+      "id": "raise_and_liner_mark_3",
+      "source": "user_requested",
+      "description": "用户标记转轴整体抬高恢复外框、加固卡扣和0.2内贴片",
+      "path": "product/references/uploads/20261107T105358927Z-3-mark-3.png"
+    },
+    {
+      "id": "plain_back_four_lines_mark",
+      "source": "user_requested",
+      "description": "用户要求取消背面胶囊图案，删除侧纹最底部一圈，剩余四条居中",
+      "path": "product/references/uploads/20261107T120208661Z-1-mark-1.png"
+    },
+    {
+      "id": "compact_hinge_mark_1",
+      "source": "user_requested",
+      "description": "用户标记缩小轴体并收进壳体侧边、固定耳底部连实和盖板端斜切连接",
+      "path": "product/references/uploads/20261107T121834724Z-1-mark-1.png"
+    },
+    {
+      "id": "compact_hinge_mark_2",
+      "source": "user_requested",
+      "description": "用户标记缩小轴体并收进壳体侧边、固定耳底部连实和盖板端斜切连接",
+      "path": "product/references/uploads/20261107T121834724Z-2-mark-2.png"
+    },
+    {
+      "id": "compact_hinge_mark_3",
+      "source": "user_requested",
+      "description": "用户标记缩小轴体并收进壳体侧边、固定耳底部连实和盖板端斜切连接",
+      "path": "product/references/uploads/20261107T121834724Z-3-mark-3.png"
+    },
+    {
+      "id": "continuous_hinge_mark_1",
+      "source": "user_requested",
+      "description": "活动斜臂下方填实及固定转轴直边圆弧顶参考标记",
+      "path": "product/references/uploads/20261107T124834333Z-1-mark-1.png"
+    },
+    {
+      "id": "continuous_hinge_mark_2",
+      "source": "user_requested",
+      "description": "活动斜臂下方填实及固定转轴直边圆弧顶参考标记",
+      "path": "product/references/uploads/20261107T124834333Z-2-mark-2.png"
     }
   ],
   "assembly_story": {
-    "installation": "先在未装手机的背盖摄像头区域干配平滑镜头定位圈，再在外翼均匀施胶留0.15层并定位固化；装前盖薄片双槽、胶接压盖与背盖固定端，固化后低力试配。",
-    "maintenance": "先取下手机再拆胶接压盖；镜头圈先解除胶接，再从内侧均匀取下；勿以镜头或手机铰链作撬动支点。薄片是可更换耗材。",
+    "installation": "对齐主框和盖板的悬高轴耳，穿入无帽直销，中固定耳轻压定位；镜头圈用0.15胶层固定，内底贴含胶总厚0.2保护片后再装入保持展开的手机。",
+    "maintenance": "向内释放两处加固卡扣后由指槽抬起盖板，向外打开180度；更换盖板时从任一端推拔无帽直销。",
     "user_access": [
-      "顶部音量键",
-      "侧面电源键",
-      "侧面拍照键",
-      "摄像头",
-      "底部接口区域",
-      "掀开前盖访问外屏"
+      "展开内屏",
+      "左侧外屏及保护盖板",
+      "两处盖板释放卡扣",
+      "按键、接口与摄像头"
     ]
   },
   "cad": {
@@ -484,21 +608,21 @@
       {
         "role": "phone_case",
         "design_id": "duo_case",
-        "description": "一体内饰护轴壳：13个装配对象、14实体的试配模型",
+        "description": "展开一体主框、屏幕盖板、直销、镜头圈及0.2内保护贴片五件试配装配。",
         "delivery_target": "fit_check",
         "required_formats": [
           "step"
         ],
         "interface_ids": [
           "phone_fit",
-          "slider",
-          "back_bond",
+          "permanent_bridge",
           "camera_guard_bond",
-          "open_edge_meeting",
-          "closed_hinge_wrap",
-          "front_decoration_seats",
-          "inner_decoration_seats",
-          "full_retainer_step"
+          "display_lid_hinge",
+          "display_lid_snap",
+          "grip_and_symmetric_ports",
+          "table_support",
+          "inner_liner",
+          "plain_back"
         ],
         "reference_ids": [
           "dimensions_image",
@@ -566,7 +690,28 @@
           "back_hinge_wall_top_r3_mark_1",
           "back_hinge_wall_top_r3_mark_2",
           "front_two_magnets_photo",
-          "front_three_magnets_and_connected_enclosure_photo"
+          "front_three_magnets_and_connected_enclosure_photo",
+          "open_phone_screen_20261107",
+          "open_phone_size_20261107",
+          "pipes_3mf",
+          "change_mark_1",
+          "change_mark_2",
+          "change_mark_3",
+          "frame_hinge_mark_1",
+          "frame_hinge_mark_2",
+          "short_headless_hinge_mark",
+          "hinge_cleanup_mark_1",
+          "hinge_cleanup_mark_2",
+          "hinge_cleanup_mark_3",
+          "raise_and_liner_mark_1",
+          "raise_and_liner_mark_2",
+          "raise_and_liner_mark_3",
+          "plain_back_four_lines_mark",
+          "compact_hinge_mark_1",
+          "compact_hinge_mark_2",
+          "compact_hinge_mark_3",
+          "continuous_hinge_mark_1",
+          "continuous_hinge_mark_2"
         ]
       }
     ]

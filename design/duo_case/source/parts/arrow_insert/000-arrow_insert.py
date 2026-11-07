@@ -1,6 +1,0 @@
-w=param('arrow_insert_width',7.0)
-h=param('arrow_insert_height',9.0)
-t=param('arrow_insert_thickness',0.9)
-body=extrude(Polygon((-w/2,0),(w/2,-h/2),(w/2,h/2),align=None),amount=t)
-body.color=Color(1.0,0.78,0.015)
-publish('arrow_insert',body,'07 向内三角嵌件',material='petg')

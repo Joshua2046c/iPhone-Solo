@@ -2,63 +2,21 @@
   "schema_version": 1,
   "status": "ready_for_fit_check",
   "bom_ready": true,
-  "requirements_digest": "7daee503a9c090efb15afd1454247692a0ff36a79ae204366107865f3609ac92",
+  "requirements_digest": "47c98410b596d826c2b5053cee1ca5dd44896ab30bc60fe9420d3bc35adc7cb1",
   "items": [
     {
       "id": "back_cover",
       "role": "back_cover",
-      "name": "弹性半包背盖",
+      "name": "带左侧屏幕窗及防滑槽的一体主框",
       "quantity": 1,
       "manufacturer": "Project custom",
-      "part_number": "DUO-BACK_COVER-R56",
+      "part_number": "DUO-OPEN-DISPLAY-FRAME",
       "source": "default",
-      "description": "TPU83.7×121.5、背板3.4、围边6.28/内扣0.7；摄像头周围取消补厚及浅台阶，外面统一Z-1。外孔58.3×22.5/R11.25，内侧每侧外扩4；材料内弧面深3.4，3.9切削包络包含外侧0.5自由空间。两端残留凸块已对称去除；胶槽5.3×115.7深1.2，上下各保留5.3×1.3×1.2一体凸台、顶Z2.4与背板内面齐平，护轴片端部各留0.2、X[-39.8,-34.5]，底部凹刻保留。 摄像头弧面底口增设0.30高竖直孔壁，Z-1至-0.70，单边按曲线扩切约0.023970，底口约58.3479×22.5479；上方弧面继续连接内侧放大孔。 开孔及保护圈整体周边外移0.4 mm，中心(10,43.9)保持，内侧避让66.3×30.5。 顶部按键槽从标记端单侧缩窄8，净空26、端面间距28；端面X[-4,24]、槽心X10，另一端固定；保留R1轮廓和R0.3外缘。 侧面电源键孔标记端沿-Y扩宽3.8，端面Y[2.7,29.5]、跨度26.8，矩形净空24.8、中心Y16.1；另一端和圆角保持。 内侧新增MagSafe磁铁预留环槽，内径45、外径54.52、深0.99、环宽4.76，中心(2.05,-2.41)按主壳体左右外缘中线居中；槽底余厚2.41，未额外加胶层或装配间隙，未验证实机线圈对中。 外背面整圈外沿做R0.8连续圆角，外包络保持83.7×121.5；镜头孔、内侧避让、扣边及磁铁位尺寸保持。 转轴开口上下两端围边的顶部侧面直角均倒R3：原角X-39.8/Z8.68，水平切点X-36.8、竖向切点Z5.68；下部凹槽和定位凸台保持，原R1平面外角及R0.8外背面滚圆保持。 中央侧边相对端面设10.5×1.6×1.03 mm磁铁盲槽，中心XY(44.3,-5.9)、向外延伸2.4至X46.3；中段全宽平台12.8长，两端各2.2 mm同半径圆弧与相切直段过渡，包络4×17.2。支承从背盖外面Z-1延伸至槽口Z8.73，高9.73，底部与背盖齐平，槽底Z7.70至背面余厚8.70。齐平外缘R0.8，两槽对齐且口间保持0.17。 壳体与支承先融合再统一外缘R0.8，向两侧各延伸1.1至原侧端面Y[-14.5,2.7]，新增端部按原R1侧轮廓裁齐，内侧实心连接贯穿全长，去除尖薄翅边及碎面；上盖下伸端统一R0.3，最小平面包围仍1.2。 四处平面转接采用镜像圆弧R0.947199和70°相切斜直段，外平面外缘直线/圆弧段统一R0.8，倒圆带宽一致。 两处自由侧大圆角内扣薄唇默认最多削去0.10，直段伸出0.70保持，圆角中部最小伸出0.60，轴向厚0.70；整圈围边再增高0.08至6.28，顶Z8.68，下侧磁铁槽底Z7.70、深1.03保持，闭合最小隙0.17。 底端开孔名义矩形净宽50.9，中心X0.45；左端面X-26保持，右端面向+X扩0.9至26.9，端面间距52.9，轮廓R1及外缘R0.3保持。 内侧围墙各向手机中心平移0.045 mm、内扣同步内移；有效内腔81.41×118.21、等效单边净余量0.205、直段实体壁厚1.645，实际内角R11.955、薄唇圆角R11.013579，外包络不变。 环槽中心按主壳左右外缘中线设为(2.05,-2.41)，环槽内外径45/54.52及深0.99保持；下方新增16.98×6.99、R3.495胶囊尾巴槽，间隔2，中心(2.05,-40.16)、同深0.99，局部叠加外侧logo后余厚2.11。内侧无签名凹刻，底部为完整平面。 标记上下磁铁凸起各朝对方加高0.05，槽深仍1.03；上端口Z8.90/底9.93、下端口Z8.73/底7.70，最小相对间隙0.17。下壳其余围边高度6.28保持，MagSafe环及尾磁槽深0.99保持。 上下侧边磁铁槽长10.5、宽1.6、深1.03，中心XY(44.3,-5.9)，槽Y[-11.15,-0.65]；包围恢复4×17.2、外缘X46.3，70°圆滑过渡；各加高0.05及0.17相对间隙保持。 外背面精灵球凹刻的外圆环、中心圆环及横向分界线宽统一缩窄20%至0.64 mm；图案外径18、中心环外径5.4、深0.3及中心(1.55,-45)保持。 按用户最终尺寸，环槽内径45、径向宽4.76，外径54.52；深0.99、中心(2.05,-2.41)，尾磁槽16.98×6.99×0.99保持，中心随外径联动为(2.05,-40.16)，环尾间隔2。 按主壳外缘中线将圆环与尾磁槽整体左右居中，中心X2.05。仅位置变化，圆环45/54.52、环宽4.76、尾槽16.98×6.99、深0.99和间隔2均保持。 图示电源键、相机键及音量键开口下缘新增20°外低内高指腹坡道，名义穿壁宽1.645、理论外缘降0.598731，两端R1局部剖面直接相切连接；仅后壳几何变化，底端接口、MagSafe及侧磁铁槽保持。 三处坡道外侧切口与原开口边缘共享R0.3连续沿边倒圆，含两端平滑过渡；底端接口保留原轮廓。 三个按键开口共六处下角取消渐变抬高肩部，以恒定20°坡面和相切圆角剖面形成连续开口，消除局部小凸起，外沿R0.3保持。",
+      "description": "TPU95A一体主框168.3×121.5，三固定轴耳外径5.2、跨度66.666667，轴线X-121.7/Z-3.85，轴体最外X-124.3，收在壳边X-124.4内。外侧直立边与R2.6圆弧顶相切，局部过渡R0.3；底座连实并进入背板0.8，外框不开穿轴槽；外耳孔Ø2.8，中耳Ø2.05带0.5导入口。围墙6.48、内贴片0.2、手机落座Z2.6、16×8指槽及四道居中0.15浅纹保持，外背面平整。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "part_identity": "8b68e849c618ed81",
-      "selection_reason": "按用户标记将圆环与尾磁槽作为整体左右居中，共用主壳外缘中线X2.05，相对原位置向左0.70 mm；外缘左右余量均14.59。圆环45/54.52、环宽4.76，尾槽16.98×6.99，深0.99及Y位置均保持，未验证实机无线充电线圈对中。"
-    },
-    {
-      "id": "spine",
-      "role": "spine",
-      "name": "滑动护轴薄片",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-SPINE-R25",
-      "source": "default",
-      "description": "TPU等厚护轴薄片，展平外廓48.356135×115.3×0.76 mm，底面Z0、顶面Z0.76，不设中间下凹或厚薄过渡。双槽18.479587×8.4、四角R2.1、槽心距弯端0.849793567/Y±25、自由端外角R3保持。闭合参考与内盖板共享438.375852 mm³，连续收纳未验证；其他部件保持。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "2b720c47be24240b",
-      "selection_reason": "按用户要求整片统一厚0.76 mm并取消下凹薄区；只改变护轴片，外廓、双槽和圆角保持。两个完整水平面和五处厚度探针检查通过，闭合参考干涉继续披露。"
-    },
-    {
-      "id": "retainer",
-      "role": "retainer",
-      "name": "一体内侧装饰盖板",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-RETAINER-R17",
-      "source": "default",
-      "description": "PETG一体盖板80.9×118.6，基板厚1.2、标记五处浮雕高0.6，总厚包络1.8；顶部长块62×18、两条10×1.6胶囊短条和底部两块24×10，与盖板布尔融合为同一连续实体，取消对应分件、胶层和浅座。五处外形及世界顶面Z14.25保持，盖板背面Z16.05、外露基面Z14.85保持。仅蓝色十格块、白色双格块、黄色圆饼保留0.15深浅座、0.15侧隙、0.05胶层，浅座下余厚1.05。前盖固定承台胶层0.2、销尖最小间隙0.1、原位置与增厚后护轴片发生约0.4深干涉、盖板尺寸保持，按用户要求暂时保留干涉、盖板不改。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "745393b51c9f48b1",
-      "selection_reason": "按用户绿框把五处装饰与内侧盖板合为一个整体部件，一体制作；保留原装饰外形、位置和凸高。"
-    },
-    {
-      "id": "front_cover",
-      "role": "front_cover",
-      "name": "整面前盖",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-FRONT-COVER-R42",
-      "source": "default",
-      "description": "PETG83.7×121.5×4，转轴侧X-39.8内缩1，右侧X43.9；收纳70.1×115.7，X[-39.8,30.3]/Y±57.85，深2.6；双胶囊桩宽3.2×纵长7.4、X-31.720413/Y±25。盖板台阶81.3×119深1.4、单边隙0.2，外侧装饰与窄凹线保留。 蓝白半球浅座中心(-27.5,44)，与一体嵌件向右同移1.5 mm。 上盖内侧三处矩形磁铁槽及对应局部包围支承取消，恢复连续收纳腔边界。 收纳槽两端支承窄边向内各加宽1.3，槽边Y±57.85至座台边Y±59.5的宽度各1.65；槽深和双桩中心位置保留。 转轴侧连续窄边宽1.2、沿Y119范围去除，两端均保留1.2×1.65局部台阶，并向手机侧抬高1.4至Z14.85，与内盖板外露面齐平，台阶座直接开至外边；顶底边及其余外轮廓保持。 装饰面外周做R0.8连续圆角，外包络保持83.7×121.5；浅分界槽仍通至外边。 标记曲边下凹面补高1.2至局部Z1.4/世界Z16.25，与周边阶梯合面；补高从外轮廓R13.6结束切点X30.3延伸至曲边，深腔从转轴侧到切点70.1、纵向115.7，端部外边宽2.9。完整自由段43.356135×115.3的平面轮廓容量检查通过，连续导向和完整收纳未验证。 下部胶囊浅槽短边宽由2.4减去三分之一至1.6，长34、中心(0,-44)、深0.2保持；两端半径随短边改为R0.8。 深收纳槽远端上下两个平面直角改R3，槽深、外形及桩位保持，完整自由段平面容量检查仍通过。 图示中央侧边新增一体向下凸起，高5.95、名义宽17.2，Y[-14.5,2.7]与后壳凸起对齐；壁厚默认1.6，X[42.3,43.9]，底Z8.90、根部Z14.85，与下壳顶面留0.17间隙。 凸起根部两内角及底端两外角均匹配下盖R1，外侧轮廓边缘匹配R0.3；根部过渡Y[-15.5,3.7]，名义宽17.2、高5.9保持。 中央侧边相对端面设10.5×1.6×1.03 mm磁铁盲槽，中心XY(44.3,-5.9)、向外延伸2.4至X46.3；中段全宽平台12.8长，两端各2.2 mm同半径圆弧与相切直段过渡，包络4×17.2。支承从槽口Z8.90延伸至上盖正面Z18.85齐平，高9.95，槽底9.98至正面余厚8.92，保留原内盖板座让位。齐平外缘R0.8，两槽对齐且口间保持0.17。 壳体与支承先融合再统一外缘R0.8，向两侧各延伸1.1至原侧端面Y[-14.5,2.7]，新增端部按原R1侧轮廓裁齐，内侧实心连接贯穿全长，去除尖薄翅边及碎面；上盖下伸端统一R0.3，最小平面包围仍1.2。 三角定位浅槽中心由(34,0)改为(34,-5.9)，与右侧磁铁支承纵向中心对齐，尺寸及深0.2保持。 四处平面转接采用镜像圆弧R0.947199和70°相切斜直段，外平面外缘直线/圆弧段统一R0.8，倒圆带宽一致。 标记上下磁铁凸起各朝对方加高0.05，槽深仍1.03；上端口Z8.90/底9.93、下端口Z8.73/底7.70，最小相对间隙0.17。下壳其余围边高度6.28保持，MagSafe环及尾磁槽深0.99保持。 上下侧边磁铁槽长10.5、宽1.6、深1.03，中心XY(44.3,-5.9)，槽Y[-11.15,-0.65]；包围恢复4×17.2、外缘X46.3，70°圆滑过渡；各加高0.05及0.17相对间隙保持。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "12df70c011a1bc22",
-      "selection_reason": "按用户指定将上下侧边磁铁槽长边设为10.5 mm，宽1.6、深1.03及槽心保持；凸起高度与0.17 mm相对间隙不变。"
+      "part_identity": "c444b131d083f393",
+      "selection_reason": "轴体不超壳体；固定耳外侧按标记改为直边圆弧顶，底部与完整外框连实。"
     },
     {
       "id": "camera_guard",
@@ -66,143 +24,72 @@
       "name": "独立胶粘定位镜头保护圈",
       "quantity": 1,
       "manufacturer": "Project custom",
-      "part_number": "DUO-CAMERA-GUARD-R11",
+      "part_number": "DUO-CAMERA-GUARD-PLUS08",
       "source": "default",
-      "description": "PETG平滑阶梯圈，取消外侧止退凸边，胶粘固定。整圈底面径向宽度4减到2：外翼宽1、内伸定位环壁宽1；外翼60.3×24.5、净孔56.3×20.5、定位环外廓58.3×22.5、净孔端R10.25。外翼厚2.45、外侧保护顶Z-3.6，内嵌定位环抬高0.40至Z-0.75，比下盖孔缘上沿Z-0.70低0.05，总高2.85；外翼预留0.15胶层，定位环与背板孔壁最小间隙约0.02397。胶接保持力及镜头净空待试样。",
+      "description": "PETG原保护圈向外提高0.8，保护顶Z-4.4、外翼厚3.25、总高3.65；胶面Z-1.15、定位环顶Z-0.75，净孔56.3×20.5和胶层0.15保持。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "part_identity": "411344360577ecfc",
-      "selection_reason": "标记环面以原尺寸为基准，沿模型Z轴负方向垂直向下延长1 mm；新环面Z-3.6，胶接面Z-1.15及内嵌定位环顶部Z-0.75保持。"
+      "part_identity": "a9039024f434db1c",
+      "selection_reason": "用户选择保留现有高度：保护顶Z-4.4及原+0.8加高不再改变，不随悬高转轴增加。"
     },
     {
       "id": "adhesive",
       "role": "assembly_consumable",
-      "name": "兼容TPU/PETG的装配胶（含独立嵌件）",
+      "name": "镜头圈装配胶",
       "quantity": 1,
       "source": "default",
       "procurement_status": "external_procurement_required",
       "required_user_evidence": [],
-      "supply_risk": "整面盖板承台胶层0.2 mm；已装配独立装饰嵌件底部胶层0.05 mm。内侧仅蓝/白/圆饼三件胶接盖板，其余五处已一体成形；禁止胶液进入导向腔及铰链口；胶种与强度需试样。"
+      "supply_risk": "胶种、镜头圈粘接强度须样件确认。",
+      "description": "仅用于摄像头圈外翼0.15胶层；连接销中段压配，不涂胶。",
+      "selection_reason": "仅固定保留的镜头圈，无端帽粘接。",
+      "part_identity": "709e80c88487a241"
     },
     {
-      "id": "lens_insert",
-      "role": "front_decoration",
-      "name": "蓝白一体半球嵌件",
+      "id": "display_lid",
+      "role": "display_lid",
+      "name": "180度屏幕保护盖板及一体双卡扣",
       "quantity": 1,
       "manufacturer": "Project custom",
-      "part_number": "DUO-LENS-INSERT-R1",
+      "part_number": "DUO-DISPLAY-LID",
       "source": "default",
-      "description": "PETG白底Ø18×1，蓝色半球R7；两个共面颜色区域共同成形为一个零件，无装配间隙。 装配中心(-27.5,44,18.7)，与前盖定位浅座对齐。",
+      "description": "PETG平整盖板76.9×114.7×2.5，两活动耳外径5.2、孔Ø2.8；取消外露方块，以45度斜臂直接接入盖板内，斜面下方填实为三角支撑并直接连到盖板，根部伸入4，内面退让0.25。双卡扣臂16×2、槽1、钩长5/高1.1、实扣0.5、释放0.8保持。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "part_identity": "c31ba9b7d9c12007"
+      "selection_reason": "按用户标记填实活动轴耳斜臂下方空隙，使盖板连接连续；保留45度外斜面、180度开合和加固卡扣。",
+      "part_identity": "8483c709a1972d52"
     },
     {
-      "id": "arrow_insert",
-      "role": "front_decoration",
-      "name": "黄色向内三角形嵌件",
+      "id": "display_hinge_pin",
+      "role": "display_hinge_pin",
+      "name": "两端无帽直连接销",
       "quantity": 1,
       "manufacturer": "Project custom",
-      "part_number": "DUO-ARROW-INSERT-R1",
+      "part_number": "DUO-HEADLESS-DISPLAY-PIN",
       "source": "default",
-      "description": "PETG 7×9×0.9；右侧中部，尖端朝左，嵌入0.15。 装配位置(34,-5.9,18.7)，与前盖定位浅槽及右侧磁铁支承中心线对齐，独立件形状尺寸保持。",
+      "description": "PETG无帽直销Ø2.2×67.666667，随紧凑轴线X-121.7/Z-3.85装配，两端各外露0.5，仅0.1倒角；中耳Ø2.05轻压定位，直径过盈0.15，其他孔Ø2.8。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "part_identity": "66c6332c06c8c713",
-      "selection_reason": "三角嵌件与对应浅槽同步向下移动5.9 mm，纵向中心对齐右侧磁铁支承。"
+      "selection_reason": "按用户要求去掉两端盖帽；以隐藏的中段轻压配合保持连接。",
+      "part_identity": "87d96589ea79a64d"
     },
     {
-      "id": "indicator_red",
-      "role": "front_decoration",
-      "name": "红色小球嵌件",
+      "id": "inner_liner",
+      "role": "phone_inner_protection",
+      "name": "0.2毫米手机壳内保护贴片",
       "quantity": 1,
       "manufacturer": "Project custom",
-      "part_number": "DUO-INDICATOR-RED-R1",
+      "part_number": "DUO-INNER-LINER-02",
       "source": "default",
-      "description": "PETG R1.8半球头、平底座厚0.25、嵌入0.15。",
+      "description": "按内底轮廓裁切的TPU柔性保护膜，含胶总厚0.2；距壁0.2，屏幕盖口外让0.4，摄像头内开口外让0.5，不覆盖屏幕或镜头。",
+      "selection_reason": "用户要求内部0.2贴片，壳体围边和卡边同步升高0.2。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "part_identity": "c4056c07e1dc7e7e"
-    },
-    {
-      "id": "indicator_yellow",
-      "role": "front_decoration",
-      "name": "黄色小球嵌件",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-INDICATOR-YELLOW-R1",
-      "source": "default",
-      "description": "PETG R1.8半球头、平底座厚0.25、嵌入0.15。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "75de7e93bf64f75b"
-    },
-    {
-      "id": "indicator_green",
-      "role": "front_decoration",
-      "name": "绿色小球嵌件",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-INDICATOR-GREEN-R1",
-      "source": "default",
-      "description": "PETG R1.8半球头、平底座厚0.25、嵌入0.15。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "fa04a943dbaed91f"
-    },
-    {
-      "id": "inner_blue_grid",
-      "role": "inner_decoration",
-      "name": "内侧蓝色十格长方块",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-INNER-BLUE-GRID-R1",
-      "source": "default",
-      "description": "PETG；62×20×0.7；两排五列，凹线宽0.5深0.25，整体单件；完整胶接盖板。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "d07882a02170080f"
-    },
-    {
-      "id": "inner_white_key",
-      "role": "inner_decoration",
-      "name": "内侧白色双格长方块",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-INNER-WHITE-KEY-R1",
-      "source": "default",
-      "description": "PETG；24×9×0.7，中央竖向凹线宽0.5深0.25，整体单件，胶接整面盖板。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "7d0b2e04a7a5e82c"
-    },
-    {
-      "id": "inner_yellow_disk",
-      "role": "inner_decoration",
-      "name": "内侧黄色小圆饼",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-INNER-YELLOW-DISK-R1",
-      "source": "default",
-      "description": "PETG；Ø7×0.7，边圆角0.15，胶接盖板。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "aea32c4d250f36c5"
+      "part_identity": "f9669dde38b77624"
     }
   ],
   "unresolved_items": [],
   "supply_risks": [
-    {
-      "id": "prototype_only",
-      "description": "图片估计机身接口；本BOM仅可进入概念试配CAD，不代表采购或量产就绪。"
-    },
-    {
-      "id": "adhesive_process",
-      "description": "胶品与TPU表面处理及疲劳需验证；CAD已留定量胶层。"
-    },
-    {
-      "id": "camera_height",
-      "description": "4mm镜头凸高是明确默认而非实测；保护余高须实机校准，不阻塞当前结构试配。"
-    }
+    "直销保持力、中固定耳压配孔及盖板卡扣力需打印试样确认。"
   ]
 }

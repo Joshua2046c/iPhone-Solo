@@ -1,192 +1,70 @@
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# User-reference height; raised perimeter wall retains the open hinge side.
-PHONE_H = 117.8
-wall_h=param('back_cover_wall_height',6.2)
-PHONE_W=param('back_cover_phone_width',81.0)
-reduction=param('back_cover_hinge_side_reduction',3.1)
-shift=reduction/2
-inset=param('back_cover_extra_hinge_inset',1.0)
-inner_left_r=param('back_cover_inner_left_radius',1.0)
-cam_inner_expand=param('back_cover_camera_inner_expansion',4.0)
-cam_inner_depth=param('back_cover_camera_inner_depth',3.9)
-land_h=param('back_cover_camera_vertical_land_height',0.3)
+# Fixed-open one-piece tray. Camera-side datum and original access geometry are retained.
+phone_w=param('back_cover_open_phone_width',164.6)
+phone_h=param('back_cover_open_phone_height',117.8)
+phone_t=param('back_cover_open_phone_thickness',5.2)
+right_x=param('back_cover_right_datum_x',43.9)
+liner_t=param('back_cover_liner_thickness',0.2)
+wall_h=param('back_cover_wall_height',6.28)+liner_t
 clearance=param('back_cover_fit_clearance',0.25)
+inner_wall_inset=param('back_cover_inner_wall_inset',0.045)
 wall=param('back_cover_wall',1.6)
 plate=param('back_cover_plate',3.4)
 seat_z=param('back_cover_phone_seat_z',2.4)
-radius=param('back_cover_corner_radius',10.0)
+phone_seat_z=seat_z+liner_t
+radius=param('back_cover_corner_radius',12.0)
 lip=param('back_cover_corner_inward',0.7)
 lip_h=param('back_cover_lip_height',0.7)
-cam_w=param('back_cover_camera_width',55.0)
-cam_h=param('back_cover_camera_height',23.0)
-cam_x=param('back_cover_camera_x',10.0)
-cam_y=param('back_cover_camera_y',42.5)
-vol_x=param('back_cover_volume_x',6.0)
-vol_w=param('back_cover_volume_opening',34.0)
-power_y=param('back_cover_power_y',18.0)
-power_l=param('back_cover_power_opening',21.0)
-shutter_y=param('back_cover_shutter_y',-27.0)
-shutter_l=param('back_cover_shutter_opening',23.0)
-bottom_w=param('back_cover_bottom_opening',50.0)
-bottom_x=param('back_cover_bottom_opening_x',0.45)
-glue_l=param('back_cover_glue_recess_length',8.3)
-glue_h=param('back_cover_glue_recess_height',115.0)
-glue_y=param('back_cover_glue_recess_y',13.7)
-glue_depth=param('back_cover_glue_recess_depth',1.2)
-corner_soft=param('back_cover_left_corner_radius',1.0)
+outer_round=param('back_cover_outer_rim_radius',0.8)
 opening_soft=param('back_cover_opening_edge_radius',0.3)
 turn=param('back_cover_opening_turn_radius',1.0)
-def outline(w,h,r):
- return RectangleRounded(w,h,r)+Pos(-w/4,0)*Rectangle(w/2,h)
-wi,hi=PHONE_W+2*clearance,PHONE_H+2*clearance
+cam_w=param('back_cover_camera_width',58.3)
+cam_h=param('back_cover_camera_height',22.5)
+cam_x=param('back_cover_camera_x',10.0)
+cam_y=param('back_cover_camera_y',43.9)
+cam_inner_expand=param('back_cover_camera_inner_expansion',4.0)
+cam_inner_depth=param('back_cover_camera_inner_depth',3.9)
+land_h=param('back_cover_camera_vertical_land_height',0.3)
+power_y=param('back_cover_power_y',16.1)
+power_l=param('back_cover_power_opening',24.8)
+shutter_y=param('back_cover_shutter_y',-27.0)
+shutter_l=param('back_cover_shutter_opening',23.0)
+corner_lip_relief=param('back_cover_corner_lip_relief',0.1)
+wi,hi=phone_w+2*clearance,phone_h+2*clearance
 wo,ho=wi+2*wall,hi+2*wall
-edge_x=shift-wo/2+inset
+shift=right_x-wo/2
+edge_x=shift-wo/2
+# Keep original right endpoints, mirror their left endpoints about the full-body center.
+top_open_right=param('back_cover_top_opening_right_end_x',24.0)
+bottom_open_right=param('back_cover_bottom_opening_right_end_x',26.9)
+vol_x=shift
+vol_w=2*(top_open_right-shift)-2*turn
+bottom_x=shift
+bottom_w=2*(bottom_open_right-shift)-2*turn
 outside_z=seat_z-plate
-outer=Pos(shift+inset/2,0)*outline(wo-inset,ho,radius+wall)
-inner=Pos(shift,0)*outline(wi,hi,radius)
-inner=fillet([v for v in inner.vertices() if abs(v.X+wi/2-shift)<1e-6],radius=inner_left_r)
-# Move the retained inner walls toward the phone center; preserve the external envelope.
-inner_wall_inset=param('back_cover_inner_wall_inset',0.045)
-assert 0<=inner_wall_inset<inner_left_r-lip
+outer=Pos(shift,0)*RectangleRounded(wo,ho,radius+wall)
+inner=Pos(shift,0)*RectangleRounded(wi,hi,radius)
 inner=offset(inner,amount=-inner_wall_inset)
-left_vertices=[v for v in outer.vertices() if abs(v.X-edge_x)<1e-6]
-assert len(left_vertices)==2
-outer=fillet(left_vertices,radius=corner_soft)
-# Paired closing magnet seat on the marked central wall's top face.
-# The common magnet dimensions live here; the front cover reads the same interface.
-closing_mag_l=param('back_cover_closing_magnet_length',10.08)
-closing_mag_w=param('back_cover_closing_magnet_width',1.6)
-closing_mag_d=param('back_cover_closing_magnet_depth',1.03)
-closing_mag_wall=param('back_cover_closing_magnet_surround',1.2)
-closing_mag_floor=param('back_cover_closing_magnet_floor',1.2)
-closing_mag_y=(shutter_y+shutter_l/2+turn+power_y-power_l/2-turn)/2
-closing_mag_inner_x=shift+wi/2
-closing_mag_x=closing_mag_inner_x+closing_mag_wall+closing_mag_w/2
-closing_mag_boss_w=closing_mag_w+2*closing_mag_wall
-closing_mag_boss_l=closing_mag_l+2*closing_mag_wall
-closing_mag_raise=param('back_cover_closing_magnet_height_raise',0.05)
-closing_mag_top=seat_z+wall_h+closing_mag_raise
-closing_mag_bottom=outside_z
-closing_mag_boss_h=closing_mag_top-closing_mag_bottom
-# Match the original central wall's complete side-to-side span.
-closing_mag_requested_blend=param('back_cover_closing_magnet_blend_length',2.2)
-closing_mag_span=power_y-power_l/2-turn-(shutter_y+shutter_l/2+turn)
-closing_mag_blend=closing_mag_requested_blend
-closing_mag_land_l=closing_mag_span-2*closing_mag_blend
-assert closing_mag_land_l>closing_mag_l
-closing_mag_base_x=shift+wo/2
-closing_mag_outer_x=closing_mag_x+closing_mag_boss_w/2
-closing_mag_y0=closing_mag_y-closing_mag_land_l/2
-closing_mag_y1=closing_mag_y+closing_mag_land_l/2
-# Identical circular blends and tangent straight flanks keep the rim band uniform.
-from math import radians, sin, cos
-closing_mag_flank_angle=param('back_cover_closing_magnet_transition_angle',70.0)
-theta=radians(closing_mag_flank_angle)
-delta_x=closing_mag_outer_x-closing_mag_base_x
-delta_y=closing_mag_blend
-closing_mag_arc_r=(delta_y-delta_x*cos(theta)/sin(theta))/(2*sin(theta)-2*(1-cos(theta))*cos(theta)/sin(theta))
-closing_mag_flank_l=(delta_x-2*closing_mag_arc_r*(1-cos(theta)))/sin(theta)
-assert closing_mag_arc_r>0 and closing_mag_flank_l>0
-p0=(closing_mag_base_x,closing_mag_y0-closing_mag_blend)
-p1=(closing_mag_outer_x,closing_mag_y0)
-p2=(closing_mag_outer_x,closing_mag_y1)
-p3=(closing_mag_base_x,closing_mag_y1+closing_mag_blend)
-q0=(closing_mag_base_x+closing_mag_arc_r-closing_mag_arc_r*cos(theta),p0[1]+closing_mag_arc_r*sin(theta))
-q1=(closing_mag_outer_x-closing_mag_arc_r+closing_mag_arc_r*cos(theta),p1[1]-closing_mag_arc_r*sin(theta))
-left_flank=[
- CenterArc((closing_mag_base_x+closing_mag_arc_r,p0[1]),closing_mag_arc_r,180,-closing_mag_flank_angle),
- Line(q0,q1),
- CenterArc((closing_mag_outer_x-closing_mag_arc_r,p1[1]),closing_mag_arc_r,-closing_mag_flank_angle,closing_mag_flank_angle)]
-closing_mag_mirror_plane=Plane(origin=(0,closing_mag_y,0),x_dir=(1,0,0),z_dir=(0,1,0))
-right_flank=[e.mirror(closing_mag_mirror_plane) for e in left_flank]
-fair_edges=left_flank+[Line(p1,p2)]+right_flank+[
- Line(p3,(closing_mag_inner_x,p3[1])),
- Line((closing_mag_inner_x,p3[1]),(closing_mag_inner_x,p0[1])),
- Line((closing_mag_inner_x,p0[1]),p0)]
-print('Matching planar transition arc radius',closing_mag_arc_r,'tangent flank length',closing_mag_flank_l)
-closing_mag_fair_profile=make_face(Wire(fair_edges))
-closing_mag_boss=Pos(0,0,closing_mag_bottom)*extrude(closing_mag_fair_profile,amount=closing_mag_boss_h)
-
-body=Pos(0,0,outside_z)*extrude(outer,amount=plate)
-# Keep the enlarged ends on the original rounded upper side-wall silhouette.
-closing_mag_local_wall_h=wall_h+closing_mag_raise
-closing_mag_wall_profile=Pos(closing_mag_y,seat_z+closing_mag_local_wall_h/2)*Rectangle(closing_mag_span,closing_mag_local_wall_h)
-closing_mag_top_vertices=[v for v in closing_mag_wall_profile.vertices() if abs(v.Y-closing_mag_top)<1e-6]
-closing_mag_wall_profile=fillet(closing_mag_top_vertices,radius=turn)
-closing_mag_wall_profile+=Pos(closing_mag_y,(outside_z+seat_z)/2)*Rectangle(closing_mag_span+2*turn,plate)
-closing_mag_end_mask=Pos(closing_mag_inner_x-1,0,0)*extrude(Plane.YZ*closing_mag_wall_profile,amount=closing_mag_boss_w+2)
-closing_mag_boss &= closing_mag_end_mask
-body+=closing_mag_boss
-# Round the exterior back-face perimeter before the independent pockets and wall cutouts.
-outer_round=param('back_cover_outer_rim_radius',0.8)
-rim_edges=[]
-for edge in body.edges():
- bb=edge.bounding_box()
- at_outer_face=abs(bb.min.Z-outside_z)<1e-6 and abs(bb.max.Z-outside_z)<1e-6
- on_hinge=abs(bb.min.X-edge_x)<1e-6 and abs(bb.max.X-edge_x)<1e-6
- if at_outer_face and not on_hinge:
-  rim_edges.append(edge)
-assert len(rim_edges)==15, 'Expected one continuous outer rim including the fairing'
-assert closing_mag_arc_r>outer_round
-body=fillet(rim_edges,radius=outer_round)
-print('Back external rim radius',outer_round,'selected perimeter edges',len(rim_edges))
-# Continuous retention ledge follows every wall segment; access cuts remove wall and lip together.
-# Relieve only the two large free-side corner lips; keep straight retention edges unchanged.
-corner_lip_relief=param('back_cover_corner_lip_relief',0.10)
-assert 0<=corner_lip_relief<lip and inner_left_r>lip
-corner_lip_radius_reduction=corner_lip_relief/(2**0.5-1)
-corner_lip_radius=radius-lip-corner_lip_radius_reduction
-assert corner_lip_radius>0
-lip_inner=Pos(shift,0)*outline(wi-2*lip,hi-2*lip,corner_lip_radius)
-lip_left_vertices=[v for v in lip_inner.vertices() if abs(v.X-(shift-wi/2+lip))<1e-6]
-assert len(lip_left_vertices)==2
-lip_inner=fillet(lip_left_vertices,radius=inner_left_r-lip)
+assert clearance>inner_wall_inset and 0<lip<wall and radius>lip
+corner_lip_radius=radius-lip-corner_lip_relief/(2**0.5-1)
+lip_inner=Pos(shift,0)*RectangleRounded(wi-2*lip,hi-2*lip,corner_lip_radius)
 lip_inner=offset(lip_inner,amount=-inner_wall_inset)
-print('Inner wall inward shift',inner_wall_inset,'cavity profile',inner.bounding_box().size,'straight wall thickness',wall+inner_wall_inset)
-print('Free-side corner lip maximum relief',corner_lip_relief,'minimum ledge',lip-corner_lip_relief,'straight ledge',lip)
+# One uninterrupted back plate spans both phone halves: no joint, pivot, groove or magnet seat.
+floor_with_carrier=Pos(0,0,outside_z)*extrude(outer,amount=plate)
+bottom_edges=[e for e in floor_with_carrier.edges() if abs(e.bounding_box().min.Z-outside_z)<1e-6 and abs(e.bounding_box().max.Z-outside_z)<1e-6]
+assert len(bottom_edges)==8
+floor_with_carrier=fillet(bottom_edges,radius=outer_round)
 ring=extrude(outer,amount=wall_h)-extrude(inner,amount=wall_h)
 ledge=extrude(outer,amount=lip_h)-extrude(lip_inner,amount=lip_h)
-# The hinge-side upright ends have flat inner faces; only the upper retention lip projects inward.
-hinge_open_h=hi-2*lip
-hinge_cut_end=shift-wi/2+max(inner_left_r,lip)+0.2
-hinge_open=Pos((edge_x-1+hinge_cut_end)/2,0,wall_h/2)*Box(hinge_cut_end-edge_x+1,hinge_open_h,wall_h+2)
-# Clear the residual inner corner bulges from both upright ends before the ledge is joined.
-hinge_wall_open=Pos((edge_x-1+hinge_cut_end)/2,0,wall_h/2)*Box(hinge_cut_end-edge_x+1,hi,wall_h+2)
-ring-=hinge_wall_open
-ring=Compound(children=ring.solids())
-ledge-=hinge_open
-ring+=Pos(0,0,wall_h-lip_h)*Compound(children=ledge.solids())
-ring=Compound(children=ring.solids())
-ring-=hinge_open
-ring=Compound(children=ring.solids())
+ring+=Pos(0,0,wall_h-lip_h)*ledge
+# Four existing camera-half openings; new left perimeter is continuous.
 ring-=Pos(vol_x,ho/2,wall_h/2)*Box(vol_w+2*turn,2*wall+2,wall_h+2)
 ring=Compound(children=ring.solids())
-ring-=Pos(shift+wo/2,power_y,wall_h/2)*Box(2*wall+2,power_l+2*turn,wall_h+2)
+ring-=Pos(right_x,power_y,wall_h/2)*Box(2*wall+2,power_l+2*turn,wall_h+2)
 ring=Compound(children=ring.solids())
-ring-=Pos(shift+wo/2,shutter_y,wall_h/2)*Box(2*wall+2,shutter_l+2*turn,wall_h+2)
+ring-=Pos(right_x,shutter_y,wall_h/2)*Box(2*wall+2,shutter_l+2*turn,wall_h+2)
 ring=Compound(children=ring.solids())
 ring-=Pos(bottom_x,-ho/2,wall_h/2)*Box(bottom_w+2*turn,2*wall+2,wall_h+2)
 ring=Compound(children=ring.solids())
-# Round the access-wall assembly before joining its enlarged outside carrier.
-floor_with_carrier=body
 body=Pos(0,0,outside_z)*extrude(outer,amount=plate)
 body+=Pos(0,0,seat_z)*ring
 # Equal-radius ends and parallel common tangents give the requested symmetric capsule.
@@ -236,16 +114,6 @@ assert abs(ib.X-gb.X-2*cam_inner_expand)<1e-5 and abs(ib.Y-gb.Y-2*cam_inner_expa
 # The enlarged relief stops at the phone seat: extending it upward cut a notch in the perimeter rim.
 # The existing 3.9 mm clearance-cut envelope extends outside the 3.4 mm back plate.
 assert abs((seat_z-camera_mouth_z)-cam_inner_depth)<1e-7
-# Two integral end stops leave 115.7 mm between their inward faces.
-# Current bonded shield width is 115.3 mm, leaving 0.2 mm per end.
-stop_gap=param('back_cover_shield_stop_spacing',115.7)
-stop_land=(glue_h-stop_gap)/2
-assert 0<stop_gap<glue_h and stop_land>=1.2
-# Cut only between the stop faces; the uncut ends are integral pads flush with seat_z.
-bond_recess_cut=Pos(edge_x+(glue_l-1)/2,glue_y,seat_z-glue_depth+(glue_depth+0.001)/2)*Box(glue_l+1,stop_gap,glue_depth+0.001)
-floor_with_carrier-=bond_recess_cut
-body-=bond_recess_cut
-print('Bond recess end stops inner separation',stop_gap,'each end length',stop_land,'width',glue_l,'height',glue_depth,'flush top Z',seat_z)
 
 # Profile blends are independent of the small through-thickness edge roll.
 # Widen by one turn radius at each end so the original rectangular access remains clear.
@@ -373,129 +241,131 @@ for axis,outer_side,inner_side,lo,upper in openings:
 body-=funnel
 body-=Pos(cam_x,cam_y,camera_mouth_z-0.1)*extrude(land_profile,amount=0.15)
 
-# Small recessed Pokeball emblem on the exterior (-Z) back face.
-logo_d=param('back_cover_logo_diameter',18.0)
-logo_hub_d=param('back_cover_logo_hub_diameter',5.4)
-logo_stroke=param('back_cover_logo_stroke_width',0.8)
-logo_depth=param('back_cover_logo_depth',0.3)
-logo_x=param('back_cover_logo_x',0.0)
-logo_y=param('back_cover_logo_y',-45.0)
-assert 0<logo_stroke<logo_hub_d/2<logo_d/2
-outer_mark=Circle(logo_d/2)-Circle(logo_d/2-logo_stroke)
-hub_mark=Circle(logo_hub_d/2)-Circle(logo_hub_d/2-logo_stroke)
-divider=(Rectangle(logo_d,logo_stroke)&Circle(logo_d/2))-Circle(logo_hub_d/2-logo_stroke)
-mark=outer_mark+hub_mark+divider
-body-=Pos(logo_x,logo_y,outside_z-0.1)*extrude(mark,amount=logo_depth+0.1)
-assert plate-logo_depth>=1.2, 'Logo recess breaks through the rear plate'
-assert abs(logo_y)+logo_d/2<ho/2-wall, 'Logo too close to end wall'
 
-# User-sized blind annulus for a MagSafe magnet; center inferred from the reference photo.
-mag_id=param('back_cover_magsafe_inner_diameter',46.2)
-mag_od=param('back_cover_magsafe_outer_diameter',54.2)
-mag_depth=param('back_cover_magsafe_depth',0.81)
-mag_x=param('back_cover_magsafe_x',2.05)
-mag_y=param('back_cover_magsafe_y',-5.0)
-assert 0<mag_id<mag_od and 0<mag_depth<plate
-mag_profile=Pos(mag_x,mag_y)*(Circle(mag_od/2)-Circle(mag_id/2))
-mag_disk=Pos(mag_x,mag_y)*Circle(mag_od/2)
-mag_floor=seat_z-mag_depth
-mag_cut=Pos(0,0,mag_floor)*extrude(mag_profile,amount=mag_depth+0.01)
-mag_area=3.141592653589793*((mag_od/2)**2-(mag_id/2)**2)
-assert abs((body&mag_cut).volume-mag_area*mag_depth)<1e-4, 'Magnet annulus intersects an existing opening or edge'
-cam_inner_profile=Pos(cam_x,cam_y)*offset(glass,amount=cam_inner_expand)
-mag_cam_gap=mag_disk.distance_to(cam_inner_profile)
-assert mag_cam_gap>0, 'Magnet ring touches camera relief'
-body-=mag_cut
-# Verify a continuous solid floor below the whole annulus, including the exterior engraving.
-mag_support=Pos(0,0,outside_z)*extrude(mag_profile,amount=mag_floor-outside_z)
-assert abs((body&mag_support).volume-mag_area*(mag_floor-outside_z))<1e-4, 'Magnet pocket breaks through the back surface'
-mag_floor_faces=[]
-for f in body.faces():
- bb=f.bounding_box()
- if f.geom_type==GeomType.PLANE and abs(bb.min.Z-mag_floor)<1e-6 and abs(bb.max.Z-mag_floor)<1e-6 and abs(f.area-mag_area)<1e-4:
-  mag_floor_faces.append(f)
-assert len(mag_floor_faces)==1, 'Magnet pocket floor must be one continuous annulus'
-print('MagSafe inner/outer diameter',mag_id,mag_od,'depth',mag_depth,'center',mag_x,mag_y,'remaining floor',mag_floor-outside_z,'camera clearance',mag_cam_gap)
 
-# Lower alignment magnet: capsule footprint inferred from the uploaded 18.5 mm tail.
-mag_tail_l=param('back_cover_magsafe_tail_length',18.5)
-mag_tail_w=param('back_cover_magsafe_tail_width',6.0)
-mag_tail_gap=param('back_cover_magsafe_tail_gap',2.0)
-assert mag_tail_l>mag_tail_w>0 and mag_tail_gap>0
-mag_tail_x=mag_x
-mag_tail_y=mag_y-mag_od/2-mag_tail_gap-mag_tail_l/2
-mag_tail_profile=Pos(mag_tail_x,mag_tail_y)*SlotOverall(mag_tail_l,mag_tail_w,rotation=90)
-mag_tail_cut=Pos(0,0,mag_floor)*extrude(mag_tail_profile,amount=mag_depth+0.01)
-assert abs((body&mag_tail_cut).volume-mag_tail_profile.area*mag_depth)<1e-5, 'Tail magnet must be a full-depth blind recess on the inside face'
-body-=mag_tail_cut
-# The existing exterior emblem may overlap in XY: retain full stock above its shallow recess.
-mag_tail_support=Pos(0,0,outside_z+logo_depth)*extrude(mag_tail_profile,amount=mag_floor-outside_z-logo_depth)
-assert abs((body&mag_tail_support).volume-mag_tail_support.volume)<1e-5, 'Tail pocket has insufficient solid backing'
-assert mag_tail_profile.bounding_box().min.Y>-hi/2+inner_wall_inset, 'Tail pocket reaches the end wall'
-print('MagSafe tail L/W/depth',mag_tail_l,mag_tail_w,mag_depth,'center',mag_tail_x,mag_tail_y,'ring gap',mag_tail_gap,'minimum remaining backing',mag_floor-outside_z-logo_depth)
+# Reference 3MF-inspired left outer-display opening, with an external hinged cover.
+window_w=param('back_cover_display_clear_width',75.8)
+window_h=param('back_cover_display_clear_height',113.6)
+window_r=param('back_cover_display_corner_radius',10.5)
+window_x=shift-phone_w/4
+stop_land=param('back_cover_lid_stop_land',0.8)
+stop_t=param('back_cover_lid_stop_thickness',0.8)
+lid_top_gap=param('back_cover_lid_stop_clearance',0.1)
+lid_side_gap=param('back_cover_lid_edge_clearance',0.25)
+mouth_w=window_w+2*stop_land
+mouth_h=window_h+2*stop_land
+mouth_r=window_r+stop_land
+window_left=window_x-mouth_w/2
+window_right=window_x+mouth_w/2
+mouth=Pos(window_x,0)*RectangleRounded(mouth_w,mouth_h,mouth_r)
+clear_window=Pos(window_x,0)*RectangleRounded(window_w,window_h,window_r)
+body-=Pos(0,0,outside_z-1)*extrude(mouth,amount=plate+2)
+stop_ring=Pos(0,0,seat_z-stop_t)*extrude(offset(mouth,amount=0.1)-clear_window,amount=stop_t)
+body+=stop_ring
+# Remove only the straight inner return on the marked left short edge.
+release_half_h=ho/2-(radius+wall)
+lip_clear=Pos(edge_x+wall+inner_wall_inset+lip,0,seat_z+wall_h-lip_h/2)*Box(2*lip,2*release_half_h,lip_h+0.02)
+body-=lip_clear
 
-# User-marked hinge-side upper wall endpoints: R3 in side elevation (XZ), both Y ends.
-end_top_r=param('back_cover_hinge_wall_top_radius',3.0)
-end_top_z=seat_z+wall_h
-assert 0<end_top_r<wall_h-lip_h
-end_corner_box=Pos(edge_x+(end_top_r-1)/2,0,end_top_z+(1-end_top_r)/2)*Box(end_top_r+1,ho+2,end_top_r+1)
-end_corner_disk=Pos(edge_x+end_top_r,0,end_top_z-end_top_r)*Cylinder(end_top_r,ho+4,rotation=(90,0,0))
-end_round_cutter=end_corner_box-end_corner_disk
-body-=end_round_cutter
-end_round_faces=[]
-for face in body.faces():
- bb=face.bounding_box()
- if face.geom_type==GeomType.CYLINDER and bb.min.X>=edge_x-1e-5 and bb.max.X<=edge_x+end_top_r+1e-5 and bb.min.Z>=end_top_z-end_top_r-1e-5 and bb.max.Z>=end_top_z-1e-5:
-  end_round_faces.append(face)
-assert len(end_round_faces)==2, 'Expected exactly two matching hinge-end R3 faces'
-print('Hinge wall upper endpoint radius',end_top_r,'matching faces',len(end_round_faces),'tangent X',edge_x+end_top_r,'vertical tangent Z',end_top_z-end_top_r)
+# Four rounded grip grooves are centered over the complete case-side thickness.
+grip_depth=param('back_cover_grip_groove_depth',0.15)
+grip_height=param('back_cover_grip_groove_height',0.6)
+grip_pitch=param('back_cover_grip_groove_pitch',1.2)
+grip_count=param('back_cover_grip_groove_count',4)
+grip_center_z=(outside_z+seat_z+wall_h)/2
+grip_first_z=grip_center_z-(grip_count-1)*grip_pitch/2
+assert int(grip_count)==grip_count and grip_depth<wall-1.2
+groove_ring=offset(outer,amount=grip_height)-offset(outer,amount=-grip_depth)
+groove_tool=extrude(groove_ring,amount=grip_height)
+groove_edges=[e for e in groove_tool.edges() if e.bounding_box().size.Z<1e-6]
+groove_round=min(grip_height/4,grip_depth/2)
+groove_tool=fillet(groove_edges,radius=groove_round)
+hinge_span=param('back_cover_lid_hinge_span',200.0/3.0)
+grip_root_margin=param('back_cover_grip_hinge_margin',2.0)
+# Stop the shallow texture before the hinge load path.
+texture_keepout=Pos(edge_x,0,(outside_z+seat_z+wall_h)/2)*Box(2*(wall+2),hinge_span+2*grip_root_margin,plate+wall_h+4)
+for i in range(int(grip_count)):
+ band=Pos(0,0,grip_first_z+i*grip_pitch-grip_height/2)*groove_tool
+ body-=band-texture_keepout
 
-# Full rectangular end lands are solid from the recess floor to the phone-seat plane.
-for side in (-1,1):
- stop_probe=Pos(edge_x+glue_l/2,glue_y+side*(stop_gap/2+stop_land/2),seat_z-glue_depth/2)*Box(glue_l,stop_land,glue_depth)
- assert abs((body&stop_probe).volume-stop_probe.volume)<1e-6, 'End stop is incomplete'
- clear_probe=Pos(edge_x+glue_l/2,glue_y+side*(stop_gap/2-0.05),seat_z-glue_depth/2)*Box(glue_l-0.1,0.05,glue_depth-0.1)
- assert (body&clear_probe).volume<1e-7, 'End stop intrudes into sheet opening'
+# Compact hinge within the case outline; fixed knuckles have full integral bases.
+frame_before_hinge=body
+lid_barrel_r=param('back_cover_lid_barrel_radius',2.6)
+lid_socket_gap=param('back_cover_lid_socket_clearance',0.25)
+hinge_edge_margin=param('back_cover_hinge_edge_margin',0.1)
+fixed_barrel_r=lid_barrel_r
+lid_axis_x=edge_x+fixed_barrel_r+hinge_edge_margin
+lid_axis_z=outside_z-fixed_barrel_r-lid_socket_gap
+support_z=lid_axis_z-lid_barrel_r
+lid_bore_r=param('back_cover_lid_bore_radius',1.4)
+lid_hinge_end=hinge_span/2
+lid_hinge_outer_inner=hinge_span*0.34
+lid_hinge_center_half=hinge_span*0.10
+pin_retention_d=param('back_cover_lid_pin_retention_diameter',2.05)
+pin_retention_r=pin_retention_d/2
+lid_hinge_axial_gap=param('back_cover_lid_hinge_axial_gap',0.5)
+lid_hinge_root_overlap=param('back_cover_lid_hinge_root_overlap',4.0)
+pin_lead=param('back_cover_lid_pin_lead_length',0.5)
+fixed_root_bond=param('back_cover_lid_fixed_root_bond',0.8)
+fixed_web_round=param('back_cover_lid_fixed_web_edge_radius',0.3)
+lid_knuckle_intervals=[(-lid_hinge_outer_inner+lid_hinge_axial_gap,-lid_hinge_center_half-lid_hinge_axial_gap),
+                       (lid_hinge_center_half+lid_hinge_axial_gap,lid_hinge_outer_inner-lid_hinge_axial_gap)]
+fixed_knuckle_intervals=[(-lid_hinge_end,-lid_hinge_outer_inner),(-lid_hinge_center_half,lid_hinge_center_half),(lid_hinge_outer_inner,lid_hinge_end)]
+for ya,yb in fixed_knuckle_intervals:
+ yc=(ya+yb)/2
+ barrel=Pos(lid_axis_x,yc,lid_axis_z)*Cylinder(fixed_barrel_r,yb-ya,rotation=(90,0,0))
+ base_left=lid_axis_x-fixed_barrel_r
+ base_right=window_left
+ base_top=outside_z+fixed_root_bond
+ base_bottom=lid_axis_z
+ assert base_right>base_left
+ base=Pos((base_left+base_right)/2,yc,(base_bottom+base_top)/2)*Box(base_right-base_left,yb-ya,base_top-base_bottom)
+ # The outside vertical wall is tangent to the upper circular crown.
+ knuckle=barrel+base
+ knuckle=fillet(knuckle.edges().filter_by(Axis.Y),radius=fixed_web_round)
+ bore_r=pin_retention_r if ya<0<yb else lid_bore_r
+ knuckle-=Pos(lid_axis_x,yc,lid_axis_z)*Cylinder(bore_r,yb-ya+2,rotation=(90,0,0)).rotate(Axis.Y,45)
+ if ya<0<yb:
+  for sign in (-1,1):
+   lead=Cone(lid_bore_r,pin_retention_r,pin_lead).rotate(Axis.X,90 if sign>0 else -90)
+   knuckle-=Pos(lid_axis_x,sign*(lid_hinge_center_half-pin_lead/2),lid_axis_z)*lead
+ body+=knuckle
 
-assert plate-glue_depth>=1.2
-assert len(body.solids())==1
-assert abs(body.bounding_box().min.X-edge_x)<1e-6
-assert abs(body.bounding_box().min.Z-outside_z)<1e-6, 'Camera surround must be flush with back plane'
-land_faces=[]
-for face in body.faces():
- bb=face.bounding_box()
- if face.geom_type==GeomType.CYLINDER and bb.min.Y>=cam_y-cam_h/2-1 and bb.max.Y<=cam_y+cam_h/2+1 and abs(bb.min.Z-outside_z)<1e-5 and abs(bb.max.Z-(outside_z+land_h))<1e-5:
-  land_faces.append(face)
-assert len(land_faces)==2, 'Both camera round ends must have a full-height vertical land'
-print('Camera nominal upper Y',cam_y+cam_h/2,'lower Y',cam_y-cam_h/2)
-print('Camera vertical land height',land_h,'radial enlargement',land_expand,'outer mouth',cam_w+2*land_expand,cam_h+2*land_expand)
-# Both return walls still reach the hinge edge below the new upper-end radius; the lip remains beyond its tangent.
-for side in (-1,1):
- for xx,yy,zz in ((edge_x+0.025,side*(hi/2+0.3),end_top_z-end_top_r-0.2),(edge_x+end_top_r+0.1,side*(hi/2-lip+0.2),seat_z+wall_h-lip_h/2)):
-  probe=Pos(xx,yy,zz)*Box(0.05,0.05,0.05)
-  assert (body&probe).volume>0.05**3*0.999, 'Rounded wall end or retaining lip beyond tangent is incomplete'
-for side in (-1,1):
- nub_check=Pos((edge_x+hinge_cut_end)/2,side*(hi/2-lip/2),seat_z+(wall_h-lip_h)/2)*Box(hinge_cut_end-edge_x,lip,wall_h-lip_h)
- assert (body&nub_check).volume<1e-7, 'Residual hinge-end corner protrusion'
-assert abs(glue_h-hi)<1e-6, 'Long recess must reach both marked clip inner planes'
-assert abs(body.bounding_box().max.Z-closing_mag_top)<1e-6
-# Check inward ledge presence on all seven retained straight wall segments.
+# Two blind-bottom catches: the lower 1.2 mm stock is the mechanical retaining shoulder.
+latch_tip_y=param('back_cover_lid_latch_tip_y',24.0)
+latch_hook_l=param('back_cover_lid_latch_hook_length',2.4)
+latch_receiver_depth=param('back_cover_lid_latch_receiver_depth',1.2)
+latch_shoulder_t=param('back_cover_lid_latch_shoulder_thickness',1.2)
+latch_pocket_y_gap=param('back_cover_lid_latch_receiver_y_gap',0.3)
+for sign in (-1,1):
+ yc=sign*(latch_tip_y+latch_hook_l/2)
+ body-=Pos(window_right+(latch_receiver_depth-0.05)/2,yc,outside_z+latch_shoulder_t+(plate-latch_shoulder_t+1)/2)*Box(latch_receiver_depth+0.05,latch_hook_l+2*latch_pocket_y_gap,plate-latch_shoulder_t+1)
+# A centered finger recess on the fixed frame gives access to the lid edge.
+finger_l=param('back_cover_lid_finger_slot_length',16.0)
+finger_w=param('back_cover_lid_finger_slot_width',8.0)
+finger_depth=param('back_cover_lid_finger_slot_depth',1.4)
+finger_profile=Pos(window_right,0)*SlotOverall(finger_l,finger_w,rotation=90)
+body-=Pos(0,0,outside_z-0.05)*extrude(finger_profile,amount=finger_depth+0.05)
+# The main phone tray remains one fixed-open frame even when the small display lid is open.
+bridge_probe=Pos(shift+4.0,0,outside_z+plate/2)*Box(2*wall,hi-2*radius,plate)
+assert abs((body&bridge_probe).volume-bridge_probe.volume)<1e-5
+body=body.clean()
+assert body.is_valid and len(body.solids())==1
+# Retained right-side and corner segments, outside the extended long openings.
 probe_size=0.05
-for px,py in ((-30,hi/2-lip+0.05),(30,hi/2-lip+0.05),(-30,-hi/2+lip-0.05),(30,-hi/2+lip-0.05),(shift+wi/2-lip+0.05,40),(shift+wi/2-lip+0.05,0),(shift+wi/2-lip+0.05,-44)):
+for px,py in ((-108,hi/2-lip+0.05),(30,hi/2-lip+0.05),
+              (-109,-hi/2+lip-0.05),(30,-hi/2+lip-0.05),
+              (right_x-wall-lip+0.05,40),(right_x-wall-lip+0.05,0),
+              (right_x-wall-lip+0.05,-44)):
  probe=Pos(px,py,seat_z+wall_h-lip_h/2)*Box(probe_size,probe_size,probe_size)
- assert (body&probe).volume>probe_size**3*0.999, 'Retaining lip missing from a retained wall segment'
-hinge_probe=Pos(shift-wi/2+lip-0.05,0,seat_z+wall_h-lip_h/2)*Box(probe_size,probe_size,probe_size)
-assert (body&hinge_probe).volume<1e-8, 'Unsupported lip spans open hinge side'
-print('Rear wall height',wall_h,'top Z',seat_z+wall_h,'inward lip',lip,'seven segments present; hinge and four passages clear')
-
-closing_mag_cut=Pos(closing_mag_x,closing_mag_y,closing_mag_top-closing_mag_d/2+0.005)*Box(closing_mag_w,closing_mag_l,closing_mag_d+0.01)
-closing_mag_removed=(body&closing_mag_cut).volume
-assert abs(closing_mag_removed-closing_mag_l*closing_mag_w*closing_mag_d)<1e-6
-body-=closing_mag_cut
-closing_mag_support=Pos(closing_mag_x,closing_mag_y,closing_mag_bottom+closing_mag_floor/2)*Box(closing_mag_w,closing_mag_l,closing_mag_floor)
-assert abs((body&closing_mag_support).volume-closing_mag_support.volume)<1e-6
-assert len(body.solids())==1
-print('Lower closing magnet L/W/D',closing_mag_l,closing_mag_w,closing_mag_d,'XY center',closing_mag_x,closing_mag_y,'mouth/floor Z',closing_mag_top,closing_mag_top-closing_mag_d,'outward extension',closing_mag_x+closing_mag_boss_w/2-(shift+wo/2))
-
-
-publish('back_cover',body,'01 开边胶接背盖')
+ assert abs((body&probe).volume-probe.volume)<1e-7
+print('Top opening endpoint X',2*shift-top_open_right,top_open_right,'equal end land',right_x-top_open_right)
+print('Bottom opening endpoint X',2*shift-bottom_open_right,bottom_open_right,'equal end land',right_x-bottom_open_right)
+print('Left straight inner lip removed Y',-release_half_h,release_half_h)
+print('Display clear W/H',window_w,window_h,'center',window_x,'cover mouth W/H',mouth_w,mouth_h)
+print('Hinge axis X/Z',lid_axis_x,lid_axis_z,'support plane',support_z,'body valid solids',len(body.solids()))
+print('Finger slot length/width/depth',finger_l,finger_w,finger_depth)
+print('Hinge bottom / camera crest',lid_axis_z-lid_barrel_r,part('camera_guard').crest_z)
+assert abs(lid_axis_z-lid_barrel_r-support_z)<1e-7
+body.color=srgb('#d5223e')
+publish('back_cover',body,'带屏幕窗一体主壳',material='tpu')
