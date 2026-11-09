@@ -21,7 +21,7 @@
       "source": "user"
     },
     "camera_guard": {
-      "value": "独立摄像头阶梯保护圈胶粘固定，保留平滑内定位环且不设止退边；外向高度再提高0.8 mm，胶接面和内定位环位置保持。",
+      "value": "独立胶粘镜头圈，保留现有净孔、定位环和额外0.8外向加高；圈尺寸不变，随减薄后的主背板安装面向内贴合0.9。",
       "source": "user"
     },
     "camera_internal_relief": {
@@ -34,7 +34,7 @@
     },
     "camera_relief_defaults": {
       "value": {
-        "depth_datum": "切削避让包络从贴机面Z2.4至Z-1.5；实际背板平面Z-1，材料内弧面深3.4 mm，下方0.5为自由空间",
+        "depth_datum": "切削包络从内底Z2.4至Z-1.5；实际外背面Z-0.1，材料内过渡深2.5，外侧1.4为自由空间",
         "external_width_mm": 58.3,
         "external_height_mm": 22.5,
         "outer_end_radius_mm": 11.25,
@@ -43,12 +43,12 @@
           66.3,
           30.5
         ],
-        "blend": "背板Z-1至Z-0.70为0.30高竖直孔壁，底口按曲线单边外扩约0.02397；其上向贴机面连续圆滑放大，外面无补厚或阶梯",
+        "blend": "外背面Z-0.1至Z0.2为0.3高直壁，其上向内底圆滑放大；底口单边扩约0.057276",
         "local_blank_extension_mm": 0,
-        "ring_base_z_mm": -1.15,
-        "ring_crest_z_mm": -4.4,
-        "ring_seat_floor_z_mm": -1,
-        "physical_transition_depth_mm": 3.4
+        "ring_base_z_mm": -0.25,
+        "ring_crest_z_mm": -3.5,
+        "ring_seat_floor_z_mm": -0.1,
+        "physical_transition_depth_mm": 2.5
       },
       "source": "default"
     },
@@ -66,12 +66,12 @@
     },
     "camera_lower_vertical_land_defaults": {
       "value": {
-        "bottom_z_mm": -1,
-        "top_z_mm": -0.7,
-        "radial_enlargement_mm": 0.023969667367911,
+        "bottom_z_mm": -0.1,
+        "top_z_mm": 0.2,
+        "radial_enlargement_mm": 0.05727559679999999,
         "mouth_size_mm": [
-          58.34793933473582,
-          22.54793933473582
+          58.4145511936,
+          22.6145511936
         ],
         "basis": "按原弧面在底面以上0.30处的偏置轮廓向下直切，单边外扩由曲线计算"
       },
@@ -125,14 +125,14 @@
           60.3,
           24.5
         ],
-        "collar_top_world_z_mm": -0.75,
+        "collar_top_world_z_mm": 0.15,
         "outer_flange_bondline_mm": 0.15,
-        "minimum_seated_gap_mm": 0.023969667367911,
+        "minimum_seated_gap_mm": 0.05727559679999999,
         "total_height_mm": 3.65,
         "implementation": "平滑内嵌定位环，胶粘固定；整圈底面径向宽2，外翼与内伸各1；无止退凸边。定位环从外翼胶接面抬高0.40，计入0.15胶层后进入下盖0.30高直壁段0.25，顶部退让0.05。",
         "validation": "仅验证几何尺寸与装配无穿透；胶接强度和净孔避让镜头需实物确认",
         "back_opening_land_height_mm": 0.3,
-        "back_opening_land_top_z_mm": -0.7,
+        "back_opening_land_top_z_mm": 0.2,
         "collar_top_setback_mm": 0.05,
         "collar_axial_engagement_mm": 0.25
       },
@@ -171,7 +171,7 @@
     "rear_inside_signature": {
       "value": {
         "present": false,
-        "instruction": "取消签名凹刻，恢复完整内侧平面"
+        "instruction": "取消签名凹刻；除MagSafe内侧圆环与尾槽外保留内侧平面。"
       },
       "source": "user"
     },
@@ -211,7 +211,8 @@
         "scope": [
           "power_opening_lower_edge",
           "camera_button_opening_lower_edge",
-          "volume_opening_lower_edge"
+          "volume_opening_lower_edge",
+          "bottom_long_opening_lower_edge"
         ],
         "angle_deg": 20,
         "direction": "外低内高，由外向内切入，方便指腹按压",
@@ -220,7 +221,7 @@
           "product/references/uploads/20261030T084828334Z-2-mark-2.png"
         ],
         "outer_cut_edge_finish": "与原开口边缘一致的连续沿边倒圆",
-        "end_corner_finish": "六处下角圆滑过渡，不得有局部小凸起",
+        "end_corner_finish": "四个开口下角连续圆滑过渡，图示下长边与上边同为外低内高斜切。",
         "end_corner_reference_images": [
           "product/references/uploads/20261030T093453172Z-1-mark-1.png",
           "product/references/uploads/20261030T093453172Z-2-mark-2.png"
@@ -235,7 +236,7 @@
         "outer_edge_drop_mm": 0.5987310353679028,
         "outer_floor_z_mm": 1.8012689646320972,
         "end_transition": "恒定20°坡面直接与R1局部剖面相切连接，不保留抬高渐变肩部",
-        "scope": "仅图示三个开口下沿，底端接口和其他开口保持",
+        "scope": "两个版本的顶部、底部长开口及电源/拍照开口均同为20度外低内高斜切，R1端角、R0.3沿边。",
         "outer_edge_radius_mm": 0.3,
         "edge_radius_parameter": "back_cover_opening_edge_radius",
         "outer_floor_z_definition": "未倒圆的坡面与原外侧立面理论交点；实际倒圆延伸至更低的外立面切点",
@@ -256,7 +257,7 @@
       "source": "user"
     },
     "magnetic_features": {
-      "value": "去除磁吸环、尾磁槽、磁吸卡扣及其凹位和外凸载体。",
+      "value": "恢复上传STEP所示的内侧MagSafe圆环及定位尾槽；原侧面磁吸卡扣及其凸起不恢复。",
       "source": "user"
     },
     "decoration_policy": {
@@ -264,7 +265,7 @@
       "source": "user"
     },
     "rear_retention": {
-      "value": "主框仍保持展开一体，按图3去掉左直段内扣；其余必要卡边和接口保留。",
+      "value": "一体主框左直段保留取机释放区域，中央增加一处内收卡扣，其余必要卡边和接口保留。",
       "source": "user"
     },
     "screen_access": {
@@ -278,10 +279,10 @@
     "parts": {
       "value": [
         "带屏幕窗及紧凑固定轴节的一体主框",
-        "180度屏幕盖板及双卡扣",
+        "180度屏幕盖板及居中单卡扣",
         "两端无帽的直连接销",
         "摄像头圈",
-        "0.2毫米内保护贴片"
+        "0.2毫米镜头侧内保护贴片"
       ],
       "source": "default"
     },
@@ -296,7 +297,7 @@
       "source": "default"
     },
     "design_direction": {
-      "value": "红色圆角一体主框与平整盖板，四道居中侧纹；紧凑轴节收进侧轮廓，固定耳为直边圆弧顶，活动斜臂下方填实并直接连接盖板，无外露方块。",
+      "value": "红色一体主框和平整盖板，中脊侧两直角并安装紧凑直边圆顶转轴，外侧圆角并设置居中单卡扣与窄指槽；实心斜接、四条居中侧纹和中央短内扣。",
       "source": "default"
     },
     "expanded_shell_defaults": {
@@ -316,7 +317,7 @@
           43.9
         ],
         "center_x_mm": -40.25,
-        "plate_thickness_mm": 3.4,
+        "plate_thickness_mm": 2.5,
         "wall_height_mm": 6.48,
         "retaining_projection_mm": 0.7,
         "retaining_lip_thickness_mm": 0.7,
@@ -332,7 +333,7 @@
       "source": "default"
     },
     "verification": {
-      "value": "核验紧凑轴体不超侧轮廓、固定耳外侧直边与圆顶连续、活动斜臂下方连实；检查双向穿轴、解扣后180度运动及STEP有效性。",
+      "value": "核验仅一组居中卡扣及配合槽、拨点，与凹槽中心对齐；旧上下卡扣/槽无残留，中央承力肩和封闭腔顶完整，共面及180度开合配合正确。",
       "source": "default"
     },
     "display_window": {
@@ -340,7 +341,7 @@
       "source": "user"
     },
     "grip_texture": {
-      "value": "取消标记的最底部一道侧面线，保留四道浅横纹，在侧面高度方向居中；关键连接区保持截断。",
+      "value": "四道侧面浅横纹居中，外侧短边连续，并与两端对齐；自然开口处中断。",
       "source": "user"
     },
     "long_side_openings": {
@@ -348,7 +349,7 @@
       "source": "user"
     },
     "left_retention_release": {
-      "value": "取消图3左侧直段标记范围的内收卡扣，方便摘取手机；外侧围墙及转角保持。",
+      "value": "左侧直段内收卡边取消，中央新增一处短内收卡扣；外侧围墙及转角保持。",
       "source": "user"
     },
     "camera_guard_outer_raise_mm": {
@@ -373,13 +374,13 @@
         "lid_mm": [
           76.9,
           114.7,
-          2.5
+          1.6
         ],
         "side_gap_mm": 0.25,
         "phone_plane_clearance_mm": 1.1,
         "stop_clearance_mm": 0.1,
         "hinge_axis_xz_mm": [
-          -121.7,
+          -41.1,
           -3.85
         ],
         "opening_deg": 180,
@@ -398,32 +399,56 @@
           0
         ],
         "open_lid_position_mm": [
-          -243.4,
+          -82.2,
           0,
           -7.7
         ],
         "open_lid_rotation_deg": [
           0,
-          180,
+          -180,
           0
         ],
         "external_release_pad_height_mm": 0.6,
         "hinge_socket_clearance_mm": 0.25,
         "finger_slot_length_mm": 16,
-        "finger_slot_width_mm": 8,
-        "finger_slot_depth_mm": 1.4,
+        "finger_slot_width_mm": 1.6,
+        "finger_slot_depth_mm": 0.3,
         "fixed_knuckle_radius_mm": 2.6,
         "effective_hinge_span_mm": 66.66666666666667,
-        "center_fixed_pin_bore_mm": 2.05,
+        "center_fixed_pin_bore_mm": 2.8,
         "pin_ends": "plain_headless",
         "latch_slot_mm": 1,
-        "latch_hook_contact_length_mm": 5,
-        "latch_hook_height_mm": 1.1,
+        "latch_hook_contact_length_mm": 7.5,
+        "latch_hook_height_mm": 0.8,
         "lined_phone_plane_clearance_mm": 1.1,
         "shared_table_support_plane": false,
         "hinge_outer_z_mm": -6.45,
-        "lid_root_overlap_mm": 4,
-        "lid_connection_angle_deg": 45
+        "lid_root_overlap_mm": 4.9,
+        "lid_connection_angle_deg": 45,
+        "window_corner_radius_definition": "outer_side_only",
+        "finger_slot_corner_radius_mm": 0.5,
+        "latch_receiver_roof_mm": 0.6,
+        "latch_receiver_ceiling_z_mm": 1.8,
+        "hook_to_ceiling_clearance_mm": 0.3,
+        "opening_axis_sign": -1,
+        "hinge_side": "center_spine_positive_x",
+        "latch_side": "outer_negative_x",
+        "finger_slot_center_x_mm": -120.85,
+        "center_spine_corner_angle_deg": 90,
+        "latch_hook_bottom_z_mm": 0.7,
+        "latch_shoulder_mm": 0.8,
+        "lid_outside_z_mm": -0.1,
+        "lid_proud_of_back_mm": 0,
+        "hinge_neck_vertical_height_mm": 2.2,
+        "hinge_root_embed_thickness_mm": 1.3,
+        "latch_count": 1,
+        "latch_center_y_mm": 0,
+        "latch_tip_y_mm": -3.75,
+        "latch_root_y_mm": 12.25,
+        "finger_pocket_type": "single_centered_inner_edge_recess",
+        "finger_slot_center_y_mm": 0,
+        "finger_edge_overlap_mm": 0.05,
+        "latch_shoulder_net_below_finger_slot_mm": 0.5
       },
       "source": "default"
     },
@@ -435,24 +460,20 @@
         "height_mm": 0.6,
         "pitch_mm": 1.2,
         "center_z_mm": [
-          2.14,
-          3.34,
-          4.54,
-          5.74
+          2.59,
+          3.79,
+          4.99,
+          6.19
         ],
         "groove_edge_radius_mm": 0.075,
-        "hinge_keepout_y_mm": [
-          -35.333333333333336,
-          35.333333333333336
-        ],
-        "root_margin_mm": 2,
-        "band_center_z_mm": 3.94,
+        "band_center_z_mm": 4.39,
         "centering_bounds_z_mm": [
-          -1,
+          -0.1,
           8.88
         ],
-        "equal_end_margin_mm": 2.84,
-        "centering_basis": "完整壳体外侧厚度，上下留白相等"
+        "equal_end_margin_mm": 2.39,
+        "centering_basis": "完整壳体外侧厚度，上下留白相等",
+        "outer_short_edge_continuous": true
       },
       "source": "default"
     },
@@ -479,7 +500,11 @@
           -47.15,
           47.15
         ],
-        "scope": "inward_return_only"
+        "scope": "inward_return_only",
+        "except_center_tab_y_mm": [
+          -8,
+          8
+        ]
       },
       "source": "default"
     },
@@ -497,9 +522,9 @@
           58.3,
           22.5
         ],
-        "outer_crest_z_mm": -4.4,
-        "bond_face_z_mm": -1.15,
-        "collar_top_z_mm": -0.75,
+        "outer_crest_z_mm": -3.5,
+        "bond_face_z_mm": -0.25,
+        "collar_top_z_mm": 0.15,
         "flange_thickness_mm": 3.25,
         "total_height_mm": 3.65,
         "bondline_mm": 0.15
@@ -507,40 +532,51 @@
       "source": "default"
     },
     "frame_hinge_support": {
-      "value": "保留镜头圈现有高度，接受整体抬高后的转轴高于镜头圈；恢复完整外框，不再要求两者共面。",
+      "value": "镜头圈保持实际高度尺寸并随背板安装面贴合，接受转轴高于镜头圈；外框完整，不要求两者共面。",
       "source": "user"
     },
     "finger_access_slot": {
-      "value": "图2抠盖孔加长并稍加宽，便于扣开盖板。",
+      "value": "小凹槽贴盖板盖口内边，仅一个、居中，长度与图示外露卡扣等长，窄槽、小圆角。",
       "source": "user"
     },
     "hinge_shortening": {
       "value": {
-        "shorten_fraction": 0.3333333333333333,
-        "pin_ends": "两端无盖、无凸头的直圆条"
+        "count": 3,
+        "placement": "盖板上中下三个独立单轴转轴",
+        "diameter": "维持现有大小",
+        "width": "减窄",
+        "pin_ends": "独立无帽直销"
       },
       "source": "user"
     },
     "headless_hinge_defaults": {
       "value": {
-        "effective_span_mm": 66.66666666666667,
-        "previous_span_mm": 100,
-        "centered": true,
-        "pin_length_mm": 67.66666666666667,
+        "station_count": 3,
+        "station_centers_y_mm": [
+          -45,
+          0,
+          45
+        ],
+        "station_width_mm": 10,
+        "fixed_ear_width_mm": 2.5,
+        "moving_ear_width_mm": 4,
+        "axial_gap_each_mm": 0.5,
+        "pin_count": 3,
+        "pin_length_mm": 11,
         "pin_diameter_mm": 2.2,
         "pin_projection_each_mm": 0.5,
-        "center_fixed_bore_mm": 2.05,
-        "diametral_press_fit_mm": 0.15,
-        "fixed_clearance_bore_mm": 2.8,
-        "center_bore_lead_length_each_mm": 0.5,
-        "frame_passage_required": false
+        "bore_diameter_mm": 2.8,
+        "frame_passage_required": false,
+        "radial_clearance_mm": 0.3,
+        "retention": "adhesive_in_one_fixed_ear_of_each_station",
+        "minimum_nominal_barrel_wall_mm": 1.2
       },
       "source": "default"
     },
     "hinge_cleanup": {
       "value": {
         "remove_two_auxiliary_support_bumps": true,
-        "axial_passage": "无帽直销经悬高轴耳从两端插入，不在原外框切贯穿槽。",
+        "axial_passage": "三根无帽短销分别经悬高轴耳从两端插入，不在原外框切贯穿槽。",
         "knuckle_ends": "清除孔口和轴耳端面残留的凸片"
       },
       "source": "user"
@@ -583,7 +619,11 @@
         "screen_to_lip_gap_mm": 0.38,
         "wall_clearance_mm": 0.2,
         "screen_opening_extra_clearance_mm": 0.4,
-        "camera_inner_opening_extra_clearance_mm": 0.5
+        "camera_inner_opening_extra_clearance_mm": 0.5,
+        "coverage": "camera_half_only",
+        "left_trim_x_mm": -42.3,
+        "left_trim_datum": "screen mouth right edge plus 0.4 clearance",
+        "screen_wraparound_strip": false
       },
       "source": "default"
     },
@@ -594,29 +634,37 @@
     "raised_hinge_defaults": {
       "value": {
         "axis_xz_mm": [
-          -121.7,
+          -41.1,
           -3.85
         ],
         "outer_diameter_mm": 5.2,
-        "outside_edge_x_mm": -124.3,
-        "case_edge_x_mm": -124.4,
-        "side_inset_mm": 0.1,
         "bore_diameter_mm": 2.8,
         "nominal_radial_wall_mm": 1.2,
-        "moving_barrel_to_back_clearance_mm": 0.25,
+        "moving_barrel_to_back_clearance_mm": 1.15,
         "fixed_base_bond_depth_mm": 0.8,
-        "fixed_base_side_inset_mm": 0,
         "hinge_outer_z_mm": -6.45,
-        "camera_crest_z_mm": -4.4,
-        "hinge_above_camera_mm": 2.05,
+        "camera_crest_z_mm": -3.5,
+        "hinge_above_camera_mm": 2.95,
         "lid_connection_angle_deg": 45,
-        "lid_connection_root_overlap_mm": 4,
+        "lid_connection_root_overlap_mm": 4.9,
         "lid_root_inner_setback_mm": 0.25,
         "lid_root_outer_bond_inset_mm": 0.05,
         "frame_axial_groove": false,
         "fixed_outer_side": "straight_vertical_tangent_to_R2.6_crown",
         "lid_web_underfill": "solid_gusset_bonded_into_lid",
-        "side_transition_radius_mm": 0.3
+        "side_transition_radius_mm": 0.3,
+        "axis_offset_from_spine_mouth_mm": 1.6,
+        "hinge_x_bounds_mm": [
+          -43.7,
+          -38.5
+        ],
+        "mounting_side": "center_spine",
+        "case_outline_bounds_x_mm": [
+          -124.4,
+          43.9
+        ],
+        "lid_neck_vertical_height_mm": 2.2,
+        "lid_root_embed_thickness_mm": 1.3
       },
       "source": "default"
     },
@@ -642,6 +690,374 @@
         "fixed_outside": "转轴外侧直切为直立侧面，顶端采用圆弧过渡"
       },
       "source": "user"
+    },
+    "center_retention_tab": {
+      "value": "在图2标记的左短边居中位置增加内收卡扣。",
+      "source": "user"
+    },
+    "closed_latch_receivers": {
+      "value": "中央卡扣容纳腔贴机面封闭，不开穿透孔；旧上下容纳槽取消并恢复实料。",
+      "source": "user"
+    },
+    "center_retention_defaults": {
+      "value": {
+        "length_mm": 16,
+        "inward_projection_mm": 0.7,
+        "thickness_mm": 0.7,
+        "root_bond_mm": 0.4,
+        "edge_radius_mm": 0.15,
+        "world_z_mm": [
+          8.18,
+          8.88
+        ],
+        "screen_gap_mm": 0.38
+      },
+      "source": "default"
+    },
+    "lid_hinge_side": {
+      "value": {
+        "hinge": "图示中脊侧、靠近镜头半侧的直边",
+        "latches_and_release": "居中单卡扣、拨点、封闭容纳槽和抠盖槽换到外侧边",
+        "opening": "盖板向镜头侧翻开，保持连接并可180度打开"
+      },
+      "source": "user"
+    },
+    "display_window_corner_shape": {
+      "value": "图示中脊侧两角为直角，外侧两角圆弧；盖口、净窗、止挡、贴片对应轮廓同步。",
+      "source": "user"
+    },
+    "open_lid_camera_coverage": {
+      "value": "盖板180度翻平位于镜头半侧背板上方，与镜头圈几何间隙4.1；仍会覆盖镜头区域，拍照需合盖或抬离镜头方向。",
+      "source": "default"
+    },
+    "magsafe_recess_request": {
+      "value": {
+        "reference": "product/references/uploads/20261108T061637912Z-1-back-cover-7-00-55.step",
+        "scope": "参考磁环位置和形状，包括圆环与下方胶囊定位尾槽",
+        "distance_to_back_mm": 1.15,
+        "distance_datum": "槽底到外背面的剩余厚度，从内侧开槽"
+      },
+      "source": "user"
+    },
+    "magsafe_recess_defaults": {
+      "value": {
+        "inner_diameter_mm": 45,
+        "outer_diameter_mm": 54.72,
+        "radial_width_mm": 4.86,
+        "ring_center_xy_mm": [
+          2.05,
+          -2.41
+        ],
+        "tail_length_mm": 16.98,
+        "tail_width_mm": 6.99,
+        "tail_radius_mm": 3.495,
+        "tail_center_xy_mm": [
+          2.05,
+          -40.16
+        ],
+        "ring_tail_gap_mm": 1.9,
+        "opening_face": "inside",
+        "inner_opening_z_mm": 2.4,
+        "outer_back_z_mm": -0.1,
+        "pocket_floor_z_mm": 1.05,
+        "pocket_depth_mm": 1.35,
+        "remaining_back_skin_mm": 1.15,
+        "distance_interpretation": "主背板减薄后，从内侧开1.35深槽，槽底至外背面继续保留1.15连续底层",
+        "shape_basis": "直接读取STEP解析圆柱R22.5/R27.36及尾槽R3.495、圆心Y-35.165/-45.155；不沿用旧版54.52外径，也不复制参考1.19槽深",
+        "camera_relief_xy_gap_mm": 3.7,
+        "hinge_xy_gap_mm": 13.19,
+        "physical_magnet_not_modeled": true
+      },
+      "source": "default"
+    },
+    "magsafe_depth_datum": {
+      "value": {
+        "opening_side": "inside",
+        "remaining_back_skin_mm": 1.15,
+        "definition": "从内侧挖槽，槽底到外背面保留1.15毫米厚度"
+      },
+      "source": "user"
+    },
+    "rear_plate_thinning": {
+      "value": {
+        "amount_mm": 0.9,
+        "direction": "从外向内减薄主背板，内侧贴机面保持原位",
+        "magsafe": "同步修改磁环及尾槽深度，不穿透"
+      },
+      "source": "user"
+    },
+    "thin_back_defaults": {
+      "value": {
+        "main_plate_mm": 2.5,
+        "outside_back_z_mm": -0.1,
+        "inside_back_z_mm": 2.4,
+        "lid_plate_mm": 1.6,
+        "lid_outside_z_mm": -0.1,
+        "lid_proud_of_back_mm": 0,
+        "camera_guard_translation_z_mm": 0.9,
+        "catch_shoulder_mm": 0.8,
+        "hook_length_mm": 7.5,
+        "hook_height_mm": 0.8,
+        "hook_bottom_z_mm": 0.7,
+        "nominal_catch_bearing_area_mm2": 6
+      },
+      "source": "default"
+    },
+    "display_lid_thinning": {
+      "value": "屏幕盖板也从外侧减薄，闭合时主体外表面与主背板平齐。",
+      "source": "user"
+    },
+    "inner_liner_trim": {
+      "value": "取消图中绿色框内左侧绕屏窄边，只保留镜头侧背板区域贴片。",
+      "source": "user"
+    },
+    "display_lid_latch_layout": {
+      "value": "盖板仅保留一组中央卡扣，与凹槽对应位置对齐；原下方卡扣及其配合结构取消，原上下位置均无残留卡扣。",
+      "source": "user"
+    },
+    "center_hinge_bore_enlargement": {
+      "value": "中部通条孔与其余轴耳孔匹配，采用一致的Ø2.8直通孔。",
+      "source": "user"
+    },
+    "hinge_pin_retention": {
+      "value": "三组共九节轴耳均Ø2.8直孔，每组一根Ø2.2×11无帽短销，径向间隙0.3。每根短销在一侧固定耳少量点胶保持，活动耳不涂胶。胶需适配TPU/PETG并可填0.3间隙，具体胶种与保持力须试样验证。",
+      "source": "default"
+    },
+    "additional_sealed_variant": {
+      "value": {
+        "design_id": "duo_case_sealed",
+        "instruction": "额外版本放在原版旁边；取消全部转轴、前屏幕翻盖和卡扣等结构，外侧直接封上，手机壳内侧前屏幕区域的下凹部分保留。",
+        "original_design_id": "duo_case",
+        "preserve_original": true
+      },
+      "source": "user"
+    },
+    "sealed_variant_defaults": {
+      "value": {
+        "screen_recess_size_mm": [
+          78,
+          115.81
+        ],
+        "screen_recess_depth_mm": 1.1,
+        "screen_recess_floor_z_mm": 1.5,
+        "screen_region_base_thickness_mm": 1.6,
+        "exterior_z_mm": -0.1,
+        "part_ids": [
+          "back_cover",
+          "camera_guard"
+        ],
+        "position_mm": [
+          195,
+          0,
+          0
+        ],
+        "retain": "镜头圈、MagSafe开放内槽、四道侧纹、接口、手机固定内扣沿用；壳内0.2补偿连为一体，包括左侧支承带，屏区凹底Z1.5/底厚1.6保持。",
+        "screen_recess_center_xy_mm": [
+          -82.5,
+          0
+        ],
+        "screen_recess_left_corner_radius_mm": 10.755,
+        "screen_recess_side_land_mm": 1.2,
+        "screen_recess_right_x_mm": -43.5,
+        "inner_compensation_mm": 0.2,
+        "inside_support_z_mm": 2.6,
+        "ordinary_plate_thickness_mm": 2.7,
+        "magsafe_depth_mm": 1.55,
+        "magsafe_backing_mm": 1.15
+      },
+      "source": "default"
+    },
+    "sealed_recess_three_sides": {
+      "value": "封闭版屏区凹槽左、上、下三条边向外扩大，留边约与右侧凹槽到背板贴片的距离等宽。",
+      "source": "user"
+    },
+    "sealed_integral_inner_compensation": {
+      "value": "仅封闭版本取消独立内贴片，将原0.2贴片厚度直接补偿到手机壳内侧，左侧也补全，屏幕下凹区域不增加材料。",
+      "source": "user"
+    },
+    "bottom_left_access_notch": {
+      "value": {
+        "designs": [
+          "duo_case",
+          "duo_case_sealed"
+        ],
+        "width_mm": 12.7,
+        "inward_distance_mm": 3.4,
+        "backing_mm": 1.5,
+        "position": "下长边开口，左半手机区域中轴线",
+        "axis_interpretation": "12.7沿底边，3.4自底边向壳内延伸；槽底到外背面约1.5。"
+      },
+      "source": "user"
+    },
+    "bottom_left_access_defaults": {
+      "value": {
+        "center_x_mm": -81.4,
+        "outer_y_mm": -60.75,
+        "inner_y_mm": -57.35,
+        "floor_z_mm": 1.4,
+        "inner_corner_radius_mm": 0.3,
+        "form": "open_top_notch",
+        "local_backing_priority": "槽区底厚1.5；相邻原屏区底厚1.6保持"
+      },
+      "source": "default"
+    },
+    "hinged_bottom_stop_strip_removed": {
+      "value": "仅翻盖版本，切除标记的接口槽内侧止挡细条，使槽口向屏幕开窗直接敞开。",
+      "source": "user"
+    },
+    "sealed_left_retention_match": {
+      "value": "封闭版图示左侧凸出卡扣，与右侧保留相同的凸起和结构。",
+      "source": "user"
+    },
+    "sealed_left_retention_match_defaults": {
+      "value": {
+        "method": "mirror_actual_right_central_lip",
+        "mirror_plane_x_mm": -40.25,
+        "nominal_y_range_mm": [
+          -14.5,
+          2.7
+        ],
+        "center_y_mm": -5.9,
+        "span_mm": 17.2,
+        "inward_projection_mm": 0.7,
+        "thickness_mm": 0.7,
+        "z_range_mm": [
+          8.18,
+          8.88
+        ],
+        "wall_root_bond_mm": 0.4,
+        "end_profile": "right existing R1 section and edge transitions copied exactly"
+      },
+      "source": "default"
+    },
+    "sealed_edge_recesses": {
+      "value": {
+        "scope": "封闭版图示三处边缘",
+        "top_length_mm": 29,
+        "upper_side_length_mm": 22,
+        "lower_side_length_mm": 22,
+        "top_inset_mm": 1,
+        "side_depth_target": "内壁台阶线",
+        "corners": "三个凹槽端部全部改为大圆角的圆滑过渡"
+      },
+      "source": "user"
+    },
+    "sealed_edge_recess_defaults": {
+      "value": {
+        "top_x_range_mm": [
+          -5,
+          24
+        ],
+        "top_inner_y_mm": 59.75,
+        "top_inset_mm": 1,
+        "right_inner_x_mm": 42.2,
+        "side_inset_mm": 1.7,
+        "upper_side_y_range_mm": [
+          5.1,
+          27.1
+        ],
+        "lower_side_y_range_mm": [
+          -38,
+          -16
+        ],
+        "length_includes_entry_rounds": true,
+        "end_blend_radius_mm": 2,
+        "end_blend_style": "双反向相切圆弧",
+        "top_transition_span_mm": 2.6457513110645907,
+        "side_transition_span_mm": 3.272613634390714
+      },
+      "source": "default"
+    },
+    "sealed_short_edge_inner_thickening": {
+      "value": {
+        "per_side_mm": 0.055,
+        "total_inner_length_reduction_mm": 0.11,
+        "scope": "封闭版左右两条短边内侧",
+        "outer_length_unchanged": true
+      },
+      "source": "user"
+    },
+    "sealed_short_edge_inner_fit_defaults": {
+      "value": {
+        "inner_size_mm": [
+          164.9,
+          118.21
+        ],
+        "outer_size_mm": [
+          168.3,
+          121.5
+        ],
+        "nominal_x_clearance_each_mm": 0.15,
+        "short_wall_stock_mm": 1.7,
+        "lip_follows_inner_wall": true
+      },
+      "source": "default"
+    },
+    "sealed_edge_recess_transitions": {
+      "value": "刚开的三个边缘凹槽端部全部改为大圆角平顺过渡；右侧槽底仍至内壁台阶，镜头旁上槽保持内退深度。",
+      "source": "user"
+    },
+    "sealed_top_recess_end_bevels": {
+      "value": "上槽标记的两个端部改为大圆角圆滑过渡。",
+      "source": "user"
+    },
+    "sealed_top_recess_end_bevel_defaults": {
+      "value": {
+        "radius_mm": 2,
+        "count": 2,
+        "scope": "上槽两个端部与凹底和外边相切连续过渡"
+      },
+      "source": "default"
+    },
+    "hinged_edge_recesses": {
+      "value": "翻盖模型相应区域做与封闭模型相同的三处凹槽及大圆角平顺过渡。",
+      "source": "user"
+    },
+    "hinged_edge_recess_defaults": {
+      "value": {
+        "entrance_lengths_mm": [
+          29,
+          22,
+          22
+        ],
+        "insets_mm": [
+          1,
+          1.7,
+          1.7
+        ],
+        "blend_radius_mm": 2,
+        "top_x_range_mm": [
+          -5,
+          24
+        ],
+        "side_y_ranges_mm": [
+          [
+            5.1,
+            27.1
+          ],
+          [
+            -38,
+            -16
+          ]
+        ],
+        "blend_style": "双反向相切圆弧"
+      },
+      "source": "default"
+    },
+    "finger_access_slot_dimensions": {
+      "value": {
+        "length_mm": 7.9,
+        "matched_part": "外露卡扣拨片总长",
+        "center_y_mm": 0,
+        "y_range_mm": [
+          -3.95,
+          3.95
+        ],
+        "width_mm": 1.6,
+        "depth_mm": 0.3,
+        "corner_radius_mm": 0.5
+      },
+      "source": "research"
     }
   },
   "open_questions": []

@@ -4,6 +4,10 @@
     {
       "file": "models/duo_case.glb",
       "design": "duo_case"
+    },
+    {
+      "file": "models/duo_case_sealed.glb",
+      "design": "duo_case_sealed"
     }
   ]
 }

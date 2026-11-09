@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready_for_concept_fit_check",
   "units": "mm",
-  "coordinate_system": "主框X[-124.4,43.9]，紧凑轴体X最外-124.3，轴心X-121.7/Z-3.85；轴体外侧Z-6.45、镜头圈Z-4.4，高差已接受。",
+  "coordinate_system": "主框X[-124.4,43.9]，盖口中心X-81.4；中脊侧轴心X-41.1/Z-3.85，轴体X[-43.7,-38.5]，外侧卡扣边X-119.85。",
   "phone": {
     "height": 117.8,
     "closed_width": 84.1,
@@ -26,7 +26,7 @@
     "fit_clearance_per_side": 0.25,
     "corner_radius": 12,
     "wall": 1.6,
-    "plate": 3.4,
+    "plate": 2.5,
     "corner_inward_lip": 0.7,
     "camera_opening": {
       "width": 58.3,
@@ -76,7 +76,7 @@
     "bottom_opening_width": 132.3,
     "source": "default_image_estimate",
     "phone_seat_z": 2.4,
-    "outer_back_z": -1,
+    "outer_back_z": -0.1,
     "left_corner_source": "default_radius_for_user_requested_soft_corners",
     "opening_edge_radius": 0.3,
     "opening_turn_radius": 1,
@@ -94,27 +94,27 @@
       "small_mouth_datum_z": -1.5,
       "transition": "vertical_lower_land_then_smooth_loft",
       "blank_extension": 0,
-      "depth_geometry_assertion": "clearance cutter Z envelope is 3.9; 0.5 extends into exterior free space",
+      "depth_geometry_assertion": "3.9 clearance envelope includes 1.4 external free space",
       "offset_geometry_assertion": "inner-minus-outer XY envelope is 8 mm in both directions",
       "upper_limit_z": 2.4,
-      "note": "外侧补厚及保护圈胶接台阶取消；外孔从背板Z-1开始，曲面在3.4厚背板内形成。切削包络深3.9包含外侧0.5自由空间，不宣称实体板厚3.9。",
-      "actual_exterior_plane_z": -1,
-      "actual_material_transition_depth": 3.4,
+      "note": "外背面Z-0.1，实体内弧面深2.5；切削包络3.9含外侧1.4自由空间。",
+      "actual_exterior_plane_z": -0.1,
+      "actual_material_transition_depth": 2.5,
       "vertical_land_height": 0.3,
       "vertical_land_z_range": [
-        -1,
-        -0.7
+        -0.1,
+        0.2
       ],
-      "lower_mouth_radial_enlargement": 0.023969667367911,
+      "lower_mouth_radial_enlargement": 0.05727559679999999,
       "lower_mouth_envelope": [
-        58.34793933473582,
-        22.54793933473582
+        58.4145511936,
+        22.6145511936
       ],
       "lower_y": 28.65,
       "upper_y": 59.15
     },
     "wall_height": 6.48,
-    "wall_top_z": 8.68,
+    "wall_top_z": 8.88,
     "lip_height": 0.7,
     "lip_scope": "all_retained_perimeter_segments_excluding_hinge_and_access_openings",
     "outer_center_x": -40.25,
@@ -122,8 +122,8 @@
     "outer_rim_radius": 0.8,
     "outer_rim_side": "exterior_back",
     "outer_rim_world_z_range": [
-      -1,
-      -0.2
+      -0.1,
+      0.7
     ],
     "corner_lip_relief": {
       "maximum": 0.1,
@@ -247,7 +247,8 @@
       "bottom_port_preserved": true,
       "lower_corner_section_radius_mm": 1,
       "lower_corner_profile": "constant_angle_oblique_extrusion_of_tangent_R1_section",
-      "raised_end_shoulder": false
+      "raised_end_shoulder": false,
+      "bottom_edge": "20 degree outer-low-inner-high, matching upper edge"
     },
     "outer_x_range": [
       -124.4,
@@ -278,13 +279,13 @@
       "lid_mm": [
         76.9,
         114.7,
-        2.5
+        1.6
       ],
       "side_gap_mm": 0.25,
       "phone_plane_clearance_mm": 1.1,
       "stop_clearance_mm": 0.1,
       "hinge_axis_xz_mm": [
-        -121.7,
+        -41.1,
         -3.85
       ],
       "opening_deg": 180,
@@ -303,32 +304,69 @@
         0
       ],
       "open_lid_position_mm": [
-        -243.4,
+        -82.2,
         0,
         -7.7
       ],
       "open_lid_rotation_deg": [
         0,
-        180,
+        -180,
         0
       ],
       "external_release_pad_height_mm": 0.6,
       "hinge_socket_clearance_mm": 0.25,
-      "finger_slot_length_mm": 16,
-      "finger_slot_width_mm": 8,
-      "finger_slot_depth_mm": 1.4,
+      "finger_slot_length_mm": 7.9,
+      "finger_slot_width_mm": 1.6,
+      "finger_slot_depth_mm": 0.3,
       "fixed_knuckle_radius_mm": 2.6,
-      "effective_hinge_span_mm": 66.66666666666667,
-      "center_fixed_pin_bore_mm": 2.05,
       "pin_ends": "plain_headless",
-      "axial_passage": "沿紧凑同轴轴耳从两端插入，中固定耳轻压；不切外框。",
-      "latch_hook_contact_length_mm": 5,
-      "latch_hook_height_mm": 1.1,
+      "axial_passage": "三组独立短铰链均Ø2.8同轴直孔，各穿入一根Ø2.2×11无帽短销；各在一侧固定耳点胶，活动耳不涂胶，外框不切穿轴槽。",
+      "latch_hook_contact_length_mm": 7.5,
+      "latch_hook_height_mm": 0.8,
       "shared_table_support_plane": false,
       "hinge_outer_z_mm": -6.45,
-      "lid_root_overlap_mm": 4,
+      "lid_root_overlap_mm": 4.9,
       "lid_connection_angle_deg": 45,
-      "connection_support": "solid_gusset"
+      "connection_support": "solid_gusset",
+      "latch_slot_mm": 1,
+      "lined_phone_plane_clearance_mm": 1.1,
+      "window_corner_radius_definition": "outer_side_only",
+      "finger_slot_corner_radius_mm": 0.5,
+      "latch_receiver_roof_mm": 0.6,
+      "latch_receiver_ceiling_z_mm": 1.8,
+      "hook_to_ceiling_clearance_mm": 0.3,
+      "opening_axis_sign": -1,
+      "hinge_side": "center_spine_positive_x",
+      "latch_side": "outer_negative_x",
+      "finger_slot_center_x_mm": -120.85,
+      "center_spine_corner_angle_deg": 90,
+      "latch_hook_bottom_z_mm": 0.7,
+      "latch_shoulder_mm": 0.8,
+      "lid_outside_z_mm": -0.1,
+      "lid_proud_of_back_mm": 0,
+      "hinge_neck_vertical_height_mm": 2.2,
+      "hinge_root_embed_thickness_mm": 1.3,
+      "latch_count": 1,
+      "latch_center_y_mm": 0,
+      "latch_tip_y_mm": -3.75,
+      "latch_root_y_mm": 12.25,
+      "finger_pocket_type": "single_centered_inner_edge_recess",
+      "finger_slot_center_y_mm": 0,
+      "finger_edge_overlap_mm": 0.05,
+      "latch_shoulder_net_below_finger_slot_mm": 0.5,
+      "finger_slot_y_range_mm": [
+        -3.95,
+        3.95
+      ],
+      "finger_slot_length_matches": "visible_latch_pad_total_length",
+      "hinge_station_count": 3,
+      "hinge_station_width_mm": 10,
+      "hinge_station_centers_y_mm": [
+        -45,
+        0,
+        45
+      ],
+      "pin_length_mm": 11
     },
     "grip": {
       "type": "rounded_circumferential_grooves",
@@ -337,27 +375,39 @@
       "height_mm": 0.6,
       "pitch_mm": 1.2,
       "center_z_mm": [
-        2.14,
-        3.34,
-        4.54,
-        5.74
+        2.59,
+        3.79,
+        4.99,
+        6.19
       ],
       "groove_edge_radius_mm": 0.075,
-      "hinge_keepout_y_mm": [
-        -35.333333333333336,
-        35.333333333333336
-      ],
-      "root_margin_mm": 2,
-      "band_center_z_mm": 3.94,
+      "band_center_z_mm": 4.39,
       "centering_bounds_z_mm": [
-        -1,
+        -0.1,
         8.88
       ],
-      "equal_end_margin_mm": 2.84,
-      "centering_basis": "完整壳体外侧厚度，上下留白相等"
+      "equal_end_margin_mm": 2.39,
+      "centering_basis": "完整壳体外侧厚度，上下留白相等",
+      "outer_short_edge_continuous": true
     },
     "core_outline_width": 168.3,
-    "closed_total_width_with_hinge": 168.3
+    "closed_total_width_with_hinge": 168.3,
+    "left_lip_center_tab": {
+      "length_mm": 16,
+      "inward_projection_mm": 0.7,
+      "thickness_mm": 0.7,
+      "root_bond_mm": 0.4,
+      "edge_radius_mm": 0.15,
+      "world_z_mm": [
+        8.18,
+        8.88
+      ],
+      "screen_gap_mm": 0.38
+    },
+    "left_lip_removed_except_center_y_range": [
+      -8,
+      8
+    ]
   },
   "connections": [
     {
@@ -373,12 +423,12 @@
     {
       "id": "display_lid_hinge",
       "implementation": "free",
-      "kind": "short_five_knuckle_hinge_headless_pin_with_center_press_fit"
+      "kind": "three_independent_short_coaxial_hinges_with_individual_glued_headless_pins"
     },
     {
       "id": "display_lid_snap",
       "implementation": "free",
-      "kind": "two_in_plane_flexible_tongues_with_blind_bottom_shoulders"
+      "kind": "single_center_in_plane_tongue_with_closed_receiver_and_single_inner_edge_finger_recess"
     },
     {
       "id": "camera_guard_to_back",
@@ -401,7 +451,7 @@
     {
       "id": "bond_and_pin",
       "severity": "prototype_limit",
-      "description": "无帽直销中段压配保持力、镜头圈胶接强度与轴孔实际公差须试样确认。"
+      "description": "三根无帽短销各在一侧固定耳点胶的保持力、镜头圈胶接强度与轴孔实际公差须试样确认。"
     }
   ],
   "camera_guard": {
@@ -419,14 +469,14 @@
       43.9
     ],
     "recess_depth": 0,
-    "recess_floor_z": -1,
+    "recess_floor_z": -0.1,
     "bondline": 0.15,
-    "ring_base_z": -1.15,
-    "ring_crest_z": -4.4,
+    "ring_base_z": -0.25,
+    "ring_crest_z": -3.5,
     "ring_thickness": 3.25,
     "assumed_camera_protrusion_from_phone_back": 4,
     "assumed_camera_crest_z": -1.6,
-    "protection_margin": 2.8,
+    "protection_margin": 1.9,
     "source": "default_geometry_user_requested_separate_glued_ring",
     "profile": "symmetric_capsule_parallel_tangents",
     "outer_end_inner_radius": 10.25,
@@ -438,14 +488,14 @@
     ],
     "collar_radial_thickness": 1,
     "collar_height": 0.4,
-    "collar_top_z": -0.75,
-    "minimum_seated_gap": 0.023969667367911,
+    "collar_top_z": 0.15,
+    "minimum_seated_gap": 0.05727559679999999,
     "total_height": 3.65,
     "bondline_note": "外翼胶层预留0.15，使用胶粘固定；平滑定位环无止退凸边",
     "retention_assumption": "胶接定位，不依靠弹性止退卡接",
     "base_band_radial_width": 2,
     "back_opening_land_height": 0.3,
-    "maximum_collar_top_z": -0.7,
+    "maximum_collar_top_z": 0.2,
     "collar_top_setback": 0.05,
     "collar_axial_engagement": 0.25,
     "vertical_down_extension": 1,
@@ -454,24 +504,36 @@
   },
   "table_support": {
     "hinge_outer_z": -6.45,
-    "camera_z": -4.4,
+    "camera_z": -3.5,
     "shared_plane": false,
     "user_accepts_hinge_higher": true,
     "kind": "compact_round_knuckles_with_integral_fixed_bases"
   },
   "display_pose": "closed",
   "headless_hinge": {
-    "effective_span_mm": 66.66666666666667,
-    "previous_span_mm": 100,
-    "centered": true,
-    "pin_length_mm": 67.66666666666667,
+    "station_count": 3,
+    "station_centers_y_mm": [
+      -45,
+      0,
+      45
+    ],
+    "station_width_mm": 10,
+    "fixed_ear_width_mm": 2.5,
+    "moving_ear_width_mm": 4,
+    "axial_gap_each_mm": 0.5,
+    "pin_count": 3,
+    "pin_length_mm": 11,
     "pin_diameter_mm": 2.2,
     "pin_projection_each_mm": 0.5,
-    "center_fixed_bore_mm": 2.05,
-    "diametral_press_fit_mm": 0.15,
-    "fixed_clearance_bore_mm": 2.8,
-    "center_bore_lead_length_each_mm": 0.5,
-    "frame_passage_required": false
+    "bore_diameter_mm": 2.8,
+    "frame_passage_required": false,
+    "radial_clearance_mm": 0.3,
+    "retention": "adhesive_in_one_fixed_ear_of_each_station",
+    "minimum_nominal_barrel_wall_mm": 1.2,
+    "axis_xz_mm": [
+      -41.1,
+      -3.85
+    ]
   },
   "inner_liner": {
     "material": "TPU protective film",
@@ -483,46 +545,282 @@
     "screen_to_lip_gap_mm": 0.38,
     "wall_clearance_mm": 0.2,
     "screen_opening_extra_clearance_mm": 0.4,
-    "camera_inner_opening_extra_clearance_mm": 0.5
+    "camera_inner_opening_extra_clearance_mm": 0.5,
+    "coverage": "camera_half_only",
+    "left_trim_x_mm": -42.3,
+    "left_trim_datum": "screen mouth right edge plus 0.4 clearance",
+    "screen_wraparound_strip": false
   },
   "raised_hinge": {
     "axis_xz_mm": [
-      -121.7,
+      -41.1,
       -3.85
     ],
     "outer_diameter_mm": 5.2,
-    "outside_edge_x_mm": -124.3,
-    "case_edge_x_mm": -124.4,
-    "side_inset_mm": 0.1,
     "bore_diameter_mm": 2.8,
     "nominal_radial_wall_mm": 1.2,
-    "moving_barrel_to_back_clearance_mm": 0.25,
+    "moving_barrel_to_back_clearance_mm": 1.15,
     "fixed_base_bond_depth_mm": 0.8,
-    "fixed_base_side_inset_mm": 0,
     "hinge_outer_z_mm": -6.45,
-    "camera_crest_z_mm": -4.4,
-    "hinge_above_camera_mm": 2.05,
+    "camera_crest_z_mm": -3.5,
+    "hinge_above_camera_mm": 2.95,
     "lid_connection_angle_deg": 45,
-    "lid_connection_root_overlap_mm": 4,
+    "lid_connection_root_overlap_mm": 4.9,
     "lid_root_inner_setback_mm": 0.25,
     "lid_root_outer_bond_inset_mm": 0.05,
     "frame_axial_groove": false,
     "fixed_outer_side": "straight_vertical_tangent_to_R2.6_crown",
     "lid_web_underfill": "solid_gusset_bonded_into_lid",
-    "side_transition_radius_mm": 0.3
-  },
-  "grip_structural_keepout": {
-    "hinge_y_range_mm": [
-      -35.333333333333336,
-      35.333333333333336
+    "side_transition_radius_mm": 0.3,
+    "axis_offset_from_spine_mouth_mm": 1.6,
+    "hinge_x_bounds_mm": [
+      -43.7,
+      -38.5
     ],
-    "margin_each_end_mm": 2,
-    "truncation": "直接截断，保留完整根部材料"
+    "mounting_side": "center_spine",
+    "case_outline_bounds_x_mm": [
+      -124.4,
+      43.9
+    ],
+    "lid_neck_vertical_height_mm": 2.2,
+    "lid_root_embed_thickness_mm": 1.3,
+    "station_count": 3,
+    "station_centers_y_mm": [
+      -45,
+      0,
+      45
+    ],
+    "station_width_mm": 10,
+    "fixed_ear_width_mm": 2.5,
+    "moving_ear_width_mm": 4,
+    "axial_gap_each_mm": 0.5
   },
   "back_face_finish": {
     "capsule_grooves": false,
     "outside_plane_z_mm": -1,
     "case_plate_mm": 3.4,
     "lid_plate_mm": 2.5
+  },
+  "grip_continuity": {
+    "location": "outer short-edge wall",
+    "hinge_knuckles_cut": false,
+    "straight_wall_remaining_mm": 1.495,
+    "outer_short_edge_continuous": true
+  },
+  "display_open_camera_behavior": {
+    "opens_toward": "camera_half",
+    "angle_deg": 180,
+    "camera_ring_clearance_mm": 4.1,
+    "camera_region_occluded_when_flat": true
+  },
+  "magsafe_internal_seats": {
+    "inner_diameter_mm": 45,
+    "outer_diameter_mm": 54.72,
+    "radial_width_mm": 4.86,
+    "ring_center_xy_mm": [
+      2.05,
+      -2.41
+    ],
+    "tail_length_mm": 16.98,
+    "tail_width_mm": 6.99,
+    "tail_radius_mm": 3.495,
+    "tail_center_xy_mm": [
+      2.05,
+      -40.16
+    ],
+    "ring_tail_gap_mm": 1.9,
+    "opening_face": "inside",
+    "inner_opening_z_mm": 2.4,
+    "outer_back_z_mm": -0.1,
+    "pocket_floor_z_mm": 1.05,
+    "pocket_depth_mm": 1.35,
+    "remaining_back_skin_mm": 1.15,
+    "distance_interpretation": "主背板减薄后，从内侧开1.35深槽，槽底至外背面继续保留1.15连续底层",
+    "shape_basis": "直接读取STEP解析圆柱R22.5/R27.36及尾槽R3.495、圆心Y-35.165/-45.155；不沿用旧版54.52外径，也不复制参考1.19槽深",
+    "camera_relief_xy_gap_mm": 3.7,
+    "hinge_xy_gap_mm": 13.19,
+    "physical_magnet_not_modeled": true
+  },
+  "magnet_hardware": {
+    "geometry": "not represented; no catalog/step.parts exact match acquired",
+    "seat_from_user_reference": true,
+    "actual_magnet_thickness_and_adhesive": "match to available 1.35 depth before assembly",
+    "charging_alignment_verified": false
+  },
+  "thin_back": {
+    "main_plate_mm": 2.5,
+    "outside_back_z_mm": -0.1,
+    "inside_back_z_mm": 2.4,
+    "lid_plate_mm": 1.6,
+    "lid_outside_z_mm": -0.1,
+    "lid_proud_of_back_mm": 0,
+    "camera_guard_translation_z_mm": 0.9,
+    "catch_shoulder_mm": 0.8,
+    "hook_length_mm": 7.5,
+    "hook_height_mm": 0.8,
+    "hook_bottom_z_mm": 0.7,
+    "nominal_catch_bearing_area_mm2": 6
+  },
+  "sealed_variant": {
+    "design_id": "duo_case_sealed",
+    "source_design": "duo_case",
+    "parts": [
+      "back_cover",
+      "camera_guard"
+    ],
+    "screen_recess": {
+      "profile_size_mm": [
+        78,
+        115.81
+      ],
+      "depth_mm": 1.1,
+      "floor_z_mm": 1.5,
+      "bottom_wall_mm": 1.6,
+      "center_xy_mm": [
+        -82.5,
+        0
+      ],
+      "left_corner_radius_mm": 10.755,
+      "side_land_mm": 1.2,
+      "right_x_mm": -43.5
+    },
+    "outside_z_mm": -0.1,
+    "hinge": false,
+    "display_lid": false,
+    "display_latch": false,
+    "shared_geometry": "Original phone placement and retaining rim, camera, ports and four side grooves; independent liner removed only from sealed version.",
+    "position_mm": [
+      195,
+      0,
+      0
+    ],
+    "independent_liner": false,
+    "integral_inner_compensation": {
+      "thickness_mm": 0.2,
+      "support_z_mm": 2.6,
+      "ordinary_plate_thickness_mm": 2.7,
+      "scope": "all planar inner support areas, including left bands, excluding screen blind pocket, camera and open magnetic pockets"
+    },
+    "magnetic_pockets": {
+      "floor_z_mm": 1.05,
+      "depth_mm": 1.55,
+      "backing_mm": 1.15
+    },
+    "left_retention_match": {
+      "method": "mirror_actual_right_central_lip",
+      "mirror_plane_x_mm": -40.25,
+      "nominal_y_range_mm": [
+        -14.5,
+        2.7
+      ],
+      "center_y_mm": -5.9,
+      "span_mm": 17.2,
+      "inward_projection_mm": 0.7,
+      "thickness_mm": 0.7,
+      "z_range_mm": [
+        8.18,
+        8.88
+      ],
+      "wall_root_bond_mm": 0.4,
+      "end_profile": "right existing R1 section and edge transitions copied exactly"
+    },
+    "edge_recesses": {
+      "top": {
+        "length_mm": 29,
+        "inset_mm": 1,
+        "x_range_mm": [
+          -5,
+          24
+        ],
+        "inner_y_mm": 59.75,
+        "end_blend_radius_mm": 2,
+        "transition_span_mm": 2.6457513110645907
+      },
+      "power": {
+        "length_mm": 22,
+        "center_y_mm": 16.1,
+        "inner_x_mm": 42.2,
+        "inset_mm": 1.7,
+        "end_blend_radius_mm": 2,
+        "transition_span_mm": 3.272613634390714
+      },
+      "shutter": {
+        "length_mm": 22,
+        "center_y_mm": -27,
+        "inner_x_mm": 42.2,
+        "inset_mm": 1.7,
+        "end_blend_radius_mm": 2,
+        "transition_span_mm": 3.272613634390714
+      },
+      "length_includes_entry_rounds": true,
+      "end_blend_style": "tangent_reverse_arcs",
+      "camera_relief_min_distance_mm": 0.5950556783057479
+    },
+    "short_edge_inner_thickening_mm": 0.055,
+    "inner_size_mm": [
+      164.9,
+      118.21
+    ],
+    "outer_size_mm": [
+      168.3,
+      121.5
+    ],
+    "short_wall_stock_mm": 1.7
+  },
+  "bottom_left_access": {
+    "designs": [
+      "duo_case",
+      "duo_case_sealed"
+    ],
+    "width_mm": 12.7,
+    "inward_mm": 3.4,
+    "backing_mm": 1.5,
+    "center_x_mm": -81.4,
+    "outer_y_mm": -60.75,
+    "inner_y_mm": -57.35,
+    "floor_z_mm": 1.4,
+    "corner_radius_mm": 0.3,
+    "top": "open",
+    "hinged_stop_strip_removed": true,
+    "hinged_stop_relief_width_mm": 12.7
+  },
+  "bottom_access_ramp": {
+    "angle_deg": 20,
+    "direction": "outer_low_inner_high",
+    "end_radius_mm": 1,
+    "touch_edge_radius_mm": 0.3,
+    "applies_to": [
+      "duo_case",
+      "duo_case_sealed"
+    ]
+  },
+  "hinged_edge_recesses": {
+    "entrance_lengths_mm": [
+      29,
+      22,
+      22
+    ],
+    "insets_mm": [
+      1,
+      1.7,
+      1.7
+    ],
+    "blend_radius_mm": 2,
+    "top_x_range_mm": [
+      -5,
+      24
+    ],
+    "side_y_ranges_mm": [
+      [
+        5.1,
+        27.1
+      ],
+      [
+        -38,
+        -16
+      ]
+    ],
+    "blend_style": "双反向相切圆弧",
+    "camera_relief_min_distance_mm": 0.5950556783057479
   }
 }

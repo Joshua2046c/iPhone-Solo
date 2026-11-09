@@ -1,3 +1,8 @@
+# cell: back_cover
+# cell: back_cover
+# cell: back_cover
+# cell: back_cover
+# cell: back_cover
 # Fixed-open one-piece tray. Camera-side datum and original access geometry are retained.
 phone_w=param('back_cover_open_phone_width',164.6)
 phone_h=param('back_cover_open_phone_height',117.8)
@@ -8,7 +13,8 @@ wall_h=param('back_cover_wall_height',6.28)+liner_t
 clearance=param('back_cover_fit_clearance',0.25)
 inner_wall_inset=param('back_cover_inner_wall_inset',0.045)
 wall=param('back_cover_wall',1.6)
-plate=param('back_cover_plate',3.4)
+plate=param('back_cover_plate',2.5)
+hinge_reference_z=param('back_cover_hinge_reference_plane_z',-1.0)
 seat_z=param('back_cover_phone_seat_z',2.4)
 phone_seat_z=seat_z+liner_t
 radius=param('back_cover_corner_radius',12.0)
@@ -141,33 +147,6 @@ for axis,outer_side,inner_side,lo,upper in openings:
  turn_edges.extend(chosen)
 body=fillet(turn_edges,radius=turn)
 
-# Preserve the independent bottom interface with its existing clipped R0.3 wall.
-unrolled_access_body=body
-# Roll the touch-facing outer U rim, including its new profile arcs.
-opening_edges=[]
-for axis,outer_side,inner_side,lo,upper in openings:
- chosen=[]
- for e in body.edges():
-  bb=e.bounding_box()
-  amin,amax=(bb.min.X,bb.max.X) if axis=='x' else (bb.min.Y,bb.max.Y)
-  bmin,bmax=(bb.min.Y,bb.max.Y) if axis=='x' else (bb.min.X,bb.max.X)
-  on_outer=abs(amin-outer_side)<eps and abs(amax-outer_side)<eps
-  on_inner=abs(amin-inner_side)<eps and abs(amax-inner_side)<eps
-  in_span=bmin>=lo-turn-eps and bmax<=upper+turn+eps
-  rising=bb.max.Z-bb.min.Z>eps
-  if bb.min.Z>=seat_z-eps and in_span and on_outer:
-   chosen.append(e)
- assert len(chosen)>=5, 'Incomplete blended rim'
- opening_edges.extend(chosen)
-body=fillet(opening_edges,radius=opening_soft)
-
-original_bottom_body=floor_with_carrier+(body&Pos(shift,0,seat_z+wall_h/2)*Box(wo+2,ho+2,wall_h))
-access_partition_y=shutter_y-shutter_l/2-2*turn
-lower_access_mask=Pos(shift,(access_partition_y-ho/2-1)/2,(outside_z+seat_z+wall_h)/2)*Box(wo+20,access_partition_y+ho/2+1,plate+wall_h+2)
-upper_access_mask=Pos(shift,(access_partition_y+ho/2+1)/2,(outside_z+seat_z+wall_h)/2)*Box(wo+20,ho/2+1-access_partition_y,plate+wall_h+2)
-original_bottom_body &= lower_access_mask
-body=unrolled_access_body
-
 # Keep only the finished access wall above the plate, then merge it with the continuous rounded base.
 finished_wall=body&Pos(shift,0,seat_z+wall_h/2)*Box(wo+2,ho+2,wall_h)
 body=floor_with_carrier+finished_wall
@@ -186,7 +165,7 @@ ramp_cutters=[]
 for axis,outer_side,inner_side,lo,upper in openings:
  a=min(inner_side,outer_side)-lip-0.5
  c=max(inner_side,outer_side)+lip+0.5
- local_slope=ramp_slope if outer_side>0 else 0
+ local_slope=ramp_slope if outer_side>0 else -ramp_slope
  def tangent_opening_station(at):
   floor_z=seat_z-(at-inner_side)*local_slope
   # The top remains above the perimeter even after oblique extrusion.
@@ -224,8 +203,6 @@ for axis,outer_side,inner_side,lo,upper in openings:
  ramp_opening_edge_counts.append(len(chosen))
  opening_edges.extend(chosen)
 body=fillet(opening_edges,radius=opening_soft)
-# Assemble the ramped button section with the unchanged bottom interface.
-body=(body&upper_access_mask)+original_bottom_body
 assert body.is_valid and len(body.solids())==1
 print('Shared access edge radius',opening_soft,'rim segment counts',ramp_opening_edge_counts)
 for axis,outer_side,inner_side,lo,upper in openings:
@@ -240,6 +217,37 @@ for axis,outer_side,inner_side,lo,upper in openings:
 # Cut the camera relief after blending the button rim: the expanded relief trims the blend locally.
 body-=funnel
 body-=Pos(cam_x,cam_y,camera_mouth_z-0.1)*extrude(land_profile,amount=0.15)
+
+# Internal MagSafe seats measured from the user-supplied back-cover STEP.
+# The specified 1.15 mm is the backing between pocket floors and exterior back.
+mag_id=param('back_cover_magsafe_inner_diameter',45.0)
+mag_od=param('back_cover_magsafe_outer_diameter',54.72)
+mag_x=param('back_cover_magsafe_x',2.05)
+mag_y=param('back_cover_magsafe_y',-2.41)
+mag_back_skin=param('back_cover_magsafe_back_skin',1.15)
+mag_tail_l=param('back_cover_magsafe_tail_length',16.98)
+mag_tail_w=param('back_cover_magsafe_tail_width',6.99)
+mag_tail_gap=param('back_cover_magsafe_tail_gap',1.9)
+assert 0<mag_id<mag_od and 0<mag_back_skin<plate
+mag_depth=plate-mag_back_skin
+mag_floor=outside_z+mag_back_skin
+mag_profile=Pos(mag_x,mag_y)*(Circle(mag_od/2)-Circle(mag_id/2))
+mag_tail_y=mag_y-mag_od/2-mag_tail_gap-mag_tail_l/2
+mag_tail_profile=Pos(mag_x,mag_tail_y)*SlotOverall(mag_tail_l,mag_tail_w,rotation=90)
+mag_disk=Pos(mag_x,mag_y)*Circle(mag_od/2)
+mag_camera_gap=mag_disk.distance_to(Pos(cam_x,cam_y)*offset(glass,amount=cam_inner_expand))
+assert mag_camera_gap>0
+for profile in (mag_profile,mag_tail_profile):
+ cutter=Pos(0,0,mag_floor)*extrude(profile,amount=mag_depth+0.05)
+ assert abs((body&cutter).volume-profile.area*mag_depth)<1e-5, 'MagSafe seat intersects an existing opening'
+ body-=cutter
+# Both seats leave continuous exterior backing.
+for profile in (mag_profile,mag_tail_profile):
+ skin=Pos(0,0,outside_z)*extrude(profile,amount=mag_back_skin)
+ assert abs((body&skin).volume-skin.volume)<1e-5, 'MagSafe exterior skin is not continuous'
+print('MagSafe ID/OD, center, pocket depth, exterior skin',mag_id,mag_od,(mag_x,mag_y),mag_depth,mag_back_skin)
+print('Tail length/width/center, ring-tail gap, camera gap',mag_tail_l,mag_tail_w,(mag_x,mag_tail_y),mag_tail_gap,mag_camera_gap)
+
 
 
 
@@ -257,15 +265,31 @@ mouth_h=window_h+2*stop_land
 mouth_r=window_r+stop_land
 window_left=window_x-mouth_w/2
 window_right=window_x+mouth_w/2
-mouth=Pos(window_x,0)*RectangleRounded(mouth_w,mouth_h,mouth_r)
-clear_window=Pos(window_x,0)*RectangleRounded(window_w,window_h,window_r)
+# The center-spine (+X) corners stay square; outer-edge corners stay rounded.
+mouth=Pos(window_x,0)*(RectangleRounded(mouth_w,mouth_h,mouth_r)+Pos(mouth_w/4,0)*Rectangle(mouth_w/2,mouth_h))
+clear_window=Pos(window_x,0)*(RectangleRounded(window_w,window_h,window_r)+Pos(window_w/4,0)*Rectangle(window_w/2,window_h))
 body-=Pos(0,0,outside_z-1)*extrude(mouth,amount=plate+2)
 stop_ring=Pos(0,0,seat_z-stop_t)*extrude(offset(mouth,amount=0.1)-clear_window,amount=stop_t)
+# Interrupt the lower stop land across the interface so no thin bridge crosses its mouth.
+bottom_port_width=param('back_cover_bottom_left_notch_width',12.7)
+stop_relief_outer_y=stop_ring.bounding_box().min.Y
+stop_relief_inner_y=clear_window.bounding_box().min.Y
+stop_relief_overlap=0.05
+stop_strip_relief=Pos(window_x,(stop_relief_outer_y+stop_relief_inner_y)/2,seat_z-stop_t/2)*Box(bottom_port_width,stop_relief_inner_y-stop_relief_outer_y+2*stop_relief_overlap,stop_t+2*stop_relief_overlap)
+stop_ring-=stop_strip_relief
 body+=stop_ring
 # Remove only the straight inner return on the marked left short edge.
 release_half_h=ho/2-(radius+wall)
 lip_clear=Pos(edge_x+wall+inner_wall_inset+lip,0,seat_z+wall_h-lip_h/2)*Box(2*lip,2*release_half_h,lip_h+0.02)
 body-=lip_clear
+# One short inward retention tab is centered on the otherwise released left edge.
+center_lip_length=param('back_cover_center_retention_length',16.0)
+center_lip_root_bond=param('back_cover_center_retention_root_bond',0.4)
+center_lip_round=param('back_cover_center_retention_edge_radius',0.15)
+inner_left=shift-wi/2+inner_wall_inset
+center_lip=Pos(inner_left+(lip-center_lip_root_bond)/2,0,seat_z+wall_h-lip_h/2)*Box(lip+center_lip_root_bond,center_lip_length,lip_h)
+center_lip=fillet(center_lip.edges(),radius=center_lip_round)
+body+=center_lip
 
 # Four rounded grip grooves are centered over the complete case-side thickness.
 grip_depth=param('back_cover_grip_groove_depth',0.15)
@@ -280,42 +304,47 @@ groove_tool=extrude(groove_ring,amount=grip_height)
 groove_edges=[e for e in groove_tool.edges() if e.bounding_box().size.Z<1e-6]
 groove_round=min(grip_height/4,grip_depth/2)
 groove_tool=fillet(groove_edges,radius=groove_round)
-hinge_span=param('back_cover_lid_hinge_span',200.0/3.0)
-grip_root_margin=param('back_cover_grip_hinge_margin',2.0)
-# Stop the shallow texture before the hinge load path.
-texture_keepout=Pos(edge_x,0,(outside_z+seat_z+wall_h)/2)*Box(2*(wall+2),hinge_span+2*grip_root_margin,plate+wall_h+4)
+# Continue the same four shallow grooves across the full hinge-side frame.
 for i in range(int(grip_count)):
  band=Pos(0,0,grip_first_z+i*grip_pitch-grip_height/2)*groove_tool
- body-=band-texture_keepout
+ body-=band
 
 # Compact hinge within the case outline; fixed knuckles have full integral bases.
 frame_before_hinge=body
 lid_barrel_r=param('back_cover_lid_barrel_radius',2.6)
 lid_socket_gap=param('back_cover_lid_socket_clearance',0.25)
-hinge_edge_margin=param('back_cover_hinge_edge_margin',0.1)
+hinge_inboard_offset=param('back_cover_lid_hinge_inboard_offset',1.6)
 fixed_barrel_r=lid_barrel_r
-lid_axis_x=edge_x+fixed_barrel_r+hinge_edge_margin
-lid_axis_z=outside_z-fixed_barrel_r-lid_socket_gap
+lid_axis_x=window_right+hinge_inboard_offset
+lid_axis_z=hinge_reference_z-fixed_barrel_r-lid_socket_gap
 support_z=lid_axis_z-lid_barrel_r
 lid_bore_r=param('back_cover_lid_bore_radius',1.4)
-lid_hinge_end=hinge_span/2
-lid_hinge_outer_inner=hinge_span*0.34
-lid_hinge_center_half=hinge_span*0.10
-pin_retention_d=param('back_cover_lid_pin_retention_diameter',2.05)
+pin_retention_d=param('back_cover_lid_pin_retention_diameter',2.8)
 pin_retention_r=pin_retention_d/2
 lid_hinge_axial_gap=param('back_cover_lid_hinge_axial_gap',0.5)
-lid_hinge_root_overlap=param('back_cover_lid_hinge_root_overlap',4.0)
-pin_lead=param('back_cover_lid_pin_lead_length',0.5)
+lid_hinge_root_overlap=param('back_cover_lid_hinge_root_overlap',4.9)
 fixed_root_bond=param('back_cover_lid_fixed_root_bond',0.8)
 fixed_web_round=param('back_cover_lid_fixed_web_edge_radius',0.3)
-lid_knuckle_intervals=[(-lid_hinge_outer_inner+lid_hinge_axial_gap,-lid_hinge_center_half-lid_hinge_axial_gap),
-                       (lid_hinge_center_half+lid_hinge_axial_gap,lid_hinge_outer_inner-lid_hinge_axial_gap)]
-fixed_knuckle_intervals=[(-lid_hinge_end,-lid_hinge_outer_inner),(-lid_hinge_center_half,lid_hinge_center_half),(lid_hinge_outer_inner,lid_hinge_end)]
+# Three independent short hinges, each with two fixed ears and a middle moving ear.
+hinge_station_offset=param('back_cover_lid_hinge_station_offset',45.0)
+hinge_station_width=param('back_cover_lid_hinge_station_width',10.0)
+fixed_ear_width=param('back_cover_lid_hinge_fixed_ear_width',2.5)
+hinge_station_centers=[-hinge_station_offset,0,hinge_station_offset]
+moving_ear_width=hinge_station_width-2*fixed_ear_width-2*lid_hinge_axial_gap
+assert moving_ear_width>=3.0 and fixed_ear_width>=2.0
+assert hinge_station_offset+hinge_station_width/2<mouth_h/2-3.0
+# Individual station span drives the matching short pin, never a continuous shaft.
+hinge_span=hinge_station_width
+lid_knuckle_intervals=[(c-moving_ear_width/2,c+moving_ear_width/2) for c in hinge_station_centers]
+fixed_knuckle_intervals=[]
+for c in hinge_station_centers:
+ fixed_knuckle_intervals.extend([(c-hinge_station_width/2,c-hinge_station_width/2+fixed_ear_width),
+                                 (c+hinge_station_width/2-fixed_ear_width,c+hinge_station_width/2)])
 for ya,yb in fixed_knuckle_intervals:
  yc=(ya+yb)/2
  barrel=Pos(lid_axis_x,yc,lid_axis_z)*Cylinder(fixed_barrel_r,yb-ya,rotation=(90,0,0))
- base_left=lid_axis_x-fixed_barrel_r
- base_right=window_left
+ base_left=window_right
+ base_right=lid_axis_x+fixed_barrel_r
  base_top=outside_z+fixed_root_bond
  base_bottom=lid_axis_z
  assert base_right>base_left
@@ -325,30 +354,109 @@ for ya,yb in fixed_knuckle_intervals:
  knuckle=fillet(knuckle.edges().filter_by(Axis.Y),radius=fixed_web_round)
  bore_r=pin_retention_r if ya<0<yb else lid_bore_r
  knuckle-=Pos(lid_axis_x,yc,lid_axis_z)*Cylinder(bore_r,yb-ya+2,rotation=(90,0,0)).rotate(Axis.Y,45)
- if ya<0<yb:
-  for sign in (-1,1):
-   lead=Cone(lid_bore_r,pin_retention_r,pin_lead).rotate(Axis.X,90 if sign>0 else -90)
-   knuckle-=Pos(lid_axis_x,sign*(lid_hinge_center_half-pin_lead/2),lid_axis_z)*lead
  body+=knuckle
 
-# Two blind-bottom catches: the lower 1.2 mm stock is the mechanical retaining shoulder.
-latch_tip_y=param('back_cover_lid_latch_tip_y',24.0)
-latch_hook_l=param('back_cover_lid_latch_hook_length',2.4)
+# One central catch retains 0.8 mm stock below its receiver.
+latch_center_y=param('back_cover_lid_latch_center_y',0.0)
+latch_hook_l=param('back_cover_lid_latch_hook_length',7.5)
 latch_receiver_depth=param('back_cover_lid_latch_receiver_depth',1.2)
-latch_shoulder_t=param('back_cover_lid_latch_shoulder_thickness',1.2)
+latch_shoulder_t=param('back_cover_lid_latch_shoulder_thickness',0.8)
 latch_pocket_y_gap=param('back_cover_lid_latch_receiver_y_gap',0.3)
-for sign in (-1,1):
- yc=sign*(latch_tip_y+latch_hook_l/2)
- body-=Pos(window_right+(latch_receiver_depth-0.05)/2,yc,outside_z+latch_shoulder_t+(plate-latch_shoulder_t+1)/2)*Box(latch_receiver_depth+0.05,latch_hook_l+2*latch_pocket_y_gap,plate-latch_shoulder_t+1)
+latch_receiver_roof=param('back_cover_lid_latch_receiver_roof',0.6)
+receiver_bottom=outside_z+latch_shoulder_t
+receiver_top=seat_z-latch_receiver_roof
+assert receiver_top>receiver_bottom
+body-=Pos(window_left-(latch_receiver_depth-0.05)/2,latch_center_y,(receiver_bottom+receiver_top)/2)*Box(latch_receiver_depth+0.05,latch_hook_l+2*latch_pocket_y_gap,receiver_top-receiver_bottom)
 # A centered finger recess on the fixed frame gives access to the lid edge.
 finger_l=param('back_cover_lid_finger_slot_length',16.0)
-finger_w=param('back_cover_lid_finger_slot_width',8.0)
-finger_depth=param('back_cover_lid_finger_slot_depth',1.4)
-finger_profile=Pos(window_right,0)*SlotOverall(finger_l,finger_w,rotation=90)
+finger_w=param('back_cover_lid_finger_slot_width',1.6)
+finger_depth=param('back_cover_lid_finger_slot_depth',0.3)
+finger_corner=param('back_cover_lid_finger_slot_corner_radius',0.5)
+# One shallow recess opens directly onto the inner edge of the lid mouth.
+# Its 0.3 depth retains 0.5 stock below the central receiver.
+finger_edge_overlap=param('back_cover_lid_finger_edge_overlap',0.05)
+finger_x=window_left-finger_w/2+finger_edge_overlap
+finger_profile=Pos(finger_x,latch_center_y)*RectangleRounded(finger_w,finger_l,finger_corner)
 body-=Pos(0,0,outside_z-0.05)*extrude(finger_profile,amount=finger_depth+0.05)
 # The main phone tray remains one fixed-open frame even when the small display lid is open.
 bridge_probe=Pos(shift+4.0,0,outside_z+plate/2)*Box(2*wall,hi-2*radius,plate)
 assert abs((body&bridge_probe).volume-bridge_probe.volume)<1e-5
+# Open-top access notch on the lower edge, centered on the left phone half.
+bottom_port_inward=param('back_cover_bottom_left_notch_inward',3.4)
+bottom_port_backing=param('back_cover_bottom_left_notch_backing',1.5)
+bottom_port_corner=param('back_cover_bottom_left_notch_corner',0.3)
+bottom_port_x=shift-phone_w/4
+bottom_port_y=-ho/2
+bottom_port_floor=outside_z+bottom_port_backing
+bottom_port_inner_y=bottom_port_y+bottom_port_inward
+port_entry_overrun=1.0
+port_outline=Pos(bottom_port_x,bottom_port_y+(bottom_port_inward-port_entry_overrun)/2)*Rectangle(bottom_port_width,bottom_port_inward+port_entry_overrun)
+port_inner_corners=[v for v in port_outline.vertices() if abs(v.Y-bottom_port_inner_y)<1e-6]
+assert len(port_inner_corners)==2
+port_outline=fillet(port_inner_corners,radius=bottom_port_corner)
+bottom_port_cutter=Pos(0,0,bottom_port_floor)*extrude(port_outline,amount=seat_z+wall_h+2-bottom_port_floor)
+body-=bottom_port_cutter
+print('Bottom left notch width/inward/backing',bottom_port_width,bottom_port_inward,bottom_port_backing,'center X',bottom_port_x,'inner Y',bottom_port_inner_y,'floor Z',bottom_port_floor)
+# Access recesses with large tangent reverse-arc transitions at all six ends.
+edge_recess_inset=param('back_cover_edge_recess_inset',1.0)
+edge_recess_blend_r=param('back_cover_edge_recess_blend_radius',2.0)
+top_edge_recess_length=param('back_cover_top_edge_recess_length',29.0)
+power_edge_recess_length=param('back_cover_power_edge_recess_length',22.0)
+shutter_edge_recess_length=param('back_cover_shutter_edge_recess_length',22.0)
+edge_recess_overrun=1.0
+from math import acos, sin, cos, sqrt
+def smooth_recess_profile(length,depth,blend_r,axis,start,outer_side):
+ assert blend_r>depth/2
+ theta=acos(1-depth/(2*blend_r))
+ half_span=blend_r*sin(theta)
+ blend_span=2*half_span
+ assert 2*blend_span<length
+ # Each end consists of two equal-radius, opposite-curvature arcs.
+ # Tangents at the outer edge and inset straight both run along the edge.
+ u1=blend_r*sin(theta/2)
+ v1=blend_r*(1-cos(theta/2))
+ left_points=[(0,0),(u1,v1),(half_span,depth/2),
+              (blend_span-u1,depth-v1),(blend_span,depth)]
+ def point(uv):
+  u,v=uv
+  return (start+u,outer_side-v,0) if axis=='y' else (outer_side-v,start+u,0)
+ p=[point(uv) for uv in left_points]
+ q=[point((length-u,v)) for u,v in left_points]
+ edges=[Edge.make_three_point_arc(p[0],p[1],p[2]),
+        Edge.make_three_point_arc(p[2],p[3],p[4]),
+        Edge.make_line(p[4],q[4]),
+        Edge.make_three_point_arc(q[4],q[3],q[2]),
+        Edge.make_three_point_arc(q[2],q[1],q[0]),
+        Edge.make_line(q[0],point((length,-edge_recess_overrun))),
+        Edge.make_line(point((length,-edge_recess_overrun)),point((0,-edge_recess_overrun))),
+        Edge.make_line(point((0,-edge_recess_overrun)),p[0])]
+ profile=Face(Wire(edges))
+ assert profile.is_valid and len(profile.wires())==1
+ return profile,blend_span
+top_edge_recess_left=top_open_right-top_edge_recess_length
+top_edge_recess_inner_y=ho/2-edge_recess_inset
+top_edge_recess_profile,top_transition_span=smooth_recess_profile(
+ top_edge_recess_length,edge_recess_inset,edge_recess_blend_r,'y',
+ top_edge_recess_left,ho/2)
+edge_recess_profiles=[top_edge_recess_profile]
+side_edge_recess_inset=param('back_cover_side_edge_recess_inset',1.7)
+side_edge_recess_inner_x=right_x-side_edge_recess_inset
+side_transition_spans=[]
+for side_center,side_length in [(power_y,power_edge_recess_length),(shutter_y,shutter_edge_recess_length)]:
+ side_profile,side_span=smooth_recess_profile(side_length,side_edge_recess_inset,
+  edge_recess_blend_r,'x',side_center-side_length/2,right_x)
+ edge_recess_profiles.append(side_profile)
+ side_transition_spans.append(side_span)
+edge_recess_cutters=[]
+for recess_profile in edge_recess_profiles:
+ recess_cutter=Pos(0,0,outside_z-1)*extrude(recess_profile,
+  amount=plate+wall_h+2,dir=(0,0,1))
+ edge_recess_cutters.append(recess_cutter)
+ body-=recess_cutter
+print('Inner cavity / outer overall',inner.bounding_box().size.X,inner.bounding_box().size.Y,wo,ho)
+print('Recess overall entrance lengths',top_edge_recess_length,power_edge_recess_length,shutter_edge_recess_length)
+print('Top inset / side step inset',edge_recess_inset,side_edge_recess_inset,'step X',side_edge_recess_inner_x)
+print('All six end transitions radius',edge_recess_blend_r,'transition spans',top_transition_span,side_transition_spans)
 body=body.clean()
 assert body.is_valid and len(body.solids())==1
 # Retained right-side and corner segments, outside the extended long openings.
@@ -361,11 +469,11 @@ for px,py in ((-108,hi/2-lip+0.05),(30,hi/2-lip+0.05),
  assert abs((body&probe).volume-probe.volume)<1e-7
 print('Top opening endpoint X',2*shift-top_open_right,top_open_right,'equal end land',right_x-top_open_right)
 print('Bottom opening endpoint X',2*shift-bottom_open_right,bottom_open_right,'equal end land',right_x-bottom_open_right)
-print('Left straight inner lip removed Y',-release_half_h,release_half_h)
+print('Left straight inner lip released Y',-release_half_h,release_half_h,'except centered tab length',center_lip_length)
 print('Display clear W/H',window_w,window_h,'center',window_x,'cover mouth W/H',mouth_w,mouth_h)
 print('Hinge axis X/Z',lid_axis_x,lid_axis_z,'support plane',support_z,'body valid solids',len(body.solids()))
 print('Finger slot length/width/depth',finger_l,finger_w,finger_depth)
-print('Hinge bottom / camera crest',lid_axis_z-lid_barrel_r,part('camera_guard').crest_z)
+print('Hinge outer plane',lid_axis_z-lid_barrel_r)
 assert abs(lid_axis_z-lid_barrel_r-support_z)<1e-7
 body.color=srgb('#d5223e')
 publish('back_cover',body,'带屏幕窗一体主壳',material='tpu')

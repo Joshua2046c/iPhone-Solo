@@ -2,12 +2,12 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "固定展开一体主框，左外屏开窗配180度卡扣盖板；侧防滑槽、对称长开孔、局部解扣边和加高0.8镜头圈。",
+  "summary": "展开手机壳两个并排版本：原180度翻盖版，另加取消全部翻盖连接和卡扣、外侧封闭但保留内侧屏幕盲凹区的版本。",
   "required_interfaces": [
     {
       "id": "phone_fit",
       "kind": "internal_fit",
-      "description": "展开机身164.6×117.8×5.2；内底贴0.2保护膜，手机落座面Z2.6，围边/扣边抬高0.2，屏幕侧间隙保持0.38；图3左直边内扣取消。",
+      "description": "展开机身164.6×117.8×5.2；内底贴0.2保护膜，手机落座面Z2.6，围边/扣边抬高0.2，屏幕侧间隙保持0.38；左直边连续内扣取消，中央增加16长/内收0.7/厚0.7的短扣。",
       "source": "user_requested",
       "required": true
     },
@@ -21,49 +21,161 @@
     {
       "id": "camera_guard_bond",
       "kind": "adhesive_joint",
-      "description": "保护圈沿外向-Z增高0.8到Z-4.4，胶接面Z-1.15和定位环顶Z-0.75保持。",
+      "description": "镜头圈物理外翼厚3.25/总高3.65及额外0.8加高保持，随主背板新外面Z-0.1贴合，胶面Z-0.25、保护顶Z-3.5、定位环顶Z0.15，胶层0.15。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "display_lid_hinge",
       "kind": "internal_fit",
-      "description": "轴节外径5.2、跨度66.666667，轴心X-121.7/Z-3.85，最外X-124.3收在壳边X-124.4内。三固定轴耳为直边圆弧顶、底座连实；活动45度斜臂下方填实并直接连到盖板，无外露方块；Ø2.2无帽直销，中耳Ø2.05、其余Ø2.8，保持180度开合。",
+      "description": "翻盖版中脊侧上、中、下三组独立短铰链，轴心X-41.1/Z-3.85、外径5.2、孔Ø2.8不变。默认中心Y=-45/0/45，每组宽10，两个固定耳各2.5、中间活动耳4、两处间隙0.5；三根Ø2.2×11无帽短销，每组一根。底座与壳体连实，盖板原45度实心斜接及4.9根部伸入、2.2颈部保持。每根销在一固定耳点胶，活动耳自由。向镜头侧绕Y负向打开180度。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "display_lid_snap",
       "kind": "internal_fit",
-      "description": "双弹性卡扣加固：臂16×2，厚2.5，隔离槽1，钩接触长5、高1.1，实扣0.5，向内释放0.8；主框承力肩保留。",
+      "description": "仅一组Y0中央卡扣与配合槽，原下方整组及旧上下位置结构取消。舌片16×2、槽1，扣钩长7.5/高0.8，实扣0.5、释放0.8；固定肩0.8、腔顶0.6、净空0.3。贴盖口内边的单个居中7.9×1.6/R0.5凹槽，深0.3、跨入盖口0.05；旧外侧封闭槽填实，中央接收腔下方净厚0.5。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "grip_and_symmetric_ports",
       "kind": "internal_fit",
-      "description": "侧面四道浅槽深0.15、高0.6、节距1.2，居中于完整侧厚Z[-1,8.88]，槽中心2.14/3.34/4.54/5.74，上下余边各2.84；转轴安装区Y±35.333333截断。上下长开口对称及16×8指槽保留。",
+      "description": "侧面四道浅槽深0.15、高0.6、节距1.2，居中于完整侧厚Z[-0.1,8.88]，槽中心2.59/3.79/4.99/6.19，上下余边各2.39；四条纹路连续通过外侧短边。上下长开口对称及贴盖口内边的单个居中7.9×1.6/R0.5浅抠盖槽。 下长边与上长边均20度外低内高斜切，R1端角、R0.3外沿。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "table_support",
       "kind": "internal_fit",
-      "description": "镜头圈保护顶维持Z-4.4，用户接受紧凑轴体外侧Z-6.45更高；无共面平放要求，不恢复两额外凸脚。",
+      "description": "镜头圈保护顶维持Z-3.5，用户接受紧凑轴体外侧Z-6.45更高；无共面平放要求，不恢复两额外凸脚。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "inner_liner",
       "kind": "internal_fit",
-      "description": "独立0.2总厚内保护贴片，避开屏幕和摄像头，壳体增高0.2进行补偿。",
+      "description": "仅保留镜头半侧0.2总厚保护贴片，左边X-42.3直切，取消绿色框内左侧绕屏窄边；其余边缘距壁0.2、镜头内开口外让0.5，仍覆盖磁体安装区域。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "plain_back",
       "kind": "internal_fit",
-      "description": "取消外背板和盖板的全部胶囊凹槽，恢复名义3.4/2.5厚平整表面。",
+      "description": "主背板厚2.5、盖板厚1.6，盖板从外侧减薄0.9后闭合主体外表面共面Z-0.1；均无装饰凹槽。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "magsafe_seats",
+      "kind": "internal_fit",
+      "description": "按上传STEP的内侧圆环45/54.72、中心(2.05,-2.41)及16.98×6.99尾槽/中心(2.05,-40.16)，环尾间隔1.9；从内侧开1.35深，槽底到外背面保留1.15连续底层，外表面完整。只交付壳体安装槽。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "rear_plate_thinning",
+      "kind": "internal_fit",
+      "description": "主背板从外向内减薄0.9，厚度3.4至2.5，内底Z2.4不动；磁环及尾槽深1.35，继续保留1.15连续底层，不贯穿。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "display_lid_flush",
+      "kind": "internal_fit",
+      "description": "盖板从外侧减薄0.9至1.6，主体外面与主背面共面Z-0.1，内面保持Z1.5，止挡间隙0.1和贴片后手机间隙1.1。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_display_inner_recess",
+      "kind": "internal_fit",
+      "description": "封闭版内侧屏幕盲凹78×115.81、中心X-82.5/Y0；左/上/下边距内壁各1.2，右边X-43.5不动；左两角R10.755、中脊两角直角。凹底Z1.5及连续底厚1.6不变，周围支承面升至Z2.6后实际凹深1.1。 下边新增接口槽相交处局部底厚按1.5，其余屏区底厚1.6。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_continuous_back",
+      "kind": "internal_fit",
+      "description": "封闭版外面Z-0.1连续平整，与主框一体，普通内侧支承区原2.5加0.2补偿后总厚2.7，屏区底厚1.6；不设翻盖连接结构及独立内贴片。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_grip_ports",
+      "kind": "internal_fit",
+      "description": "封闭版沿用对称长开口、侧按键和接口开口及四道居中浅纹，深0.15、高0.6、节距1.2。 下长边与上长边均20度外低内高斜切，R1端角、R0.3外沿。",
+      "source": "existing_workspace",
+      "required": true
+    },
+    {
+      "id": "sealed_integral_inner_compensation",
+      "kind": "internal_fit",
+      "description": "封闭版取消独立内贴片，所有原Z2.4平面支承区向内增加0.2，与主壳融合；含左侧及屏区周围支承带，屏幕凹底、镜头开孔和磁环/尾槽不覆盖。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_phone_fit",
+      "kind": "internal_fit",
+      "description": "164.6×117.8×5.2展开机身，封闭版内腔164.9×118.21；左右短内壁各向内增加0.055，总计0.11，X向间隙各0.15；支承面Z2.6、屏幕间隙0.38及外廓168.3×121.5保持。",
+      "source": "contract_interface",
+      "required": true
+    },
+    {
+      "id": "sealed_magsafe_seats",
+      "kind": "internal_fit",
+      "description": "原内径45/外径54.72环槽及16.98×6.99尾槽内侧保持开放；槽底Z1.05、外背面Z-0.1、底厚1.15保持；支承面加0.2后槽深1.55，不加封盖。",
+      "source": "contract_interface",
+      "required": true
+    },
+    {
+      "id": "bottom_left_access_notch",
+      "kind": "internal_fit",
+      "description": "两个版本下边左半手机区域中轴X-81.4新增开顶接口缺口，宽12.7，自Y-60.75向内延伸3.4至Y-57.35；槽底Z1.4、距外背面Z-0.1约1.5。内端平面角默认R0.3；3.4不是竖向高度。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "hinged_bottom_stop_strip_removed",
+      "kind": "internal_fit",
+      "description": "翻盖版接口内侧跨槽细条直接切除，止挡圈在接口宽12.7范围断开并连通屏幕开窗，保留槽底1.5背厚和原3.4向内槽底，其余止挡保留。封闭版本不改。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_left_retention_match",
+      "kind": "internal_fit",
+      "description": "封闭版左侧凸出扣直接镜像右侧中央卡边，内收0.7、厚0.7、Z8.18–8.88及端部过渡相同；镜像面X-40.25，两侧名义Y[-14.5,2.7]、中心Y-5.9、跨度17.2，根部与围墙融合。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_edge_recesses",
+      "kind": "internal_fit",
+      "description": "封闭版上槽入口长29/内退1，侧面两槽入口各22/内退1.7至台阶X42.2；六端均采用R2反向相切大圆弧，与外边及槽底平顺连接。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_short_edge_inner_thickening",
+      "kind": "internal_fit",
+      "description": "封闭版左右短边内壁每侧向内增加0.055，共0.11；内腔X165.01至164.9，Y118.21及外廓168.3×121.5保持；卡边随内壁同步。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sealed_edge_recess_transitions",
+      "kind": "internal_fit",
+      "description": "封闭版上方29 mm及右侧两处22 mm凹槽六端统一大圆角平顺过渡，默认采用R2双反向相切圆弧。原入口总长29/22/22、上槽内退1及侧槽内退1.7至内壁台阶保持，圆弧占入口总长内的空间。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "hinged_edge_recesses",
+      "kind": "internal_fit",
+      "description": "翻盖版对应区域同步封闭版三处凹槽：入口29/22/22，内退1/1.7/1.7，六端R2大圆弧平顺相切；原机身内腔和其余配合保持。",
       "source": "user_requested",
       "required": true
     }
@@ -590,15 +702,177 @@
       "source": "user_requested",
       "description": "活动斜臂下方填实及固定转轴直边圆弧顶参考标记",
       "path": "product/references/uploads/20261107T124834333Z-2-mark-2.png"
+    },
+    {
+      "id": "lid_refinement_mark_1",
+      "source": "user_requested",
+      "description": "盖板直角、中央内收扣、封闭内侧开孔及收窄抠盖槽参考",
+      "path": "product/references/uploads/20261107T182252784Z-1-mark-1.png"
+    },
+    {
+      "id": "lid_refinement_mark_2",
+      "source": "user_requested",
+      "description": "盖板直角、中央内收扣、封闭内侧开孔及收窄抠盖槽参考",
+      "path": "product/references/uploads/20261107T182252784Z-2-mark-2.png"
+    },
+    {
+      "id": "lid_refinement_mark_3",
+      "source": "user_requested",
+      "description": "盖板直角、中央内收扣、封闭内侧开孔及收窄抠盖槽参考",
+      "path": "product/references/uploads/20261107T182252784Z-3-mark-3.png"
+    },
+    {
+      "id": "lid_refinement_mark_4",
+      "source": "user_requested",
+      "description": "盖板直角、中央内收扣、封闭内侧开孔及收窄抠盖槽参考",
+      "path": "product/references/uploads/20261107T182252784Z-4-mark-4.png"
+    },
+    {
+      "id": "continuous_hinge_side_grip",
+      "source": "user_requested",
+      "description": "四条侧面浅纹延伸通过转轴侧边原空白段",
+      "path": "product/references/uploads/20261107T182916808Z-1-mark-1.png"
+    },
+    {
+      "id": "hinge_to_center_spine",
+      "source": "user_requested",
+      "description": "转轴与盖板卡扣结构换边，中脊侧装转轴、外侧装卡扣",
+      "path": "product/references/uploads/20261107T191345619Z-1-mark-1.png"
+    },
+    {
+      "id": "user_magsafe_reference_step",
+      "source": "user_requested",
+      "description": "磁环与尾槽的位置和形状；STEP SHA256 163db2c6683f456fee5702e453d44d076a87c3b8f131c5095fbb0bc44ed767d9",
+      "path": "product/references/uploads/20261108T061637912Z-1-back-cover-7-00-55.step"
+    },
+    {
+      "id": "liner_left_strip_removal",
+      "source": "user_requested",
+      "description": "取消左侧绕屏的贴片窄边，仅保留右侧片",
+      "path": "product/references/uploads/20261108T064615666Z-1-mark-1.png"
+    },
+    {
+      "id": "single_center_latch_mark",
+      "source": "user_requested",
+      "description": "删除下方整组卡扣，将上方卡扣挪到中央凹槽对应位置",
+      "path": "product/references/uploads/20261108T110801001Z-1-mark-1.png"
+    },
+    {
+      "id": "center_hinge_bore_enlargement_mark",
+      "source": "user_requested",
+      "description": "用户指出中固定轴耳通条孔偏小，要求加大",
+      "path": "product/references/uploads/20261108T111549833Z-1-mark-1.png"
+    },
+    {
+      "id": "single_center_finger_recess_mark",
+      "source": "user_requested",
+      "description": "仅保留标记处单个居中小凹槽，取消分开的两个凹槽",
+      "path": "product/references/uploads/20261108T112301627Z-1-mark-1.png"
+    },
+    {
+      "id": "finger_recess_at_inner_edge_mark",
+      "source": "user_requested",
+      "description": "用户澄清单个居中小凹槽贴盖板内边",
+      "path": "product/references/uploads/20261108T113301558Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_recess_three_sides_mark",
+      "source": "user_requested",
+      "description": "封闭版屏区凹槽左上下面向外扩大，留边与右凹边到贴片距离等宽",
+      "path": "product/references/uploads/20261108T115112958Z-1-mark-1.png"
+    },
+    {
+      "id": "bottom_ramp_and_notch_mark_1",
+      "source": "user_requested",
+      "description": "用户标记下长边斜切与左半中轴接口凹槽位置",
+      "path": "product/references/uploads/20261109T060356217Z-1-mark-1.png"
+    },
+    {
+      "id": "bottom_ramp_and_notch_mark_2",
+      "source": "user_requested",
+      "description": "用户标记下长边斜切与左半中轴接口凹槽位置",
+      "path": "product/references/uploads/20261109T060356217Z-2-mark-2.png"
+    },
+    {
+      "id": "hinged_bottom_stop_strip_mark",
+      "source": "user_requested",
+      "description": "用户标记切除翻盖版接口槽内侧的残留细条",
+      "path": "product/references/uploads/20261109T063027431Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_left_retention_match_mark",
+      "source": "user_requested",
+      "description": "封闭版左侧凸出卡扣匹配右侧凸起和结构",
+      "path": "product/references/uploads/20261109T063538689Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_edge_recess_mark_1",
+      "source": "user_requested",
+      "description": "封闭版边缘局部退让1 mm并倒内侧两圆角",
+      "path": "product/references/uploads/20261109T125920947Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_edge_recess_mark_2",
+      "source": "user_requested",
+      "description": "封闭版边缘局部退让1 mm并倒内侧两圆角",
+      "path": "product/references/uploads/20261109T125920947Z-2-mark-2.png"
+    },
+    {
+      "id": "sealed_edge_recess_mark_3",
+      "source": "user_requested",
+      "description": "封闭版边缘局部退让1 mm并倒内侧两圆角",
+      "path": "product/references/uploads/20261109T125920947Z-3-mark-3.png"
+    },
+    {
+      "id": "sealed_short_inner_fit_mark_1",
+      "source": "user_requested",
+      "description": "用户澄清仅左右内壁每侧加0.055，合计0.11",
+      "path": "product/references/uploads/20261109T131136713Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_short_inner_fit_mark_2",
+      "source": "user_requested",
+      "description": "加厚的左右短内壁位置",
+      "path": "product/references/uploads/20261109T131136713Z-2-mark-2.png"
+    },
+    {
+      "id": "sealed_side_recess_transition_mark",
+      "source": "user_requested",
+      "description": "两处侧凹槽加深到台阶并增加两端圆弧",
+      "path": "product/references/uploads/20261109T131952526Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_top_recess_entry_round_mark",
+      "source": "user_requested",
+      "description": "镜头旁上槽两个入口增加小圆角",
+      "path": "product/references/uploads/20261109T132614796Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_top_recess_small_bevel_mark",
+      "source": "user_requested",
+      "description": "上槽两个小直角做小倒角",
+      "path": "product/references/uploads/20261109T133606724Z-1-mark-1.png"
+    },
+    {
+      "id": "sealed_edge_recess_large_blends_mark",
+      "source": "user_requested",
+      "description": "用户要求三个新凹槽端部统一大圆角圆滑过渡的标记图",
+      "path": "product/references/uploads/20261109T140631109Z-1-mark-1.png"
+    },
+    {
+      "id": "finger_recess_matches_latch_mark",
+      "source": "user_requested",
+      "description": "标记的中央指槽长度与外露卡扣等长",
+      "path": "product/references/uploads/20261109T154745607Z-1-mark-1.png"
     }
   ],
   "assembly_story": {
-    "installation": "对齐主框和盖板的悬高轴耳，穿入无帽直销，中固定耳轻压定位；镜头圈用0.15胶层固定，内底贴含胶总厚0.2保护片后再装入保持展开的手机。",
-    "maintenance": "向内释放两处加固卡扣后由指槽抬起盖板，向外打开180度；更换盖板时从任一端推拔无帽直销。",
+    "installation": "对齐主框和盖板轴耳，由任一端穿入Ø2.2无帽直销；所有孔Ø2.8，中固定耳少量点胶固定，避免流入活动耳，完全固化后翻动。镜头圈用0.15胶层固定，内底贴含胶总厚0.2保护片后再装入保持展开的手机。",
+    "maintenance": "向内释放中央单卡扣后由单个居中指槽抬起盖板，打开180度；更换盖板需先解除中固定耳胶接，再推拔无帽直销。",
     "user_access": [
       "展开内屏",
       "左侧外屏及保护盖板",
-      "两处盖板释放卡扣",
+      "中央盖板释放卡扣",
       "按键、接口与摄像头"
     ]
   },
@@ -608,7 +882,7 @@
       {
         "role": "phone_case",
         "design_id": "duo_case",
-        "description": "展开一体主框、屏幕盖板、直销、镜头圈及0.2内保护贴片五件试配装配。",
+        "description": "展开一体主框、屏幕盖板、上中下三根短销、镜头圈及0.2内保护贴片的试配装配。",
         "delivery_target": "fit_check",
         "required_formats": [
           "step"
@@ -622,7 +896,13 @@
           "grip_and_symmetric_ports",
           "table_support",
           "inner_liner",
-          "plain_back"
+          "plain_back",
+          "magsafe_seats",
+          "rear_plate_thinning",
+          "display_lid_flush",
+          "bottom_left_access_notch",
+          "hinged_bottom_stop_strip_removed",
+          "hinged_edge_recesses"
         ],
         "reference_ids": [
           "dimensions_image",
@@ -711,7 +991,64 @@
           "compact_hinge_mark_2",
           "compact_hinge_mark_3",
           "continuous_hinge_mark_1",
-          "continuous_hinge_mark_2"
+          "continuous_hinge_mark_2",
+          "lid_refinement_mark_1",
+          "lid_refinement_mark_2",
+          "lid_refinement_mark_3",
+          "lid_refinement_mark_4",
+          "continuous_hinge_side_grip",
+          "hinge_to_center_spine",
+          "user_magsafe_reference_step",
+          "liner_left_strip_removal",
+          "single_center_latch_mark",
+          "center_hinge_bore_enlargement_mark",
+          "single_center_finger_recess_mark",
+          "finger_recess_at_inner_edge_mark",
+          "bottom_ramp_and_notch_mark_1",
+          "bottom_ramp_and_notch_mark_2",
+          "hinged_bottom_stop_strip_mark",
+          "finger_recess_matches_latch_mark"
+        ]
+      },
+      {
+        "role": "phone_case_sealed",
+        "design_id": "duo_case_sealed",
+        "description": "无翻盖封闭主壳及镜头圈两件装配；内侧0.2补偿与主壳一体，含左侧支承带，屏区盲凹保留。",
+        "delivery_target": "fit_check",
+        "required_formats": [
+          "step"
+        ],
+        "interface_ids": [
+          "camera_guard_bond",
+          "sealed_display_inner_recess",
+          "sealed_continuous_back",
+          "sealed_grip_ports",
+          "sealed_integral_inner_compensation",
+          "sealed_phone_fit",
+          "sealed_magsafe_seats",
+          "bottom_left_access_notch",
+          "sealed_left_retention_match",
+          "sealed_edge_recesses",
+          "sealed_short_edge_inner_thickening",
+          "sealed_edge_recess_transitions"
+        ],
+        "reference_ids": [
+          "open_phone_size_20261107",
+          "pipes_3mf",
+          "user_magsafe_reference_step",
+          "sealed_recess_three_sides_mark",
+          "bottom_ramp_and_notch_mark_1",
+          "bottom_ramp_and_notch_mark_2",
+          "sealed_left_retention_match_mark",
+          "sealed_edge_recess_mark_1",
+          "sealed_edge_recess_mark_2",
+          "sealed_edge_recess_mark_3",
+          "sealed_short_inner_fit_mark_1",
+          "sealed_short_inner_fit_mark_2",
+          "sealed_side_recess_transition_mark",
+          "sealed_top_recess_entry_round_mark",
+          "sealed_top_recess_small_bevel_mark",
+          "sealed_edge_recess_large_blends_mark"
         ]
       }
     ]

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "coordinateFrame": "makit-world-z-up",
+  "placements": {
+    "duo_case_sealed": {
+      "positionMm": [
+        195,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "rotationOrder": "XYZ"
+    }
+  },
+  "fits": [],
+  "updatedAt": "2026-11-08T11:40:49.953Z"
+}

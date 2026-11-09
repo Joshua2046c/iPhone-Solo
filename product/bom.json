@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready_for_fit_check",
   "bom_ready": true,
-  "requirements_digest": "47c98410b596d826c2b5053cee1ca5dd44896ab30bc60fe9420d3bc35adc7cb1",
+  "requirements_digest": "131ff339ba1465938d7a76cac53df39f6dbe80f4f62944c088c08f1201f42ed8",
   "items": [
     {
       "id": "back_cover",
@@ -12,11 +12,11 @@
       "manufacturer": "Project custom",
       "part_number": "DUO-OPEN-DISPLAY-FRAME",
       "source": "default",
-      "description": "TPU95A一体主框168.3×121.5，三固定轴耳外径5.2、跨度66.666667，轴线X-121.7/Z-3.85，轴体最外X-124.3，收在壳边X-124.4内。外侧直立边与R2.6圆弧顶相切，局部过渡R0.3；底座连实并进入背板0.8，外框不开穿轴槽；外耳孔Ø2.8，中耳Ø2.05带0.5导入口。围墙6.48、内贴片0.2、手机落座Z2.6、16×8指槽及四道居中0.15浅纹保持，外背面平整。",
+      "description": "TPU95A一体主框168.3×121.5、主背板2.5、内底Z2.4。中脊侧上中下三组短铰链，各宽10；中心Y=-45/0/45，每组两固定耳各2.5宽，全孔Ø2.8。上槽29/内退1，右侧两槽各22/内退1.7，六端R2大圆弧相切过渡。保留一组外侧Y0卡扣座、内边7.9×1.6浅指槽、四道侧纹、MagSafe内槽1.35深/1.15底厚及底边12.7宽/内伸3.4接口；接口跨槽止挡细条切除。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
       "part_identity": "c444b131d083f393",
-      "selection_reason": "轴体不超壳体；固定耳外侧按标记改为直边圆弧顶，底部与完整外框连实。"
+      "selection_reason": "中央浅指槽按用户标记缩至外露卡扣总长7.9，与卡扣居中对齐；槽宽1.6、深0.3、R0.5保持。主框三组窄铰链与三处R2凹槽不变。"
     },
     {
       "id": "camera_guard",
@@ -26,11 +26,11 @@
       "manufacturer": "Project custom",
       "part_number": "DUO-CAMERA-GUARD-PLUS08",
       "source": "default",
-      "description": "PETG原保护圈向外提高0.8，保护顶Z-4.4、外翼厚3.25、总高3.65；胶面Z-1.15、定位环顶Z-0.75，净孔56.3×20.5和胶层0.15保持。",
+      "description": "PETG胶粘镜头圈，净孔56.3×20.5、外翼厚3.25、总高3.65；随主背板向内移0.9，胶面Z-0.25、保护顶Z-3.5、定位环顶Z0.15。原0.15胶层和0.05轴向退让保持。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
       "part_identity": "a9039024f434db1c",
-      "selection_reason": "用户选择保留现有高度：保护顶Z-4.4及原+0.8加高不再改变，不随悬高转轴增加。"
+      "selection_reason": "圈的实际高度和额外0.8加高保持，只按减薄后的安装面贴合。"
     },
     {
       "id": "adhesive",
@@ -41,55 +41,109 @@
       "procurement_status": "external_procurement_required",
       "required_user_evidence": [],
       "supply_risk": "胶种、镜头圈粘接强度须样件确认。",
-      "description": "仅用于摄像头圈外翼0.15胶层；连接销中段压配，不涂胶。",
+      "description": "用于摄像头圈外翼0.15胶层；转轴固定胶另列，不能未经验证直接共用。",
       "selection_reason": "仅固定保留的镜头圈，无端帽粘接。",
       "part_identity": "709e80c88487a241"
     },
     {
       "id": "display_lid",
       "role": "display_lid",
-      "name": "180度屏幕保护盖板及一体双卡扣",
+      "name": "180度屏幕保护盖板及居中单卡扣",
       "quantity": 1,
       "manufacturer": "Project custom",
       "part_number": "DUO-DISPLAY-LID",
       "source": "default",
-      "description": "PETG平整盖板76.9×114.7×2.5，两活动耳外径5.2、孔Ø2.8；取消外露方块，以45度斜臂直接接入盖板内，斜面下方填实为三角支撑并直接连到盖板，根部伸入4，内面退让0.25。双卡扣臂16×2、槽1、钩长5/高1.1、实扣0.5、释放0.8保持。",
+      "description": "PETG盖板76.9×114.7×1.6，外面Z-0.1与主背板齐平。中脊侧上中下三个活动轴耳各宽4、外径5.2/孔Ø2.8，原45度实心斜接、根部伸入4.9、颈部2.2保持。外侧一组Y0中央弹性卡扣，舌片16×2、槽1，实扣0.5、向内释放0.8。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "selection_reason": "按用户标记填实活动轴耳斜臂下方空隙，使盖板连接连续；保留45度外斜面、180度开合和加固卡扣。",
+      "selection_reason": "配合三个独立窄铰链，将活动耳及其实心斜连接同步布置到上、中、下；原盖板厚度和中央卡扣不变。",
       "part_identity": "8483c709a1972d52"
     },
     {
       "id": "display_hinge_pin",
       "role": "display_hinge_pin",
-      "name": "两端无帽直连接销",
-      "quantity": 1,
+      "name": "独立铰链两端无帽短销",
+      "quantity": 3,
       "manufacturer": "Project custom",
       "part_number": "DUO-HEADLESS-DISPLAY-PIN",
       "source": "default",
-      "description": "PETG无帽直销Ø2.2×67.666667，随紧凑轴线X-121.7/Z-3.85装配，两端各外露0.5，仅0.1倒角；中耳Ø2.05轻压定位，直径过盈0.15，其他孔Ø2.8。",
+      "description": "PETG无帽短销Ø2.2×11，共3根，每根用于一组10宽短铰链，两端各外露0.5、端面0.1倒角；配Ø2.8孔，径向间隙0.3。每根在一侧固定耳少量点胶，活动耳不涂胶。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "selection_reason": "按用户要求去掉两端盖帽；以隐藏的中段轻压配合保持连接。",
+      "selection_reason": "用户要求上中下三个独立单轴转轴；原长通条替换为三根相同短销，维持原轴径和孔径。",
       "part_identity": "87d96589ea79a64d"
     },
     {
       "id": "inner_liner",
       "role": "phone_inner_protection",
-      "name": "0.2毫米手机壳内保护贴片",
+      "name": "0.2毫米镜头侧内保护贴片",
       "quantity": 1,
       "manufacturer": "Project custom",
       "part_number": "DUO-INNER-LINER-02",
       "source": "default",
-      "description": "按内底轮廓裁切的TPU柔性保护膜，含胶总厚0.2；距壁0.2，屏幕盖口外让0.4，摄像头内开口外让0.5，不覆盖屏幕或镜头。",
-      "selection_reason": "用户要求内部0.2贴片，壳体围边和卡边同步升高0.2。",
+      "description": "仅镜头半侧背板区域的TPU柔性贴片，含胶总厚0.2；左边X-42.3直切，取消屏幕周围左侧及上下绕行窄边，其余边缘距内壁0.2、镜头内开口外让0.5。仍覆盖磁体安装区域，先安装磁体后贴膜。",
+      "selection_reason": "用户要求取消绿色框内左侧窄边，仅保留右侧贴片；厚度和镜头避让保持。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
       "part_identity": "f9669dde38b77624"
+    },
+    {
+      "id": "magsafe_magnet_set",
+      "role": "magnetic_attachment",
+      "name": "适配参考环槽及尾槽的MagSafe磁铁套件",
+      "quantity": 1,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "cad_relevance": false,
+      "description": "采购磁环及定位尾磁铁，用于内径45/外径54.72环槽及16.98×6.99胶囊尾槽；实际本体尺寸、厚度、胶层和极性需与实物匹配，磁体及胶层总安装高度按版本匹配：翻盖版可用深度1.35，封闭一体补偿版1.55。CAD只建安装槽，不用占位磁体替代采购模型。",
+      "selection_reason": "两个版本沿用参考磁环/尾槽位置和形状；封闭版内侧整合0.2后深度1.55，翻盖版1.35。采购件未取得准确型号/STEP，不声称无线充电或吸附性能已验证。",
+      "required_user_evidence": []
+    },
+    {
+      "id": "hinge_pin_adhesive",
+      "role": "assembly_consumable",
+      "name": "三组固定轴耳短销固定胶",
+      "quantity": 1,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "cad_relevance": false,
+      "description": "每根Ø2.2短销在一侧Ø2.8固定耳中少量点胶；需适配TPU95A/PETG并可填0.3径向间隙。避开活动耳及两处0.5轴向间隙，固化后翻动。",
+      "selection_reason": "分别为三个独立无帽短销提供轴向保持；具体胶种仍须样件验证。",
+      "supply_risk": "材料相容性、固化和轴向保持力须样件验证。",
+      "required_user_evidence": []
+    },
+    {
+      "id": "sealed_back_cover",
+      "role": "sealed_back_cover",
+      "name": "无翻盖封闭版一体主壳",
+      "quantity": 1,
+      "manufacturer": "Project custom",
+      "part_number": "DUO-SEALED-FRAME",
+      "source": "default",
+      "description": "TPU95A封闭主壳，外廓168.3×121.5，内腔164.9×118.21；左右短内壁各加厚0.055、壁厚1.7，两侧中央保留卡边镜像一致。内侧一体补偿0.2、支承面Z2.6；屏区盲凹78×115.81、凹底Z1.5、主体底厚1.6。MagSafe内槽深1.55、底厚1.15。上槽入口29/内退1，侧槽各22/内退1.7至台阶X42.2，六端统一R2反向相切圆弧平顺过渡。底边接口宽12.7、内伸3.4、背厚1.5。无独立贴片与翻盖连接结构。",
+      "procurement_status": "custom_fabrication",
+      "cad_relevance": true,
+      "selection_reason": "用户要求三个新凹槽端部统一大圆角平顺过渡；按默认R2反向相切圆弧，入口总长29/22/22保持。内壁每侧加厚0.055、外形不缩短。",
+      "design_id": "duo_case_sealed",
+      "supply_risk": "上方退让至镜头内腔最小余量约0.595 mm，需先打印边缘试样确认连续性、装机和强度。"
+    },
+    {
+      "id": "sealed_camera_guard",
+      "role": "sealed_camera_guard",
+      "name": "独立胶粘定位镜头保护圈",
+      "quantity": 1,
+      "manufacturer": "Project custom",
+      "part_number": "DUO-CAMERA-GUARD-PLUS08",
+      "source": "default",
+      "description": "PETG胶粘镜头圈，净孔56.3×20.5、外翼厚3.25、总高3.65；随主背板向内移0.9，胶面Z-0.25、保护顶Z-3.5、定位环顶Z0.15。原0.15胶层和0.05轴向退让保持。",
+      "procurement_status": "custom_fabrication",
+      "cad_relevance": true,
+      "selection_reason": "封闭版本分别配套镜头圈及内贴片，尺寸和材料沿用原版。",
+      "design_id": "duo_case_sealed"
     }
   ],
   "unresolved_items": [],
   "supply_risks": [
-    "直销保持力、中固定耳压配孔及盖板卡扣力需打印试样确认。"
+    "直销中固定耳点胶保持力、轴孔打印公差及盖板卡扣力需试样确认。"
   ]
 }

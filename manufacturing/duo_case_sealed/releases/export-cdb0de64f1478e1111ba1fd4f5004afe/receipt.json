@@ -1,0 +1,209 @@
+{
+  "designId": "duo_case_sealed",
+  "revision": "bc77ef2d95e56890720c6f49895feca76b42bb708330116a49349138a1bdde47",
+  "schemaVersion": 3,
+  "exportId": "export-cdb0de64f1478e1111ba1fd4f5004afe",
+  "generatedAt": "2026-11-09T14:09:35.034Z",
+  "designSha256": "6c93271bf94a66738867399ea960066afaf200b07d1deaeacae67df8c772eee3",
+  "role": "phone_case_sealed",
+  "stateHash": "fd64cd446bc2f48e38c01c6e5336f127f502339e29eb5f286559cf102235800a",
+  "stateManifest": {
+    "schemaVersion": 4,
+    "designId": "duo_case_sealed",
+    "role": "phone_case_sealed",
+    "design": {
+      "revision": "bc77ef2d95e56890720c6f49895feca76b42bb708330116a49349138a1bdde47",
+      "designSha256": "d2b3b018d0f5532468f6391d1ba77bb22b446965d5d49f28c88a7ca1e6984c42",
+      "manifestSha256": "cd7178ac0fe12c4c08ce853d62d3cd388def7dd0905ed711efb88180eb2f38f5",
+      "modelSha256": "337b960b2f211a22730a5f565e0318f98c2dafa459a730e9a5c50dacd0fdaa60",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/duo_case_sealed/README.md",
+      "sha256": "cf8f703d32312d7d76edd2362043be40d90a61509d76ec73278808709680f73d"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": "e658ff63c3d48f985cf3a0442186079e1a311e54576e45b9715e5bbed73fc2c4",
+      "designRequirementSha256": "0ff4f685a17b3d76594f47eef0d000013be29d7a5406e515b0b44a421a319c40",
+      "inputs": [
+        {
+          "role": "external-reference",
+          "id": "bottom_ramp_and_notch_mark_1",
+          "path": "product/references/uploads/20261109T060356217Z-1-mark-1.png",
+          "sha256": "b027b987cc871df1312d97c701a05cad0cbccc5b26aba5ee7b4246e5a524ea32",
+          "sizeBytes": 607455
+        },
+        {
+          "role": "external-reference",
+          "id": "bottom_ramp_and_notch_mark_2",
+          "path": "product/references/uploads/20261109T060356217Z-2-mark-2.png",
+          "sha256": "2caf11a85f473f0a4f34dcb6f8f4dad973c3d8d192617d98533473d35d7717b1",
+          "sizeBytes": 168699
+        },
+        {
+          "role": "external-reference",
+          "id": "open_phone_size_20261107",
+          "path": "product/references/uploads/20261106T203749151Z-2-ishot-2026-11-07-4-29-15.png",
+          "sha256": "8a37e8a5305914a8bcc59cf3d35f8aab5f08eaa57e7b73da279de5b0ab20a3ee",
+          "sizeBytes": 49966
+        },
+        {
+          "role": "external-reference",
+          "id": "pipes_3mf",
+          "path": "product/references/uploads/20261106T211009745Z-1-iphone-duo-case-pipes.3mf",
+          "sha256": "aad7c72eb834d1c29d2eb62b9262f7923e6c0f5c663c51d10e6ac7861c0677d6",
+          "sizeBytes": 9948690
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_edge_recess_large_blends_mark",
+          "path": "product/references/uploads/20261109T140631109Z-1-mark-1.png",
+          "sha256": "3e99a5790adc6f5837f0631ac4148378aa626eb652631fc0723689c82d4c2379",
+          "sizeBytes": 103120
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_edge_recess_mark_1",
+          "path": "product/references/uploads/20261109T125920947Z-1-mark-1.png",
+          "sha256": "8610702296f5b247534af92112f8c5d8421abe6aea39b4ac33180e396df5b32b",
+          "sizeBytes": 202481
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_edge_recess_mark_2",
+          "path": "product/references/uploads/20261109T125920947Z-2-mark-2.png",
+          "sha256": "2c15546eec88090015c8dbc5c1eedf5dda5e72cfe520597b8e65b154143e14a1",
+          "sizeBytes": 207240
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_edge_recess_mark_3",
+          "path": "product/references/uploads/20261109T125920947Z-3-mark-3.png",
+          "sha256": "d8a504d997f01e1df800eb5611bbc05f846ef9c9778d2742cf9f06ea29755e4b",
+          "sizeBytes": 206999
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_left_retention_match_mark",
+          "path": "product/references/uploads/20261109T063538689Z-1-mark-1.png",
+          "sha256": "debca371e11a6d5c69428e5d21e8a001413976b15be9f6f849b90f3b235d89fa",
+          "sizeBytes": 277988
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_recess_three_sides_mark",
+          "path": "product/references/uploads/20261108T115112958Z-1-mark-1.png",
+          "sha256": "1cbc4596a5ddc64cbd1642d58015c7838d9e5ff81b6289e7baa49b618ce3fb45",
+          "sizeBytes": 219565
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_short_inner_fit_mark_1",
+          "path": "product/references/uploads/20261109T131136713Z-1-mark-1.png",
+          "sha256": "b3a1248b8c101b975b73c00e5090eec7590184cfdc077f2660fe45d6956c750b",
+          "sizeBytes": 229303
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_short_inner_fit_mark_2",
+          "path": "product/references/uploads/20261109T131136713Z-2-mark-2.png",
+          "sha256": "d1c856c44097f922e74ea14efc726d64925ad7e384b43f3a3b450f2ab32d78a9",
+          "sizeBytes": 758695
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_side_recess_transition_mark",
+          "path": "product/references/uploads/20261109T131952526Z-1-mark-1.png",
+          "sha256": "01ffe535f5cc4d18433bfa08484653855f398275197b52695b11751a486629e6",
+          "sizeBytes": 187158
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_top_recess_entry_round_mark",
+          "path": "product/references/uploads/20261109T132614796Z-1-mark-1.png",
+          "sha256": "b02e27afc09fbadee55b707d04f053e6fd6bc28ee7b042105e4cd2ad356cd1bb",
+          "sizeBytes": 297902
+        },
+        {
+          "role": "external-reference",
+          "id": "sealed_top_recess_small_bevel_mark",
+          "path": "product/references/uploads/20261109T133606724Z-1-mark-1.png",
+          "sha256": "6302125d7bec079e6140aa449719601ea7c4f323d47235769bdba14e4533a433",
+          "sizeBytes": 231631
+        },
+        {
+          "role": "external-reference",
+          "id": "user_magsafe_reference_step",
+          "path": "product/references/uploads/20261108T061637912Z-1-back-cover-7-00-55.step",
+          "sha256": "163db2c6683f456fee5702e453d44d076a87c3b8f131c5095fbb0bc44ed767d9",
+          "sizeBytes": 1102458
+        }
+      ]
+    },
+    "delivery": {
+      "target": "fit_check",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "fd64cd446bc2f48e38c01c6e5336f127f502339e29eb5f286559cf102235800a"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "cd7178ac0fe12c4c08ce853d62d3cd388def7dd0905ed711efb88180eb2f38f5",
+    "modelSha256": "337b960b2f211a22730a5f565e0318f98c2dafa459a730e9a5c50dacd0fdaa60"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "73e2a6d20ca2ee605997d4e1a375b8831f0b363e3d66e5778b9738224ab9bcea"
+  },
+  "sourceHashes": {
+    "back_cover/back_cover": "79cf20af700f4b40ca05d57f69ac1790a8886e9fb3a52ff963f871e9369bec21",
+    "camera_guard/camera_guard": "86864500be9e94621c5d476a17cb7d2255db8d1d1dc7a21f24faa50f483ce77e"
+  },
+  "assetHashes": {},
+  "shapeHashes": {
+    "back_cover": "08ffbe42d8fcac0bab2b51d722cc0fa0e0a84c1927b7e5ea000c653a9dfbc37f",
+    "camera_guard": "00177cac0ed4c6a0927a71b3c49551d5ad25d13d3eb4b73f4950718b36f86707"
+  },
+  "runtime": {
+    "manifestHash": "554cbae44459788862704fb4402bfd42038f28a9ca86ad0fba0b9a135782e23e",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "9f9a4fc84ce829f53feb53312c3c6b427b476902bbbcbebd260a2a9fca9b79eb"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/duo_case_sealed/releases/export-cdb0de64f1478e1111ba1fd4f5004afe/model.step",
+      "role": "model/step",
+      "sha256": "5652a727697abac760deccda2d880d4b572673bf1c22a02e64859665ab1ce909",
+      "sizeBytes": 2511094
+    }
+  ],
+  "interference": {
+    "summary": "No interference across 1 object pairs.",
+    "counts": {
+      "objects": 2,
+      "pairs": 1,
+      "exact": 0,
+      "mesh": 0,
+      "cached": 1,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 0
+    },
+    "overlaps": []
+  },
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "1b70081bd1c69ca37eee130ccef00d45",
+    "projectId": "5c4942b5-e031-e6d3-66e8-dbb5f9ce24a0",
+    "receiptPath": "manufacturing/duo_case_sealed/releases/export-cdb0de64f1478e1111ba1fd4f5004afe/receipt.json",
+    "payloadSha256": "5e584faa29676203b111af79cde67bc1be6dba0ab8facb76cc88746ab50c5cf2",
+    "mac": "24d680c830af003778671d46c16e6324f80f66ed192ca336d67a34369ba7372e"
+  },
+  "status": "handoff"
+}

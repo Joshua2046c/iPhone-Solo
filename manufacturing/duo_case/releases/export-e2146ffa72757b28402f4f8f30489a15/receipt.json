@@ -1,31 +1,31 @@
 {
   "designId": "duo_case",
-  "revision": "e4fb5d2785f2b2b6e70dafb8b2c19179323ca25eceafa460543e077d37e6fe42",
+  "revision": "5d721843f5f8428ac558ee9f66788632915bd029450356f8aad38871a2f05a6b",
   "schemaVersion": 3,
-  "exportId": "export-b9fcbd654d4c076b3cdfe330e6fa0bc3",
-  "generatedAt": "2026-11-07T12:51:33.487Z",
-  "designSha256": "2b97fcfc453a4eb448692bb748319905dd3cff362e2b35aeae44cbfb0c77a019",
+  "exportId": "export-e2146ffa72757b28402f4f8f30489a15",
+  "generatedAt": "2026-11-09T15:49:06.267Z",
+  "designSha256": "623d251de92b4fb935aec657e4f3d0166355ab42fd30096765affe4de9b3aa7a",
   "role": "phone_case",
-  "stateHash": "e62e5edbfbba83f7fc0ea9f7f3928d58289d999098f950464bf76aa49e23e113",
+  "stateHash": "0331fa8a05a99c2bdc1d816379cb8f3e6505f93b92228b2cccf51938a47cf269",
   "stateManifest": {
     "schemaVersion": 4,
     "designId": "duo_case",
     "role": "phone_case",
     "design": {
-      "revision": "e4fb5d2785f2b2b6e70dafb8b2c19179323ca25eceafa460543e077d37e6fe42",
-      "designSha256": "390468f4e9ba0f3d1743e0b337045b524346ecf16497a90b46c9f49156960b94",
-      "manifestSha256": "b8dcc0fa79e09abd9983a97a6a5a89f91ae2fe7ce5adada90725363e4c2057e7",
-      "modelSha256": "b62a6ace33685c4229b00725b1b3c907c78667505055ab48f92208f67139a794",
+      "revision": "5d721843f5f8428ac558ee9f66788632915bd029450356f8aad38871a2f05a6b",
+      "designSha256": "c02132ced31c664f76e20bbc6f9a0f52f0b2a76b8b2efad6faa025cdcb56bb46",
+      "manifestSha256": "9ee0fc748cee31d984b38d5a1b99a5a79c3055d962c499fdda51964dc55bfd36",
+      "modelSha256": "958ea21b04bbbdbcea1de3a8dbbcbfbd5760154188bf99e2b2c29d384bf71e37",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/duo_case/README.md",
-      "sha256": "feb8453b4a8224a34c371fee1b975a78cd8b511cc752982b5268255096073b9b"
+      "sha256": "b37d1073c564eaabf464a5ece5053d7100e5c9365a6aeb13e651420b6e4345db"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
-      "artifactContractSha256": "e14cfb6a35acfbc32fa869e85fbc3ac0dbfbe8b8d6f09a04c99b44ad199a370a",
-      "designRequirementSha256": "444c8bb49805a3a6af007bc0ec16252f8bf7019030543e1ad56a00e8baa1f2d2",
+      "artifactContractSha256": "197eb213fa79b676f3bc3c27c2cfc110a29f9394cdff2922bda1fb08622b9975",
+      "designRequirementSha256": "2237903c632397dddd94820c2e955991949cdb648f9ec979b95e7f7205d5473c",
       "inputs": [
         {
           "role": "external-reference",
@@ -82,6 +82,20 @@
           "path": "product/references/uploads/20261018T143940285Z-1-mark-1.png",
           "sha256": "4cdc450d4c353409fa70dbd661d282153cb7b970cce5bcf34aa1d4b112fd2228",
           "sizeBytes": 123033
+        },
+        {
+          "role": "external-reference",
+          "id": "bottom_ramp_and_notch_mark_1",
+          "path": "product/references/uploads/20261109T060356217Z-1-mark-1.png",
+          "sha256": "b027b987cc871df1312d97c701a05cad0cbccc5b26aba5ee7b4246e5a524ea32",
+          "sizeBytes": 607455
+        },
+        {
+          "role": "external-reference",
+          "id": "bottom_ramp_and_notch_mark_2",
+          "path": "product/references/uploads/20261109T060356217Z-2-mark-2.png",
+          "sha256": "2caf11a85f473f0a4f34dcb6f8f4dad973c3d8d192617d98533473d35d7717b1",
+          "sizeBytes": 168699
         },
         {
           "role": "external-reference",
@@ -152,6 +166,13 @@
           "path": "product/references/uploads/20261018T081558827Z-3-mark-3.png",
           "sha256": "168df4151a01be9683b9ba8099362edbad9f64ee01e45ae2d9f24f925aa47948",
           "sizeBytes": 204231
+        },
+        {
+          "role": "external-reference",
+          "id": "center_hinge_bore_enlargement_mark",
+          "path": "product/references/uploads/20261108T111549833Z-1-mark-1.png",
+          "sha256": "4e665d08227bcfeff708ab14f6b93876eeef80fa5b620e8cbe7c74adbfa2050d",
+          "sizeBytes": 121804
         },
         {
           "role": "external-reference",
@@ -239,6 +260,13 @@
         },
         {
           "role": "external-reference",
+          "id": "continuous_hinge_side_grip",
+          "path": "product/references/uploads/20261107T182916808Z-1-mark-1.png",
+          "sha256": "76a437e217865b9bbe610619ee5daaa2ec4724ca9b49f6517704aa4dc2b87c53",
+          "sizeBytes": 125732
+        },
+        {
+          "role": "external-reference",
           "id": "corrected_phone_outline_1",
           "path": "product/references/uploads/20261016T111812979Z-1-ishot-2026-10-16-7-14-40.png",
           "sha256": "cd97cdb362e80d665bb4eae077629fcabca4f171f4b412b18021f2e3a6da5467",
@@ -264,6 +292,20 @@
           "path": "product/references/uploads/20260924T033602794Z-2-ishot-2026-09-24-11-17-19.png",
           "sha256": "3cd0c76b2f4e4e25ca73901e9e3ca58b776705c801057a30c9e69e620c1150f6",
           "sizeBytes": 94709
+        },
+        {
+          "role": "external-reference",
+          "id": "finger_recess_at_inner_edge_mark",
+          "path": "product/references/uploads/20261108T113301558Z-1-mark-1.png",
+          "sha256": "9a0d0a827dffdc3ded799017683324e05538d619262fd6b2967fcd6f9b2e4c8c",
+          "sizeBytes": 163723
+        },
+        {
+          "role": "external-reference",
+          "id": "finger_recess_matches_latch_mark",
+          "path": "product/references/uploads/20261109T154745607Z-1-mark-1.png",
+          "sha256": "31e759ea6e2b2aa207de268526045750fb673e5db327213743786590f23025ec",
+          "sizeBytes": 77322
         },
         {
           "role": "external-reference",
@@ -365,6 +407,20 @@
         },
         {
           "role": "external-reference",
+          "id": "hinge_to_center_spine",
+          "path": "product/references/uploads/20261107T191345619Z-1-mark-1.png",
+          "sha256": "82515f4e9f2790409505fc3a4283cee9c4127fa17d8ec12c9bbecca284152e51",
+          "sizeBytes": 90052
+        },
+        {
+          "role": "external-reference",
+          "id": "hinged_bottom_stop_strip_mark",
+          "path": "product/references/uploads/20261109T063027431Z-1-mark-1.png",
+          "sha256": "38a6876545ff717a7add73af19fd65bad4a045d6b880e563b24993ec5d425770",
+          "sizeBytes": 210867
+        },
+        {
+          "role": "external-reference",
           "id": "inner_integral_motifs_mark",
           "path": "product/references/uploads/20261018T130922918Z-1-mark-1.png",
           "sha256": "d6d93b54a9f2a7b881c73b571d8826c7e9ccb6c264472f1fc469e101bc82b7c0",
@@ -376,6 +432,41 @@
           "path": "product/references/uploads/20260924T041432570Z-1-mark.png",
           "sha256": "7676c60fc40387acbc58928d1b794236ce757887a397a5658465dc59eeda8a7a",
           "sizeBytes": 58390
+        },
+        {
+          "role": "external-reference",
+          "id": "lid_refinement_mark_1",
+          "path": "product/references/uploads/20261107T182252784Z-1-mark-1.png",
+          "sha256": "758bd0583617375e6f59446bf0a2864218065e908242fbb218174002531fdbab",
+          "sizeBytes": 119855
+        },
+        {
+          "role": "external-reference",
+          "id": "lid_refinement_mark_2",
+          "path": "product/references/uploads/20261107T182252784Z-2-mark-2.png",
+          "sha256": "0b272d4db002e071666508c0aea24763c9f83571648570ad0de42188f9486c2f",
+          "sizeBytes": 105718
+        },
+        {
+          "role": "external-reference",
+          "id": "lid_refinement_mark_3",
+          "path": "product/references/uploads/20261107T182252784Z-3-mark-3.png",
+          "sha256": "ad156f314f1c43da439f33714a395d9f92e3271e6521703f6fdbf726f545f774",
+          "sizeBytes": 81472
+        },
+        {
+          "role": "external-reference",
+          "id": "lid_refinement_mark_4",
+          "path": "product/references/uploads/20261107T182252784Z-4-mark-4.png",
+          "sha256": "3b365eae9293d0a64dee2997fce31a24302e6f3552c0e37aa145e2ea8b9f2630",
+          "sizeBytes": 48287
+        },
+        {
+          "role": "external-reference",
+          "id": "liner_left_strip_removal",
+          "path": "product/references/uploads/20261108T064615666Z-1-mark-1.png",
+          "sha256": "caac800d833b13cd21271003981cda42556987757eeabea3d6d07f26a3428de2",
+          "sizeBytes": 464149
         },
         {
           "role": "external-reference",
@@ -575,6 +666,20 @@
         },
         {
           "role": "external-reference",
+          "id": "single_center_finger_recess_mark",
+          "path": "product/references/uploads/20261108T112301627Z-1-mark-1.png",
+          "sha256": "f297380e1bf161bef762dbc509948e31f1b742c9477515110d4f8fcfcae46997",
+          "sizeBytes": 71173
+        },
+        {
+          "role": "external-reference",
+          "id": "single_center_latch_mark",
+          "path": "product/references/uploads/20261108T110801001Z-1-mark-1.png",
+          "sha256": "6bc430372808fefeb83da5b09a97f30c054a70d3d0d905580b3bb7c605f24430",
+          "sizeBytes": 121865
+        },
+        {
+          "role": "external-reference",
           "id": "spine_slots_left_shift_1_mark",
           "path": "product/references/uploads/20261019T063726310Z-1-mark-1.png",
           "sha256": "eee6cdea5b506f254505c58c0b1c6370b3647503195f8b1438995aa58fb46cf8",
@@ -631,6 +736,13 @@
         },
         {
           "role": "external-reference",
+          "id": "user_magsafe_reference_step",
+          "path": "product/references/uploads/20261108T061637912Z-1-back-cover-7-00-55.step",
+          "sha256": "163db2c6683f456fee5702e453d44d076a87c3b8f131c5095fbb0bc44ed767d9",
+          "sizeBytes": 1102458
+        },
+        {
+          "role": "external-reference",
           "id": "wide_shield_request",
           "path": "product/references/hinge-widening-request.md",
           "sha256": "358311428abb63eddfd62e17b16b9e708089aa6d8871d2da28d90a286f963133",
@@ -644,80 +756,73 @@
         "step"
       ]
     },
-    "stateHash": "e62e5edbfbba83f7fc0ea9f7f3928d58289d999098f950464bf76aa49e23e113"
+    "stateHash": "0331fa8a05a99c2bdc1d816379cb8f3e6505f93b92228b2cccf51938a47cf269"
   },
   "buildArtifacts": {
-    "manifestSha256": "b8dcc0fa79e09abd9983a97a6a5a89f91ae2fe7ce5adada90725363e4c2057e7",
-    "modelSha256": "b62a6ace33685c4229b00725b1b3c907c78667505055ab48f92208f67139a794"
+    "manifestSha256": "9ee0fc748cee31d984b38d5a1b99a5a79c3055d962c499fdda51964dc55bfd36",
+    "modelSha256": "958ea21b04bbbdbcea1de3a8dbbcbfbd5760154188bf99e2b2c29d384bf71e37"
   },
   "exportAlgorithm": {
     "version": 1,
     "bootstrapSha256": "73e2a6d20ca2ee605997d4e1a375b8831f0b363e3d66e5778b9738224ab9bcea"
   },
   "sourceHashes": {
-    "back_cover/back_cover": "f7c4920b688a57d57eefda9f4d8953bfbb7359bea6f9f5307c869129321d6125",
-    "camera_guard/camera_guard": "cd7b02c6e7021980e2dd91e15a17a4cb736a6cd74c689e5873782acd969845b9",
-    "display_hinge_pin/display_hinge_pin": "1e2b69596cac9ca564551fe901b5796cd3b715a1df9cadb90f21eb590dede67e",
-    "display_lid/display_lid": "b2e0a745bc9a4751ffc97599f5b5b0795abce9ffc7d34909f48d2b33e51e0125",
-    "inner_liner/inner_liner": "02551797ee965ea869162768ed0911c5e1a43d9e5650ea270a8a79087d62789b"
+    "back_cover/back_cover": "eeefa38840eb57a87b0b532955bf4df5e251224f12e17ad76788e8e9628a56ad",
+    "camera_guard/camera_guard": "0fc7fee46da2e3c45bf4df09834fa3e6a78f435fa254461ae80db7ada54c6821",
+    "display_hinge_pin_lower/display_hinge_pin_lower": "cbdd412978e76194b3c472217eb87fee771178647788636ede1aede31664975a",
+    "display_hinge_pin_upper/display_hinge_pin_upper": "94526a6850bd03aeb3404397274ac17d148caee9a6fa2b2bf52c7a9debc6d2ce",
+    "display_hinge_pin/display_hinge_pin": "e54806ad0639fa97bb85f75bc6543211b132b7e5bb2a5ed9bd60858a28327ede",
+    "display_lid/display_lid": "fc65e9748fd4b8f7748f8d8d0998bd26420c780204ec78edfaa9f8fbac9d98cb",
+    "inner_liner/inner_liner": "9a6cd0ee36bb12c1d84014d2e5ac7978dfd0ce88381a60547d567eb48bd3422f"
   },
   "assetHashes": {},
   "shapeHashes": {
-    "back_cover": "846106416e304c35d1cb28b191b99e196bbc5e859f05f2b7a3d02eb1f7b20ae7",
-    "camera_guard": "a325c3bf8b98b207f26095c486e9639e3a90628461e899023b8f26d653ca8cce",
-    "display_hinge_pin": "bd76d4af78f92a341693749ab7ae4c1c56ff33b4976914a43bd07d89396d422b",
-    "display_lid": "06fed9d0eae9967fd71fce5d4359ae6ef6b23c3d11f34a834d2eb00f364b8b31",
-    "inner_liner": "5cdf9072d0bb4caed02089b04823abaf9aa724cd3b0748a8363654c7d80486b3"
+    "back_cover": "6d9f47ac8d850f721822c15a8a9a522bd0a5bdd1b24ab4b30e55a38decf80285",
+    "camera_guard": "00177cac0ed4c6a0927a71b3c49551d5ad25d13d3eb4b73f4950718b36f86707",
+    "display_hinge_pin": "12a828bbe0a38aceea745e7d9cfcbe4a737b9396a815f61c9c5a46c8f7aad7ca",
+    "display_hinge_pin_lower": "4c69185c44ac7161d137dd6ee45d31efcc1790384f7a9cf66b710eff13604550",
+    "display_hinge_pin_upper": "f143773addf4caf3c7d7fb8d810dd523c6fff1e64ee177f69c6c8691402b4eb5",
+    "display_lid": "002c1df2cd5b0f9357a1c580f8fd83473a4fd1b13ef4216a6968c2c5e397ee98",
+    "inner_liner": "df6ffc4c6bfbd173ca5fd522a9abf6406c09c431d3c0b32930cae1516207d043"
   },
   "runtime": {
-    "manifestHash": "40096ae61f16c15d83c469783a9e2d4c3ceb37e11021f0ef221ee016e9a4847a",
+    "manifestHash": "554cbae44459788862704fb4402bfd42038f28a9ca86ad0fba0b9a135782e23e",
     "pythonVersion": "3.12.13",
     "build123dVersion": "0.10.0",
     "ocpVersion": "7.8.1.1.post1",
-    "cadpyHash": "d5e9f5168ad46e1ecf2fc58e659e9bb49f508a73b0e43b6d4d70331eb4232b74"
+    "cadpyHash": "9f9a4fc84ce829f53feb53312c3c6b427b476902bbbcbebd260a2a9fca9b79eb"
   },
   "artifacts": [
     {
-      "path": "manufacturing/duo_case/releases/export-b9fcbd654d4c076b3cdfe330e6fa0bc3/model.step",
+      "path": "manufacturing/duo_case/releases/export-e2146ffa72757b28402f4f8f30489a15/model.step",
       "role": "model/step",
-      "sha256": "db69108dfcc849061e68b8500f0e94484eb5647a9daec6be2e05bf6204bbb1e5",
-      "sizeBytes": 3223713
+      "sha256": "79471f95430804880f77eddbf48441b5e08af8faebcd23a98598693a14fb0e2d",
+      "sizeBytes": 3269434
     }
   ],
   "interference": {
-    "summary": "1 interfering pair",
+    "summary": "No interference across 21 object pairs.",
     "counts": {
-      "objects": 5,
-      "pairs": 10,
+      "objects": 7,
+      "pairs": 21,
       "exact": 0,
       "mesh": 0,
-      "cached": 5,
-      "interference": 1,
+      "cached": 9,
+      "interference": 0,
       "undeclared": 0,
       "over_budget": 0,
       "undetermined": 0
     },
-    "overlaps": [
-      {
-        "a": "back_cover",
-        "b": "display_hinge_pin",
-        "verdict": "declared",
-        "kind": "press_fit",
-        "reason": "Headless straight pin is held by the TPU center fixed knuckle; moving lid bores remain clearance fits",
-        "maxDepthMm": 0.083,
-        "volumeMm3": 6.225851,
-        "budgetMm": 0.15000000000000036
-      }
-    ]
+    "overlaps": []
   },
   "authority": {
     "version": 1,
     "algorithm": "hmac-sha256",
     "keyId": "1b70081bd1c69ca37eee130ccef00d45",
     "projectId": "5c4942b5-e031-e6d3-66e8-dbb5f9ce24a0",
-    "receiptPath": "manufacturing/duo_case/releases/export-b9fcbd654d4c076b3cdfe330e6fa0bc3/receipt.json",
-    "payloadSha256": "837ace631884314dda42a8974ba4dc651b9f6017a7a6e01043e052b951ec7a31",
-    "mac": "d24630262b147c8ec7273ea9cb374bb608571eb16939eb1cfe6c7cbb758402b2"
+    "receiptPath": "manufacturing/duo_case/releases/export-e2146ffa72757b28402f4f8f30489a15/receipt.json",
+    "payloadSha256": "9570cf007db11f005e4552fbb0679a31596d14560263d795e53ef22a2c65a77b",
+    "mac": "d9a52b5b6a8e6d3080ade1e9130a41d5f53c23c2736b7e36c893f799dca629ee"
   },
   "status": "handoff"
 }

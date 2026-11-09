@@ -12,12 +12,10 @@
           "target": "back_cover",
           "order": 0,
           "path": "design/duo_case/source/parts/back_cover/000-back_cover.py",
-          "sha256": "f7c4920b688a57d57eefda9f4d8953bfbb7359bea6f9f5307c869129321d6125"
+          "sha256": "eeefa38840eb57a87b0b532955bf4df5e251224f12e17ad76788e8e9628a56ad"
         }
       ],
-      "dependencies": [
-        "camera_guard"
-      ]
+      "dependencies": []
     },
     {
       "id": "camera_guard",
@@ -28,10 +26,12 @@
           "target": "camera_guard",
           "order": 0,
           "path": "design/duo_case/source/parts/camera_guard/000-camera_guard.py",
-          "sha256": "cd7b02c6e7021980e2dd91e15a17a4cb736a6cd74c689e5873782acd969845b9"
+          "sha256": "0fc7fee46da2e3c45bf4df09834fa3e6a78f435fa254461ae80db7ada54c6821"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "back_cover"
+      ]
     },
     {
       "id": "display_lid",
@@ -42,7 +42,7 @@
           "target": "display_lid",
           "order": 0,
           "path": "design/duo_case/source/parts/display_lid/000-display_lid.py",
-          "sha256": "b2e0a745bc9a4751ffc97599f5b5b0795abce9ffc7d34909f48d2b33e51e0125"
+          "sha256": "fc65e9748fd4b8f7748f8d8d0998bd26420c780204ec78edfaa9f8fbac9d98cb"
         }
       ],
       "dependencies": [
@@ -58,7 +58,7 @@
           "target": "display_hinge_pin",
           "order": 0,
           "path": "design/duo_case/source/parts/display_hinge_pin/000-display_hinge_pin.py",
-          "sha256": "1e2b69596cac9ca564551fe901b5796cd3b715a1df9cadb90f21eb590dede67e"
+          "sha256": "e54806ad0639fa97bb85f75bc6543211b132b7e5bb2a5ed9bd60858a28327ede"
         }
       ],
       "dependencies": [
@@ -74,11 +74,45 @@
           "target": "inner_liner",
           "order": 0,
           "path": "design/duo_case/source/parts/inner_liner/000-inner_liner.py",
-          "sha256": "02551797ee965ea869162768ed0911c5e1a43d9e5650ea270a8a79087d62789b"
+          "sha256": "9a6cd0ee36bb12c1d84014d2e5ac7978dfd0ce88381a60547d567eb48bd3422f"
         }
       ],
       "dependencies": [
         "back_cover"
+      ]
+    },
+    {
+      "id": "display_hinge_pin_lower",
+      "label": "display_hinge_pin_lower",
+      "cells": [
+        {
+          "id": "display_hinge_pin_lower",
+          "target": "display_hinge_pin_lower",
+          "order": 0,
+          "path": "design/duo_case/source/parts/display_hinge_pin_lower/000-display_hinge_pin_lower.py",
+          "sha256": "cbdd412978e76194b3c472217eb87fee771178647788636ede1aede31664975a"
+        }
+      ],
+      "dependencies": [
+        "back_cover",
+        "display_hinge_pin"
+      ]
+    },
+    {
+      "id": "display_hinge_pin_upper",
+      "label": "display_hinge_pin_upper",
+      "cells": [
+        {
+          "id": "display_hinge_pin_upper",
+          "target": "display_hinge_pin_upper",
+          "order": 0,
+          "path": "design/duo_case/source/parts/display_hinge_pin_upper/000-display_hinge_pin_upper.py",
+          "sha256": "94526a6850bd03aeb3404397274ac17d148caee9a6fa2b2bf52c7a9debc6d2ce"
+        }
+      ],
+      "dependencies": [
+        "back_cover",
+        "display_hinge_pin"
       ]
     }
   ],
@@ -89,7 +123,7 @@
       "label": "带屏幕窗一体主壳",
       "material": "tpu",
       "kind": "generated",
-      "shapeHash": "846106416e304c35d1cb28b191b99e196bbc5e859f05f2b7a3d02eb1f7b20ae7",
+      "shapeHash": "6d9f47ac8d850f721822c15a8a9a522bd0a5bdd1b24ab4b30e55a38decf80285",
       "transform": {
         "positionMm": [
           0,
@@ -114,13 +148,14 @@
       "id": "camera_guard",
       "target": "camera_guard",
       "label": "05 镜头保护圈",
+      "material": "petg",
       "kind": "generated",
-      "shapeHash": "a325c3bf8b98b207f26095c486e9639e3a90628461e899023b8f26d653ca8cce",
+      "shapeHash": "00177cac0ed4c6a0927a71b3c49551d5ad25d13d3eb4b73f4950718b36f86707",
       "transform": {
         "positionMm": [
           10,
           43.9,
-          -1.15
+          -0.25
         ],
         "rotationDeg": [
           0,
@@ -142,7 +177,7 @@
       "label": "180度屏幕盖板",
       "material": "petg",
       "kind": "generated",
-      "shapeHash": "06fed9d0eae9967fd71fce5d4359ae6ef6b23c3d11f34a834d2eb00f364b8b31",
+      "shapeHash": "002c1df2cd5b0f9357a1c580f8fd83473a4fd1b13ef4216a6968c2c5e397ee98",
       "transform": {
         "positionMm": [
           0,
@@ -166,13 +201,13 @@
     {
       "id": "display_hinge_pin",
       "target": "display_hinge_pin",
-      "label": "两端无帽直销",
+      "label": "中部无帽短销",
       "material": "petg",
       "kind": "generated",
-      "shapeHash": "bd76d4af78f92a341693749ab7ae4c1c56ff33b4976914a43bd07d89396d422b",
+      "shapeHash": "12a828bbe0a38aceea745e7d9cfcbe4a737b9396a815f61c9c5a46c8f7aad7ca",
       "transform": {
         "positionMm": [
-          -121.7,
+          -41.1,
           0,
           -3.85
         ],
@@ -196,7 +231,7 @@
       "label": "0.2毫米内保护贴片",
       "material": "tpu",
       "kind": "generated",
-      "shapeHash": "5cdf9072d0bb4caed02089b04823abaf9aa724cd3b0748a8363654c7d80486b3",
+      "shapeHash": "df6ffc4c6bfbd173ca5fd522a9abf6406c09c431d3c0b32930cae1516207d043",
       "transform": {
         "positionMm": [
           0,
@@ -216,24 +251,70 @@
         ]
       },
       "datums": []
+    },
+    {
+      "id": "display_hinge_pin_lower",
+      "target": "display_hinge_pin_lower",
+      "label": "下部无帽短销",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "4c69185c44ac7161d137dd6ee45d31efcc1790384f7a9cf66b710eff13604550",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          -45,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "display_hinge_pin_upper",
+      "target": "display_hinge_pin_upper",
+      "label": "上部无帽短销",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "f143773addf4caf3c7d7fb8d810dd523c6fff1e64ee177f69c6c8691402b4eb5",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          45,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
     }
   ],
   "assets": [],
-  "fits": [
-    {
-      "kind": "press_fit",
-      "budget_mm": 0.15000000000000036,
-      "reason": "Headless straight pin is held by the TPU center fixed knuckle; moving lid bores remain clearance fits",
-      "a": "display_hinge_pin",
-      "b": "back_cover"
-    }
-  ],
-  "updatedAt": "2026-11-07T12:51:33.487Z",
+  "fits": [],
+  "updatedAt": "2026-11-09T15:49:06.267Z",
   "parameters": {
     "back_cover": {
       "back_cover_fit_clearance": 0.25,
       "back_cover_wall": 1.6,
-      "back_cover_plate": 3.4,
+      "back_cover_plate": 2.5,
       "back_cover_corner_radius": 12,
       "back_cover_corner_inward": 0.7,
       "back_cover_lip_height": 0.7,
@@ -276,25 +357,58 @@
       "back_cover_lid_barrel_radius": 2.6,
       "back_cover_lid_bore_radius": 1.4,
       "back_cover_lid_hinge_axial_gap": 0.5,
-      "back_cover_lid_hinge_root_overlap": 4,
+      "back_cover_lid_hinge_root_overlap": 4.9,
       "back_cover_lid_latch_tip_y": 24,
-      "back_cover_lid_latch_hook_length": 5,
+      "back_cover_lid_latch_hook_length": 7.5,
       "back_cover_lid_latch_receiver_depth": 1.2,
-      "back_cover_lid_latch_shoulder_thickness": 1.2,
+      "back_cover_lid_latch_shoulder_thickness": 0.8,
       "back_cover_lid_latch_receiver_y_gap": 0.3,
       "back_cover_lid_socket_clearance": 0.25,
-      "back_cover_lid_finger_slot_length": 16,
-      "back_cover_lid_finger_slot_width": 8,
-      "back_cover_lid_finger_slot_depth": 1.4,
+      "back_cover_lid_finger_slot_length": 7.9,
+      "back_cover_lid_finger_slot_width": 1.6,
+      "back_cover_lid_finger_slot_depth": 0.3,
       "back_cover_lid_hinge_span": 66.66666666666667,
-      "back_cover_lid_pin_retention_diameter": 2.05,
+      "back_cover_lid_pin_retention_diameter": 2.8,
       "back_cover_lid_pin_lead_length": 0.5,
       "back_cover_liner_thickness": 0.2,
       "back_cover_lid_fixed_root_bond": 0.8,
       "back_cover_lid_fixed_web_edge_radius": 0.3,
       "back_cover_grip_hinge_margin": 2,
       "back_cover_hinge_edge_margin": 0.1,
-      "back_cover_hinge_base_side_inset": 0.2
+      "back_cover_hinge_base_side_inset": 0.2,
+      "back_cover_center_retention_length": 16,
+      "back_cover_center_retention_root_bond": 0.4,
+      "back_cover_center_retention_edge_radius": 0.15,
+      "back_cover_lid_latch_receiver_roof": 0.6,
+      "back_cover_lid_finger_slot_corner_radius": 0.5,
+      "back_cover_lid_hinge_inboard_offset": 1.6,
+      "back_cover_magsafe_inner_diameter": 45,
+      "back_cover_magsafe_outer_diameter": 54.72,
+      "back_cover_magsafe_x": 2.05,
+      "back_cover_magsafe_y": -2.41,
+      "back_cover_magsafe_back_skin": 1.15,
+      "back_cover_magsafe_tail_length": 16.98,
+      "back_cover_magsafe_tail_width": 6.99,
+      "back_cover_magsafe_tail_gap": 1.9,
+      "back_cover_lid_outer_face_z": -1,
+      "back_cover_hinge_reference_plane_z": -1,
+      "back_cover_lid_latch_center_y": 0,
+      "back_cover_lid_finger_support_margin": 0.5,
+      "back_cover_lid_finger_outer_land": 1.2,
+      "back_cover_lid_finger_edge_overlap": 0.05,
+      "back_cover_bottom_left_notch_width": 12.7,
+      "back_cover_bottom_left_notch_inward": 3.4,
+      "back_cover_bottom_left_notch_backing": 1.5,
+      "back_cover_bottom_left_notch_corner": 0.3,
+      "back_cover_lid_hinge_station_offset": 45,
+      "back_cover_lid_hinge_station_width": 10,
+      "back_cover_lid_hinge_fixed_ear_width": 2.5,
+      "back_cover_edge_recess_inset": 1,
+      "back_cover_edge_recess_blend_radius": 2,
+      "back_cover_top_edge_recess_length": 29,
+      "back_cover_power_edge_recess_length": 22,
+      "back_cover_shutter_edge_recess_length": 22,
+      "back_cover_side_edge_recess_inset": 1.7
     },
     "camera_guard": {
       "camera_guard_inner_width": 58.3,
@@ -308,23 +422,25 @@
       "camera_guard_inner_cavity_depth": 3.9,
       "camera_guard_collar_inward": 1,
       "camera_guard_collar_height": 0.4,
-      "camera_guard_extra_outer_height": 0.8
+      "camera_guard_extra_outer_height": 0.8,
+      "camera_guard_nominal_flange_thickness": 2.45
     },
     "display_lid": {
-      "display_lid_thickness": 2.5,
+      "display_lid_thickness": 1.6,
       "display_lid_edge_radius": 0.45,
       "display_lid_latch_arm_width": 2,
       "display_lid_latch_arm_length": 16,
       "display_lid_latch_slit_width": 1,
       "display_lid_latch_hook_reach": 0.75,
-      "display_lid_latch_hook_height": 1.1,
-      "display_lid_latch_hook_bottom_z": 0.4,
+      "display_lid_latch_hook_height": 0.8,
+      "display_lid_latch_hook_bottom_z": 0.7,
       "display_lid_latch_hook_edge_radius": 0.15,
       "display_lid_release_pad_height": 0.6,
       "display_lid_hinge_web_edge_radius": 0.3,
       "display_lid_release_margin": 0.3,
       "display_lid_hinge_inner_setback": 0.25,
-      "display_lid_hinge_outer_bond_inset": 0.05
+      "display_lid_hinge_outer_bond_inset": 0.05,
+      "display_lid_hinge_neck_height": 2.2
     },
     "display_hinge_pin": {
       "display_hinge_pin_radius": 1.1,
@@ -335,6 +451,12 @@
       "inner_liner_wall_clearance": 0.2,
       "inner_liner_screen_clearance": 0.4,
       "inner_liner_camera_clearance": 0.5
+    },
+    "display_hinge_pin_lower": {
+      "display_hinge_pin_lower_radius": 1.1
+    },
+    "display_hinge_pin_upper": {
+      "display_hinge_pin_upper_radius": 1.1
     }
   }
 }
