@@ -12,7 +12,7 @@
           "target": "back_cover",
           "order": 0,
           "path": "design/duo_case/source/parts/back_cover/000-back_cover.py",
-          "sha256": "eeefa38840eb57a87b0b532955bf4df5e251224f12e17ad76788e8e9628a56ad"
+          "sha256": "5b2b124cf1a5fb07e7cca53c2923d64b7927a90f63f2aeb8074487056907c335"
         }
       ],
       "dependencies": []
@@ -66,22 +66,6 @@
       ]
     },
     {
-      "id": "inner_liner",
-      "label": "inner_liner",
-      "cells": [
-        {
-          "id": "inner_liner",
-          "target": "inner_liner",
-          "order": 0,
-          "path": "design/duo_case/source/parts/inner_liner/000-inner_liner.py",
-          "sha256": "9a6cd0ee36bb12c1d84014d2e5ac7978dfd0ce88381a60547d567eb48bd3422f"
-        }
-      ],
-      "dependencies": [
-        "back_cover"
-      ]
-    },
-    {
       "id": "display_hinge_pin_lower",
       "label": "display_hinge_pin_lower",
       "cells": [
@@ -114,6 +98,102 @@
         "back_cover",
         "display_hinge_pin"
       ]
+    },
+    {
+      "id": "fixed_lug_lower_a",
+      "label": "fixed_lug_lower_a",
+      "cells": [
+        {
+          "id": "fixed_lug_lower_a",
+          "target": "fixed_lug_lower_a",
+          "order": 0,
+          "path": "design/duo_case/source/parts/fixed_lug_lower_a/000-fixed_lug_lower_a.py",
+          "sha256": "9da686bf8df90900ed953a2af405c817414deb7b644bcef69e7bf4570eedeb8b"
+        }
+      ],
+      "dependencies": [
+        "back_cover"
+      ]
+    },
+    {
+      "id": "fixed_lug_lower_b",
+      "label": "fixed_lug_lower_b",
+      "cells": [
+        {
+          "id": "fixed_lug_lower_b",
+          "target": "fixed_lug_lower_b",
+          "order": 0,
+          "path": "design/duo_case/source/parts/fixed_lug_lower_b/000-fixed_lug_lower_b.py",
+          "sha256": "0d9c72c861c93c391dea09390e334bb82dbe1f8ba43970f0465152ec94688d7c"
+        }
+      ],
+      "dependencies": [
+        "back_cover"
+      ]
+    },
+    {
+      "id": "fixed_lug_middle_a",
+      "label": "fixed_lug_middle_a",
+      "cells": [
+        {
+          "id": "fixed_lug_middle_a",
+          "target": "fixed_lug_middle_a",
+          "order": 0,
+          "path": "design/duo_case/source/parts/fixed_lug_middle_a/000-fixed_lug_middle_a.py",
+          "sha256": "ffbc6964c59e7fd0d8e211840508e922e5613a3191f43b4b624f4fe45a35dffb"
+        }
+      ],
+      "dependencies": [
+        "back_cover"
+      ]
+    },
+    {
+      "id": "fixed_lug_middle_b",
+      "label": "fixed_lug_middle_b",
+      "cells": [
+        {
+          "id": "fixed_lug_middle_b",
+          "target": "fixed_lug_middle_b",
+          "order": 0,
+          "path": "design/duo_case/source/parts/fixed_lug_middle_b/000-fixed_lug_middle_b.py",
+          "sha256": "a5e1e1bed135c3bebc327cbc12eb0c19af92e767f4627cd55a1d09c890d1e9da"
+        }
+      ],
+      "dependencies": [
+        "back_cover"
+      ]
+    },
+    {
+      "id": "fixed_lug_upper_a",
+      "label": "fixed_lug_upper_a",
+      "cells": [
+        {
+          "id": "fixed_lug_upper_a",
+          "target": "fixed_lug_upper_a",
+          "order": 0,
+          "path": "design/duo_case/source/parts/fixed_lug_upper_a/000-fixed_lug_upper_a.py",
+          "sha256": "79e9343ffe8384710a57dbcdc32a0e3292ded106b4317bccde8453ce833b7c10"
+        }
+      ],
+      "dependencies": [
+        "back_cover"
+      ]
+    },
+    {
+      "id": "fixed_lug_upper_b",
+      "label": "fixed_lug_upper_b",
+      "cells": [
+        {
+          "id": "fixed_lug_upper_b",
+          "target": "fixed_lug_upper_b",
+          "order": 0,
+          "path": "design/duo_case/source/parts/fixed_lug_upper_b/000-fixed_lug_upper_b.py",
+          "sha256": "dfa85d94761f5283dbac9e97d525edab947446fa16f4555e6bad6bf5db71483d"
+        }
+      ],
+      "dependencies": [
+        "back_cover"
+      ]
     }
   ],
   "objects": [
@@ -123,7 +203,7 @@
       "label": "带屏幕窗一体主壳",
       "material": "tpu",
       "kind": "generated",
-      "shapeHash": "6d9f47ac8d850f721822c15a8a9a522bd0a5bdd1b24ab4b30e55a38decf80285",
+      "shapeHash": "cc73e4f31852ca0e6b6e7cdd502d0b8fa7eddc2e308f820d21cfc5202d2d880e",
       "transform": {
         "positionMm": [
           0,
@@ -226,33 +306,6 @@
       "datums": []
     },
     {
-      "id": "inner_liner",
-      "target": "inner_liner",
-      "label": "0.2毫米内保护贴片",
-      "material": "tpu",
-      "kind": "generated",
-      "shapeHash": "df6ffc4c6bfbd173ca5fd522a9abf6406c09c431d3c0b32930cae1516207d043",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
       "id": "display_hinge_pin_lower",
       "target": "display_hinge_pin_lower",
       "label": "下部无帽短销",
@@ -305,11 +358,173 @@
         ]
       },
       "datums": []
+    },
+    {
+      "id": "fixed_lug_lower_a",
+      "target": "fixed_lug_lower_a",
+      "label": "独立胶粘轴耳 1",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "3a575bb47e3f9c3b0e21147da7fd98f388acdaccc63d186f2defc554a0162b8f",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          -48.75,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fixed_lug_lower_b",
+      "target": "fixed_lug_lower_b",
+      "label": "独立胶粘轴耳 2",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "08bd7c0b87ea48830ef5584fcb2eb7a754e58eb92adc92a595d0e4cbc2fe44ee",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          -41.25,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fixed_lug_middle_a",
+      "target": "fixed_lug_middle_a",
+      "label": "独立胶粘轴耳 3",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "b6116570b20a8e9d6749894c9560bebb4e3d641a2fc648222128c84fe848a8dc",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          -3.75,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fixed_lug_middle_b",
+      "target": "fixed_lug_middle_b",
+      "label": "独立胶粘轴耳 4",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "f93ad9021fb5a63785141f3c0c70810df40a7b8d20dc78126d7c50cae6e50121",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          3.75,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fixed_lug_upper_a",
+      "target": "fixed_lug_upper_a",
+      "label": "独立胶粘轴耳 5",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "ed5966bdf24d49b2be63c011675159969f519a0a167b1e0b9a95b31d1d040c50",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          41.25,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fixed_lug_upper_b",
+      "target": "fixed_lug_upper_b",
+      "label": "独立胶粘轴耳 6",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "7e794c7eeb447ae4423e2de13d7cb8f1bda2a4a4db4a2e4f4199837a7a35d4a1",
+      "transform": {
+        "positionMm": [
+          -41.1,
+          48.75,
+          -3.85
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
     }
   ],
   "assets": [],
   "fits": [],
-  "updatedAt": "2026-11-09T15:49:06.267Z",
+  "updatedAt": "2026-11-10T20:43:16.602Z",
   "parameters": {
     "back_cover": {
       "back_cover_fit_clearance": 0.25,
@@ -408,7 +623,15 @@
       "back_cover_top_edge_recess_length": 29,
       "back_cover_power_edge_recess_length": 22,
       "back_cover_shutter_edge_recess_length": 22,
-      "back_cover_side_edge_recess_inset": 1.7
+      "back_cover_side_edge_recess_inset": 1.7,
+      "back_cover_fixed_lug_glue_gap": 0.08,
+      "back_cover_fixed_lug_mouth_offset": 0.3,
+      "back_cover_fixed_lug_line_width": 0.2,
+      "back_cover_fixed_lug_line_depth": 0.4,
+      "back_cover_fixed_lug_slot_depth": 0.8,
+      "back_cover_fixed_lug_slot_clearance": 0.08,
+      "back_cover_fixed_lug_slot_end_radius": 0.08,
+      "back_cover_fixed_lug_entry_overrun": 0.5
     },
     "camera_guard": {
       "camera_guard_inner_width": 58.3,
@@ -447,16 +670,29 @@
       "display_hinge_pin_end_projection": 0.5,
       "display_hinge_pin_end_edge_radius": 0.1
     },
-    "inner_liner": {
-      "inner_liner_wall_clearance": 0.2,
-      "inner_liner_screen_clearance": 0.4,
-      "inner_liner_camera_clearance": 0.5
-    },
     "display_hinge_pin_lower": {
       "display_hinge_pin_lower_radius": 1.1
     },
     "display_hinge_pin_upper": {
       "display_hinge_pin_upper_radius": 1.1
+    },
+    "fixed_lug_lower_a": {
+      "fixed_lug_lower_a_free_edge_radius": 0.3
+    },
+    "fixed_lug_lower_b": {
+      "fixed_lug_lower_b_free_edge_radius": 0.3
+    },
+    "fixed_lug_middle_a": {
+      "fixed_lug_middle_a_free_edge_radius": 0.3
+    },
+    "fixed_lug_middle_b": {
+      "fixed_lug_middle_b_free_edge_radius": 0.3
+    },
+    "fixed_lug_upper_a": {
+      "fixed_lug_upper_a_free_edge_radius": 0.3
+    },
+    "fixed_lug_upper_b": {
+      "fixed_lug_upper_b_free_edge_radius": 0.3
     }
   }
 }

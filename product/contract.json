@@ -7,7 +7,7 @@
     {
       "id": "phone_fit",
       "kind": "internal_fit",
-      "description": "展开机身164.6×117.8×5.2；内底贴0.2保护膜，手机落座面Z2.6，围边/扣边抬高0.2，屏幕侧间隙保持0.38；左直边连续内扣取消，中央增加16长/内收0.7/厚0.7的短扣。",
+      "description": "展开机身164.6×117.8×5.2；取消独立贴片，原内底平面Z2.4一体增加0.2至Z2.6，手机支承高度、扣边高度和屏幕侧0.38间隙保持。左直边连续内扣取消，仅保留中央16长短扣。",
       "source": "user_requested",
       "required": true
     },
@@ -28,7 +28,7 @@
     {
       "id": "display_lid_hinge",
       "kind": "internal_fit",
-      "description": "翻盖版中脊侧上、中、下三组独立短铰链，轴心X-41.1/Z-3.85、外径5.2、孔Ø2.8不变。默认中心Y=-45/0/45，每组宽10，两个固定耳各2.5、中间活动耳4、两处间隙0.5；三根Ø2.2×11无帽短销，每组一根。底座与壳体连实，盖板原45度实心斜接及4.9根部伸入、2.2颈部保持。每根销在一固定耳点胶，活动耳自由。向镜头侧绕Y负向打开180度。",
+      "description": "翻盖版六个独立固定轴耳从图示屏幕缺口侧横向滑入六个敞口浅槽后胶粘。槽深默认0.8、底厚1.9、净宽2.66、入口至止端4.28；滑脚3.9×2.5，两侧、止端及槽底各预留0.08。原轴心X-41.1/Z-3.85、三组Y=-45/0/45、外径5.2/孔2.8、三根2.2×11短销及轴向间隙0.5保持。",
       "source": "user_requested",
       "required": true
     },
@@ -54,37 +54,30 @@
       "required": true
     },
     {
-      "id": "inner_liner",
-      "kind": "internal_fit",
-      "description": "仅保留镜头半侧0.2总厚保护贴片，左边X-42.3直切，取消绿色框内左侧绕屏窄边；其余边缘距壁0.2、镜头内开口外让0.5，仍覆盖磁体安装区域。",
-      "source": "user_requested",
-      "required": true
-    },
-    {
       "id": "plain_back",
       "kind": "internal_fit",
-      "description": "主背板厚2.5、盖板厚1.6，盖板从外侧减薄0.9后闭合主体外表面共面Z-0.1；均无装饰凹槽。",
+      "description": "主背板原2.5加内侧0.2一体补偿，普通总厚2.7；盖板1.6、主体外表面共面Z-0.1，外背板不设装饰图案，磁铁安装槽只在内侧开放。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "magsafe_seats",
       "kind": "internal_fit",
-      "description": "按上传STEP的内侧圆环45/54.72、中心(2.05,-2.41)及16.98×6.99尾槽/中心(2.05,-40.16)，环尾间隔1.9；从内侧开1.35深，槽底到外背面保留1.15连续底层，外表面完整。只交付壳体安装槽。",
+      "description": "内侧圆环45/54.72、中心(2.05,-2.41)及尾槽16.98×6.99、中心(2.05,-40.16)保持开放；槽底Z1.05、外背面Z-0.1留1.15，内侧补至Z2.6后槽深1.55，不加覆盖贴片。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "rear_plate_thinning",
       "kind": "internal_fit",
-      "description": "主背板从外向内减薄0.9，厚度3.4至2.5，内底Z2.4不动；磁环及尾槽深1.35，继续保留1.15连续底层，不贯穿。",
+      "description": "主背板外侧减薄0.9形成2.5参考主体，外面Z-0.1保持；内侧补回原贴片0.2后普通总厚2.7、支承面Z2.6。磁槽深1.55、外底厚1.15不穿透。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "display_lid_flush",
       "kind": "internal_fit",
-      "description": "盖板从外侧减薄0.9至1.6，主体外面与主背面共面Z-0.1，内面保持Z1.5，止挡间隙0.1和贴片后手机间隙1.1。",
+      "description": "盖板从外侧减薄0.9至1.6，主体外面与主背面共面Z-0.1，内面保持Z1.5，止挡间隙0.1和一体补偿后手机间隙1.1。",
       "source": "user_requested",
       "required": true
     },
@@ -176,6 +169,13 @@
       "id": "hinged_edge_recesses",
       "kind": "internal_fit",
       "description": "翻盖版对应区域同步封闭版三处凹槽：入口29/22/22，内退1/1.7/1.7，六端R2大圆弧平顺相切；原机身内腔和其余配合保持。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "hinged_integral_inner_compensation",
+      "kind": "internal_fit",
+      "description": "翻盖版取消独立内贴片，其0.2厚度一体补在主框原Z2.4平面支承区至Z2.6，含屏窗止挡上侧；屏幕开窗、镜头孔和磁铁槽保持开放，手机和盖板位置不动。",
       "source": "user_requested",
       "required": true
     }
@@ -864,10 +864,22 @@
       "source": "user_requested",
       "description": "标记的中央指槽长度与外露卡扣等长",
       "path": "product/references/uploads/20261109T154745607Z-1-mark-1.png"
+    },
+    {
+      "id": "six_glued_fixed_ears_mark",
+      "source": "user_requested",
+      "description": "六固定轴耳改为从上向下胶粘落位，底壳只留0.2宽/0.4深定位线框",
+      "path": "product/references/uploads/20261110T192752681Z-1-mark-1.png"
+    },
+    {
+      "id": "side_slide_fixed_ear_mark",
+      "source": "user_requested",
+      "description": "轴耳改为从屏幕缺口侧滑入，允许加深安装槽",
+      "path": "product/references/uploads/20261110T194017434Z-1-mark-1.png"
     }
   ],
   "assembly_story": {
-    "installation": "对齐主框和盖板轴耳，由任一端穿入Ø2.2无帽直销；所有孔Ø2.8，中固定耳少量点胶固定，避免流入活动耳，完全固化后翻动。镜头圈用0.15胶层固定，内底贴含胶总厚0.2保护片后再装入保持展开的手机。",
+    "installation": "先不装盖板、短销及手机，六固定轴耳从图示屏幕缺口侧沿横向推入对应的敞口浅槽。干配后用盖板及三根短销临时校准共轴，保留0.5轴向间隙，并按胶工艺保持槽底0.08胶层固化，避免胶进入活动耳。再装镜头圈、磁体与展开手机。",
     "maintenance": "向内释放中央单卡扣后由单个居中指槽抬起盖板，打开180度；更换盖板需先解除中固定耳胶接，再推拔无帽直销。",
     "user_access": [
       "展开内屏",
@@ -882,7 +894,7 @@
       {
         "role": "phone_case",
         "design_id": "duo_case",
-        "description": "展开一体主框、屏幕盖板、上中下三根短销、镜头圈及0.2内保护贴片的试配装配。",
+        "description": "一体补厚主框、屏幕盖板、六个独立侧滑轴耳、三根短销及镜头圈十二件试配装配，无独立贴片。",
         "delivery_target": "fit_check",
         "required_formats": [
           "step"
@@ -895,14 +907,14 @@
           "display_lid_snap",
           "grip_and_symmetric_ports",
           "table_support",
-          "inner_liner",
           "plain_back",
           "magsafe_seats",
           "rear_plate_thinning",
           "display_lid_flush",
           "bottom_left_access_notch",
           "hinged_bottom_stop_strip_removed",
-          "hinged_edge_recesses"
+          "hinged_edge_recesses",
+          "hinged_integral_inner_compensation"
         ],
         "reference_ids": [
           "dimensions_image",
@@ -1007,7 +1019,9 @@
           "bottom_ramp_and_notch_mark_1",
           "bottom_ramp_and_notch_mark_2",
           "hinged_bottom_stop_strip_mark",
-          "finger_recess_matches_latch_mark"
+          "finger_recess_matches_latch_mark",
+          "six_glued_fixed_ears_mark",
+          "side_slide_fixed_ear_mark"
         ]
       },
       {

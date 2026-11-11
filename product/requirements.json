@@ -278,11 +278,11 @@
     },
     "parts": {
       "value": [
-        "带屏幕窗及紧凑固定轴节的一体主框",
-        "180度屏幕盖板及居中单卡扣",
-        "两端无帽的直连接销",
-        "摄像头圈",
-        "0.2毫米镜头侧内保护贴片"
+        "内侧一体补厚主框",
+        "屏幕盖板",
+        "独立侧滑固定轴耳×6",
+        "无帽短销×3",
+        "镜头保护圈"
       ],
       "source": "default"
     },
@@ -329,7 +329,7 @@
       "source": "default"
     },
     "delivery": {
-      "value": "五件参数化STEP试配装配：轮廓内紧凑轴节、连实固定底座及45度盖板斜臂，平整外背面、四道居中侧纹、加固卡扣和0.2内贴片。",
+      "value": "十二件参数化STEP试配装配：主框内侧一体补0.2，磁环及尾磁槽开放；三个窄铰链及六个独立侧滑轴耳、三根短销，平整外背面及四道居中侧纹，中央卡扣。",
       "source": "default"
     },
     "verification": {
@@ -583,10 +583,9 @@
     },
     "inner_liner": {
       "value": {
-        "thickness_mm": 0.2,
-        "screen_coverage": false,
-        "camera_coverage": false,
-        "case_height_compensation_mm": 0.2
+        "separate_liner": false,
+        "integral_inner_compensation_mm": 0.2,
+        "magnet_pockets": "保持内侧开放，不覆盖"
       },
       "source": "user"
     },
@@ -608,27 +607,8 @@
       },
       "source": "default"
     },
-    "liner_defaults": {
-      "value": {
-        "material": "TPU protective film",
-        "thickness_includes_adhesive": true,
-        "inner_floor_z_mm": 2.4,
-        "lined_phone_seat_z_mm": 2.6,
-        "wall_height_mm": 6.48,
-        "case_rim_top_z_mm": 8.88,
-        "screen_to_lip_gap_mm": 0.38,
-        "wall_clearance_mm": 0.2,
-        "screen_opening_extra_clearance_mm": 0.4,
-        "camera_inner_opening_extra_clearance_mm": 0.5,
-        "coverage": "camera_half_only",
-        "left_trim_x_mm": -42.3,
-        "left_trim_datum": "screen mouth right edge plus 0.4 clearance",
-        "screen_wraparound_strip": false
-      },
-      "source": "default"
-    },
     "hinge_frame_integrity": {
-      "value": "外框保持完整，不切穿轴凹槽；固定轴耳底部连实、外侧直边圆顶；盖板端斜接下方填实，不设外露方块。",
+      "value": "外框保持完整；底壳六固定轴耳独立，从图示屏幕缺口侧滑入六个不贯穿背板的敞口浅槽后胶粘，轴耳外侧直边圆顶。盖板实心斜接保持。",
       "source": "user"
     },
     "raised_hinge_defaults": {
@@ -641,7 +621,6 @@
         "bore_diameter_mm": 2.8,
         "nominal_radial_wall_mm": 1.2,
         "moving_barrel_to_back_clearance_mm": 1.15,
-        "fixed_base_bond_depth_mm": 0.8,
         "hinge_outer_z_mm": -6.45,
         "camera_crest_z_mm": -3.5,
         "hinge_above_camera_mm": 2.95,
@@ -664,7 +643,13 @@
           43.9
         ],
         "lid_neck_vertical_height_mm": 2.2,
-        "lid_root_embed_thickness_mm": 1.3
+        "lid_root_embed_thickness_mm": 1.3,
+        "fixed_ear_mount": "side_slide_adhesive_foot",
+        "adhesive_gap_mm": 0.08,
+        "adhesive_foot_mm": [
+          3.9,
+          2.5
+        ]
       },
       "source": "default"
     },
@@ -679,7 +664,7 @@
     "compact_hinge": {
       "value": {
         "outline": "缩小轴体，轴节不超出手机壳侧面轮廓",
-        "fixed_base": "标记的固定轴耳底部与壳体连实",
+        "fixed_base": "六固定轴耳为独立胶粘滑入脚，从屏幕缺口横向推入底壳敞口槽",
         "lid_connection": "取消方块，直接斜切连接到盖板"
       },
       "source": "user"
@@ -723,7 +708,7 @@
       "source": "user"
     },
     "display_window_corner_shape": {
-      "value": "图示中脊侧两角为直角，外侧两角圆弧；盖口、净窗、止挡、贴片对应轮廓同步。",
+      "value": "图示中脊侧两角为直角，外侧两角圆弧；盖口、净窗、止挡对应轮廓同步。",
       "source": "user"
     },
     "open_lid_camera_coverage": {
@@ -757,12 +742,12 @@
         ],
         "ring_tail_gap_mm": 1.9,
         "opening_face": "inside",
-        "inner_opening_z_mm": 2.4,
+        "inner_opening_z_mm": 2.6,
         "outer_back_z_mm": -0.1,
         "pocket_floor_z_mm": 1.05,
-        "pocket_depth_mm": 1.35,
+        "pocket_depth_mm": 1.55,
         "remaining_back_skin_mm": 1.15,
-        "distance_interpretation": "主背板减薄后，从内侧开1.35深槽，槽底至外背面继续保留1.15连续底层",
+        "distance_interpretation": "内侧一体补厚0.2后，磁槽从Z2.6至Z1.05，可用深度1.55，槽底至外背面仍留1.15",
         "shape_basis": "直接读取STEP解析圆柱R22.5/R27.36及尾槽R3.495、圆心Y-35.165/-45.155；不沿用旧版54.52外径，也不复制参考1.19槽深",
         "camera_relief_xy_gap_mm": 3.7,
         "hinge_xy_gap_mm": 13.19,
@@ -781,16 +766,16 @@
     "rear_plate_thinning": {
       "value": {
         "amount_mm": 0.9,
-        "direction": "从外向内减薄主背板，内侧贴机面保持原位",
+        "direction": "外侧减薄后的外背面保持Z-0.1，内侧另补原贴片0.2厚度为一体材料，手机支承面仍为Z2.6",
         "magsafe": "同步修改磁环及尾槽深度，不穿透"
       },
       "source": "user"
     },
     "thin_back_defaults": {
       "value": {
-        "main_plate_mm": 2.5,
+        "main_plate_mm": 2.7,
         "outside_back_z_mm": -0.1,
-        "inside_back_z_mm": 2.4,
+        "inside_back_z_mm": 2.6,
         "lid_plate_mm": 1.6,
         "lid_outside_z_mm": -0.1,
         "lid_proud_of_back_mm": 0,
@@ -799,16 +784,14 @@
         "hook_length_mm": 7.5,
         "hook_height_mm": 0.8,
         "hook_bottom_z_mm": 0.7,
-        "nominal_catch_bearing_area_mm2": 6
+        "nominal_catch_bearing_area_mm2": 6,
+        "base_plate_before_compensation_mm": 2.5,
+        "inner_compensation_mm": 0.2
       },
       "source": "default"
     },
     "display_lid_thinning": {
       "value": "屏幕盖板也从外侧减薄，闭合时主体外表面与主背板平齐。",
-      "source": "user"
-    },
-    "inner_liner_trim": {
-      "value": "取消图中绿色框内左侧绕屏窄边，只保留镜头侧背板区域贴片。",
       "source": "user"
     },
     "display_lid_latch_layout": {
@@ -1058,6 +1041,75 @@
         "corner_radius_mm": 0.5
       },
       "source": "research"
+    },
+    "fixed_hinge_ear_mount": {
+      "value": {
+        "count": 6,
+        "assembly": "从图示屏幕缺口侧横向滑入",
+        "shell_feature": "六个向屏幕缺口敞开的浅槽，允许加深，不再只刻闭合线框",
+        "adhesive": "用户自选并实施"
+      },
+      "source": "user"
+    },
+    "fixed_hinge_ear_mount_defaults": {
+      "value": {
+        "material": "PETG",
+        "slot_depth_mm": 0.8,
+        "remaining_backing_mm": 1.9,
+        "slot_width_mm": 2.66,
+        "slot_length_from_mouth_mm": 4.28,
+        "slot_end_corner_radius_mm": 0.08,
+        "footprint_mm": [
+          3.9,
+          2.5
+        ],
+        "foot_entry_overlap_below_back_mm": 0.72,
+        "side_clearance_each_mm": 0.08,
+        "end_clearance_mm": 0.08,
+        "adhesive_gap_mm": 0.08,
+        "interpretation": "0.08按单边旷量，槽底同留0.08",
+        "axis_xz_mm": [
+          -41.1,
+          -3.85
+        ],
+        "centers_y_mm": [
+          -48.75,
+          -41.25,
+          -3.75,
+          3.75,
+          41.25,
+          48.75
+        ],
+        "bond_area_each_mm2": 9.75
+      },
+      "source": "default"
+    },
+    "fixed_hinge_ear_assembly_clearance": {
+      "value": {
+        "clearance_mm": 0.08,
+        "scope": "轴耳滑入装配"
+      },
+      "source": "user"
+    },
+    "hinged_integral_inner_compensation_defaults": {
+      "value": {
+        "material": "TPU95A，与主框一体",
+        "thickness_mm": 0.2,
+        "scope": "所有原Z2.4平面支承区，含屏窗止挡上侧；不填孔槽",
+        "base_floor_z_mm": 2.4,
+        "phone_seat_z_mm": 2.6,
+        "ordinary_plate_total_mm": 2.7,
+        "rim_top_z_mm": 8.88,
+        "screen_to_lip_gap_mm": 0.38,
+        "stop_underside_z_mm": 1.6,
+        "stop_total_thickness_mm": 1.0,
+        "lid_inner_z_mm": 1.5,
+        "lid_stop_clearance_mm": 0.1,
+        "magnet_floor_z_mm": 1.05,
+        "magnet_depth_mm": 1.55,
+        "magnet_back_skin_mm": 1.15
+      },
+      "source": "default"
     }
   },
   "open_questions": []

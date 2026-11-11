@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready_for_fit_check",
   "bom_ready": true,
-  "requirements_digest": "131ff339ba1465938d7a76cac53df39f6dbe80f4f62944c088c08f1201f42ed8",
+  "requirements_digest": "9bcdcf98a1580221a894d3d4c67b59964be6cb16780eabe73738f62eeabc628e",
   "items": [
     {
       "id": "back_cover",
@@ -12,11 +12,11 @@
       "manufacturer": "Project custom",
       "part_number": "DUO-OPEN-DISPLAY-FRAME",
       "source": "default",
-      "description": "TPU95A一体主框168.3×121.5、主背板2.5、内底Z2.4。中脊侧上中下三组短铰链，各宽10；中心Y=-45/0/45，每组两固定耳各2.5宽，全孔Ø2.8。上槽29/内退1，右侧两槽各22/内退1.7，六端R2大圆弧相切过渡。保留一组外侧Y0卡扣座、内边7.9×1.6浅指槽、四道侧纹、MagSafe内槽1.35深/1.15底厚及底边12.7宽/内伸3.4接口；接口跨槽止挡细条切除。",
+      "description": "TPU95A一体主框168.3×121.5；取消独立贴片，原内侧平面支承区补0.2至Z2.6，普通背板总厚2.7。屏幕开窗和镜头孔保持；磁环45/54.72及尾槽16.98×6.99保持开放，槽深1.55、外底厚1.15。六轴耳侧滑槽深0.8、底厚1.9，净宽2.66/入口长4.28，装配各留0.08；其余卡扣、R2边缘凹槽及接口保持。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
       "part_identity": "c444b131d083f393",
-      "selection_reason": "中央浅指槽按用户标记缩至外露卡扣总长7.9，与卡扣居中对齐；槽宽1.6、深0.3、R0.5保持。主框三组窄铰链与三处R2凹槽不变。"
+      "selection_reason": "用户取消翻盖版贴片并将0.2厚度补到壳体内侧；磁铁槽不封盖，手机落座面仍Z2.6，轴耳侧滑配合0.08保持。"
     },
     {
       "id": "camera_guard",
@@ -74,20 +74,6 @@
       "part_identity": "87d96589ea79a64d"
     },
     {
-      "id": "inner_liner",
-      "role": "phone_inner_protection",
-      "name": "0.2毫米镜头侧内保护贴片",
-      "quantity": 1,
-      "manufacturer": "Project custom",
-      "part_number": "DUO-INNER-LINER-02",
-      "source": "default",
-      "description": "仅镜头半侧背板区域的TPU柔性贴片，含胶总厚0.2；左边X-42.3直切，取消屏幕周围左侧及上下绕行窄边，其余边缘距内壁0.2、镜头内开口外让0.5。仍覆盖磁体安装区域，先安装磁体后贴膜。",
-      "selection_reason": "用户要求取消绿色框内左侧窄边，仅保留右侧贴片；厚度和镜头避让保持。",
-      "procurement_status": "custom_fabrication",
-      "cad_relevance": true,
-      "part_identity": "f9669dde38b77624"
-    },
-    {
       "id": "magsafe_magnet_set",
       "role": "magnetic_attachment",
       "name": "适配参考环槽及尾槽的MagSafe磁铁套件",
@@ -95,8 +81,8 @@
       "source": "default",
       "procurement_status": "external_procurement_required",
       "cad_relevance": false,
-      "description": "采购磁环及定位尾磁铁，用于内径45/外径54.72环槽及16.98×6.99胶囊尾槽；实际本体尺寸、厚度、胶层和极性需与实物匹配，磁体及胶层总安装高度按版本匹配：翻盖版可用深度1.35，封闭一体补偿版1.55。CAD只建安装槽，不用占位磁体替代采购模型。",
-      "selection_reason": "两个版本沿用参考磁环/尾槽位置和形状；封闭版内侧整合0.2后深度1.55，翻盖版1.35。采购件未取得准确型号/STEP，不声称无线充电或吸附性能已验证。",
+      "description": "采购磁环及定位尾磁铁，用于内径45/外径54.72环槽及16.98×6.99胶囊尾槽；实际本体尺寸、厚度、胶层和极性需与实物匹配，磁体及胶层总安装高度按版本匹配：两个版本均可用深度1.55。CAD只建安装槽，不用占位磁体替代采购模型。",
+      "selection_reason": "两个版本沿用参考磁环/尾槽位置和形状；两个版本内侧整合0.2后深度均为1.55。采购件未取得准确型号/STEP，不声称无线充电或吸附性能已验证。",
       "required_user_evidence": []
     },
     {
@@ -138,8 +124,35 @@
       "description": "PETG胶粘镜头圈，净孔56.3×20.5、外翼厚3.25、总高3.65；随主背板向内移0.9，胶面Z-0.25、保护顶Z-3.5、定位环顶Z0.15。原0.15胶层和0.05轴向退让保持。",
       "procurement_status": "custom_fabrication",
       "cad_relevance": true,
-      "selection_reason": "封闭版本分别配套镜头圈及内贴片，尺寸和材料沿用原版。",
+      "selection_reason": "封闭版本单独配套镜头圈，尺寸和材料沿用原版，无独立内贴片。",
       "design_id": "duo_case_sealed"
+    },
+    {
+      "id": "fixed_hinge_ear",
+      "role": "fixed_hinge_ear",
+      "name": "独立侧滑胶粘固定轴耳",
+      "quantity": 6,
+      "manufacturer": "Project custom",
+      "part_number": "DUO-GLUE-FIXED-EAR",
+      "source": "default",
+      "description": "PETG独立固定耳，外径5.2/孔Ø2.8/沿轴宽2.5；底部3.9×2.5滑入脚延长进入侧开槽0.72，槽底胶层0.08，单件底面面积9.75 mm²。两侧及止端各留0.08，原轴心X-41.1/Z-3.85保持。",
+      "procurement_status": "custom_fabrication",
+      "cad_relevance": true,
+      "selection_reason": "六轴耳从屏幕缺口侧横向滑入底壳0.8深敞口槽后胶粘，满足用户0.08装配旷量。",
+      "design_id": "duo_case"
+    },
+    {
+      "id": "fixed_hinge_ear_adhesive",
+      "role": "assembly_consumable",
+      "name": "固定轴耳到底壳的胶（用户自备）",
+      "quantity": 1,
+      "source": "user",
+      "procurement_status": "external_procurement_required",
+      "cad_relevance": false,
+      "description": "用户自行选择并胶粘六个PETG滑入轴耳与TPU95A主框，模型槽底预留0.08胶层。先横向滑入并用盖板和三根销对齐，再按胶工艺固化，避免胶进入活动耳和孔内。",
+      "selection_reason": "用户明确采用自行胶粘方式安装，未指定胶产品。",
+      "supply_risk": "真实材料相容性、固化及开盖剥离保持力须样件验证。",
+      "required_user_evidence": []
     }
   ],
   "unresolved_items": [],

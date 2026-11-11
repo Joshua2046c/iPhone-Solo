@@ -1,8 +1,3 @@
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
-# cell: back_cover
 # Fixed-open one-piece tray. Camera-side datum and original access geometry are retained.
 phone_w=param('back_cover_open_phone_width',164.6)
 phone_h=param('back_cover_open_phone_height',117.8)
@@ -309,8 +304,7 @@ for i in range(int(grip_count)):
  band=Pos(0,0,grip_first_z+i*grip_pitch-grip_height/2)*groove_tool
  body-=band
 
-# Compact hinge within the case outline; fixed knuckles have full integral bases.
-frame_before_hinge=body
+# Compact hinge layout; six fixed ears are separate adhesive-mounted parts.
 lid_barrel_r=param('back_cover_lid_barrel_radius',2.6)
 lid_socket_gap=param('back_cover_lid_socket_clearance',0.25)
 hinge_inboard_offset=param('back_cover_lid_hinge_inboard_offset',1.6)
@@ -323,7 +317,6 @@ pin_retention_d=param('back_cover_lid_pin_retention_diameter',2.8)
 pin_retention_r=pin_retention_d/2
 lid_hinge_axial_gap=param('back_cover_lid_hinge_axial_gap',0.5)
 lid_hinge_root_overlap=param('back_cover_lid_hinge_root_overlap',4.9)
-fixed_root_bond=param('back_cover_lid_fixed_root_bond',0.8)
 fixed_web_round=param('back_cover_lid_fixed_web_edge_radius',0.3)
 # Three independent short hinges, each with two fixed ears and a middle moving ear.
 hinge_station_offset=param('back_cover_lid_hinge_station_offset',45.0)
@@ -340,21 +333,44 @@ fixed_knuckle_intervals=[]
 for c in hinge_station_centers:
  fixed_knuckle_intervals.extend([(c-hinge_station_width/2,c-hinge_station_width/2+fixed_ear_width),
                                  (c+hinge_station_width/2-fixed_ear_width,c+hinge_station_width/2)])
+# Six shallow adhesive sockets open laterally onto the screen mouth.
+fixed_lug_glue_gap=param('back_cover_fixed_lug_glue_gap',0.1)
+fixed_lug_edge_land=param('back_cover_fixed_lug_mouth_offset',0.3)
+fixed_lug_slot_depth=param('back_cover_fixed_lug_slot_depth',0.8)
+fixed_lug_slot_clearance=param('back_cover_fixed_lug_slot_clearance',0.15)
+fixed_lug_slot_corner=param('back_cover_fixed_lug_slot_end_radius',0.15)
+fixed_lug_entry_overrun=param('back_cover_fixed_lug_entry_overrun',0.5)
+fixed_lug_bond_left=window_right+fixed_lug_edge_land
+fixed_lug_bond_right=lid_axis_x+fixed_barrel_r
+fixed_lug_bond_width=fixed_lug_bond_right-fixed_lug_bond_left
+fixed_lug_bond_x=(fixed_lug_bond_left+fixed_lug_bond_right)/2
+fixed_lug_slot_floor_z=outside_z+fixed_lug_slot_depth
+fixed_lug_bond_z=fixed_lug_slot_floor_z-fixed_lug_glue_gap
+fixed_lug_slot_entry_x=window_right-fixed_lug_entry_overrun
+fixed_lug_slot_end_x=fixed_lug_bond_right+fixed_lug_slot_clearance
+fixed_lug_slot_width=fixed_ear_width+2*fixed_lug_slot_clearance
+assert 0<fixed_lug_glue_gap<fixed_lug_slot_depth
+assert plate-fixed_lug_slot_depth>=1.2
+assert 0<fixed_lug_slot_corner<=fixed_lug_slot_clearance
+fixed_lug_positions=[]
+fixed_lug_slot_profiles=[]
+fixed_lug_slot_cutters=[]
 for ya,yb in fixed_knuckle_intervals:
  yc=(ya+yb)/2
- barrel=Pos(lid_axis_x,yc,lid_axis_z)*Cylinder(fixed_barrel_r,yb-ya,rotation=(90,0,0))
- base_left=window_right
- base_right=lid_axis_x+fixed_barrel_r
- base_top=outside_z+fixed_root_bond
- base_bottom=lid_axis_z
- assert base_right>base_left
- base=Pos((base_left+base_right)/2,yc,(base_bottom+base_top)/2)*Box(base_right-base_left,yb-ya,base_top-base_bottom)
- # The outside vertical wall is tangent to the upper circular crown.
- knuckle=barrel+base
- knuckle=fillet(knuckle.edges().filter_by(Axis.Y),radius=fixed_web_round)
- bore_r=pin_retention_r if ya<0<yb else lid_bore_r
- knuckle-=Pos(lid_axis_x,yc,lid_axis_z)*Cylinder(bore_r,yb-ya+2,rotation=(90,0,0)).rotate(Axis.Y,45)
- body+=knuckle
+ fixed_lug_positions.append((lid_axis_x,yc,lid_axis_z))
+ slot=Pos((fixed_lug_slot_entry_x+fixed_lug_slot_end_x)/2,yc)*Rectangle(
+  fixed_lug_slot_end_x-fixed_lug_slot_entry_x,fixed_lug_slot_width)
+ end_vertices=[v for v in slot.vertices() if abs(v.X-fixed_lug_slot_end_x)<1e-6]
+ assert len(end_vertices)==2
+ slot=fillet(end_vertices,radius=fixed_lug_slot_corner)
+ fixed_lug_slot_profiles.append(slot)
+ cutter=Pos(0,0,outside_z)*extrude(slot,amount=fixed_lug_slot_depth)
+ fixed_lug_slot_cutters.append(cutter)
+ body-=cutter
+print('Six side-open sockets depth/width',fixed_lug_slot_depth,fixed_lug_slot_width,
+      'remaining backing',plate-fixed_lug_slot_depth)
+print('Slide direction from mouth +X, entry/end',window_right,fixed_lug_slot_end_x)
+print('Slide foot width/ear width/glue',fixed_lug_bond_width,fixed_ear_width,fixed_lug_glue_gap)
 
 # One central catch retains 0.8 mm stock below its receiver.
 latch_center_y=param('back_cover_lid_latch_center_y',0.0)
@@ -457,6 +473,20 @@ print('Inner cavity / outer overall',inner.bounding_box().size.X,inner.bounding_
 print('Recess overall entrance lengths',top_edge_recess_length,power_edge_recess_length,shutter_edge_recess_length)
 print('Top inset / side step inset',edge_recess_inset,side_edge_recess_inset,'step X',side_edge_recess_inner_x)
 print('All six end transitions radius',edge_recess_blend_r,'transition spans',top_transition_span,side_transition_spans)
+# Integral replacement for the former 0.2 mm inner liner.
+# Raise only existing horizontal support faces; pocket floors and openings stay open.
+inner_compensation_faces=[f for f in body.faces()
+ if f.geom_type==GeomType.PLANE
+ and abs(f.bounding_box().min.Z-seat_z)<1e-6
+ and abs(f.bounding_box().max.Z-seat_z)<1e-6
+ and f.normal_at().Z>0.99]
+assert len(inner_compensation_faces)>0
+integral_inner_compensation=extrude(inner_compensation_faces,amount=liner_t)
+body+=integral_inner_compensation
+compensated_seat_z=seat_z+liner_t
+compensated_mag_depth=compensated_seat_z-mag_floor
+print('Integral inner compensation / final seat / magnet depth',liner_t,compensated_seat_z,compensated_mag_depth)
+
 body=body.clean()
 assert body.is_valid and len(body.solids())==1
 # Retained right-side and corner segments, outside the extended long openings.

@@ -20,13 +20,13 @@
     "cad_fit_source": "user_open_phone_image",
     "operating_state": "kept_open",
     "open_thickness": 5.2,
-    "lined_phone_seat_z": 2.6
+    "phone_seat_z": 2.6
   },
   "back": {
     "fit_clearance_per_side": 0.25,
     "corner_radius": 12,
     "wall": 1.6,
-    "plate": 2.5,
+    "plate": 2.7,
     "corner_inward_lip": 0.7,
     "camera_opening": {
       "width": 58.3,
@@ -75,7 +75,7 @@
     },
     "bottom_opening_width": 132.3,
     "source": "default_image_estimate",
-    "phone_seat_z": 2.4,
+    "phone_seat_z": 2.6,
     "outer_back_z": -0.1,
     "left_corner_source": "default_radius_for_user_requested_soft_corners",
     "opening_edge_radius": 0.3,
@@ -90,7 +90,7 @@
         30.5
       ],
       "depth": 3.9,
-      "phone_face_z": 2.4,
+      "phone_face_z": 2.6,
       "small_mouth_datum_z": -1.5,
       "transition": "vertical_lower_land_then_smooth_loft",
       "blank_extension": 0,
@@ -111,7 +111,11 @@
         22.6145511936
       ],
       "lower_y": 28.65,
-      "upper_y": 59.15
+      "upper_y": 59.15,
+      "added_straight_land_z_range_mm": [
+        2.4,
+        2.6
+      ]
     },
     "wall_height": 6.48,
     "wall_top_z": 8.88,
@@ -329,7 +333,6 @@
       "lid_connection_angle_deg": 45,
       "connection_support": "solid_gusset",
       "latch_slot_mm": 1,
-      "lined_phone_plane_clearance_mm": 1.1,
       "window_corner_radius_definition": "outer_side_only",
       "finger_slot_corner_radius_mm": 0.5,
       "latch_receiver_roof_mm": 0.6,
@@ -366,7 +369,19 @@
         0,
         45
       ],
-      "pin_length_mm": 11
+      "pin_length_mm": 11,
+      "fixed_ear_mount": "six_side_slide_glued_parts",
+      "fixed_ear_adhesive_gap_mm": 0.08,
+      "fixed_ear_footprint_mm": [
+        3.9,
+        2.5
+      ],
+      "fixed_ear_slot_depth_mm": 0.8,
+      "fixed_ear_slot_width_mm": 2.66,
+      "fixed_ear_side_clearance_each_mm": 0.08,
+      "fixed_ear_end_clearance_mm": 0.08,
+      "integral_phone_plane_clearance_mm": 1.1,
+      "stop_total_thickness_mm": 1.0
     },
     "grip": {
       "type": "rounded_circumferential_grooves",
@@ -407,7 +422,10 @@
     "left_lip_removed_except_center_y_range": [
       -8,
       8
-    ]
+    ],
+    "reference_base_plate": 2.5,
+    "reference_floor_z": 2.4,
+    "inner_compensation_mm": 0.2
   },
   "connections": [
     {
@@ -423,7 +441,7 @@
     {
       "id": "display_lid_hinge",
       "implementation": "free",
-      "kind": "three_independent_short_coaxial_hinges_with_individual_glued_headless_pins"
+      "kind": "three_short_hinges_with_six_separate_glued_fixed_ears"
     },
     {
       "id": "display_lid_snap",
@@ -434,6 +452,36 @@
       "id": "camera_guard_to_back",
       "implementation": "free",
       "kind": "original_glue_locator_flange"
+    },
+    {
+      "id": "fixed_hinge_ear_1_to_frame",
+      "implementation": "free",
+      "kind": "side_slide_adhesive_foot_in_open_shallow_socket"
+    },
+    {
+      "id": "fixed_hinge_ear_2_to_frame",
+      "implementation": "free",
+      "kind": "side_slide_adhesive_foot_in_open_shallow_socket"
+    },
+    {
+      "id": "fixed_hinge_ear_3_to_frame",
+      "implementation": "free",
+      "kind": "side_slide_adhesive_foot_in_open_shallow_socket"
+    },
+    {
+      "id": "fixed_hinge_ear_4_to_frame",
+      "implementation": "free",
+      "kind": "side_slide_adhesive_foot_in_open_shallow_socket"
+    },
+    {
+      "id": "fixed_hinge_ear_5_to_frame",
+      "implementation": "free",
+      "kind": "side_slide_adhesive_foot_in_open_shallow_socket"
+    },
+    {
+      "id": "fixed_hinge_ear_6_to_frame",
+      "implementation": "free",
+      "kind": "side_slide_adhesive_foot_in_open_shallow_socket"
     }
   ],
   "unresolved_roles": [],
@@ -451,7 +499,7 @@
     {
       "id": "bond_and_pin",
       "severity": "prototype_limit",
-      "description": "三根无帽短销各在一侧固定耳点胶的保持力、镜头圈胶接强度与轴孔实际公差须试样确认。"
+      "description": "六个独立固定耳到底壳的胶接强度、三根无帽短销的轴向保持、镜头圈胶接及打印孔公差须试样确认。胶由用户自行选择与实施。"
     }
   ],
   "camera_guard": {
@@ -535,22 +583,6 @@
       -3.85
     ]
   },
-  "inner_liner": {
-    "material": "TPU protective film",
-    "thickness_includes_adhesive": true,
-    "inner_floor_z_mm": 2.4,
-    "lined_phone_seat_z_mm": 2.6,
-    "wall_height_mm": 6.48,
-    "case_rim_top_z_mm": 8.88,
-    "screen_to_lip_gap_mm": 0.38,
-    "wall_clearance_mm": 0.2,
-    "screen_opening_extra_clearance_mm": 0.4,
-    "camera_inner_opening_extra_clearance_mm": 0.5,
-    "coverage": "camera_half_only",
-    "left_trim_x_mm": -42.3,
-    "left_trim_datum": "screen mouth right edge plus 0.4 clearance",
-    "screen_wraparound_strip": false
-  },
   "raised_hinge": {
     "axis_xz_mm": [
       -41.1,
@@ -560,7 +592,6 @@
     "bore_diameter_mm": 2.8,
     "nominal_radial_wall_mm": 1.2,
     "moving_barrel_to_back_clearance_mm": 1.15,
-    "fixed_base_bond_depth_mm": 0.8,
     "hinge_outer_z_mm": -6.45,
     "camera_crest_z_mm": -3.5,
     "hinge_above_camera_mm": 2.95,
@@ -593,7 +624,10 @@
     "station_width_mm": 10,
     "fixed_ear_width_mm": 2.5,
     "moving_ear_width_mm": 4,
-    "axial_gap_each_mm": 0.5
+    "axial_gap_each_mm": 0.5,
+    "fixed_ear_mount": "side_slide_adhesive_foot",
+    "fixed_ear_count": 6,
+    "adhesive_gap_mm": 0.08
   },
   "back_face_finish": {
     "capsule_grooves": false,
@@ -630,12 +664,12 @@
     ],
     "ring_tail_gap_mm": 1.9,
     "opening_face": "inside",
-    "inner_opening_z_mm": 2.4,
+    "inner_opening_z_mm": 2.6,
     "outer_back_z_mm": -0.1,
     "pocket_floor_z_mm": 1.05,
-    "pocket_depth_mm": 1.35,
+    "pocket_depth_mm": 1.55,
     "remaining_back_skin_mm": 1.15,
-    "distance_interpretation": "主背板减薄后，从内侧开1.35深槽，槽底至外背面继续保留1.15连续底层",
+    "distance_interpretation": "内侧一体补厚0.2后，磁槽从Z2.6至Z1.05，可用深度1.55，槽底至外背面仍留1.15",
     "shape_basis": "直接读取STEP解析圆柱R22.5/R27.36及尾槽R3.495、圆心Y-35.165/-45.155；不沿用旧版54.52外径，也不复制参考1.19槽深",
     "camera_relief_xy_gap_mm": 3.7,
     "hinge_xy_gap_mm": 13.19,
@@ -644,13 +678,13 @@
   "magnet_hardware": {
     "geometry": "not represented; no catalog/step.parts exact match acquired",
     "seat_from_user_reference": true,
-    "actual_magnet_thickness_and_adhesive": "match to available 1.35 depth before assembly",
+    "actual_magnet_thickness_and_adhesive": "match to available 1.55 mm depth in both versions before assembly",
     "charging_alignment_verified": false
   },
   "thin_back": {
-    "main_plate_mm": 2.5,
+    "main_plate_mm": 2.7,
     "outside_back_z_mm": -0.1,
-    "inside_back_z_mm": 2.4,
+    "inside_back_z_mm": 2.6,
     "lid_plate_mm": 1.6,
     "lid_outside_z_mm": -0.1,
     "lid_proud_of_back_mm": 0,
@@ -659,7 +693,9 @@
     "hook_length_mm": 7.5,
     "hook_height_mm": 0.8,
     "hook_bottom_z_mm": 0.7,
-    "nominal_catch_bearing_area_mm2": 6
+    "nominal_catch_bearing_area_mm2": 6,
+    "base_plate_before_compensation_mm": 2.5,
+    "inner_compensation_mm": 0.2
   },
   "sealed_variant": {
     "design_id": "duo_case_sealed",
@@ -822,5 +858,63 @@
     ],
     "blend_style": "双反向相切圆弧",
     "camera_relief_min_distance_mm": 0.5950556783057479
+  },
+  "fixed_hinge_ear_mount": {
+    "material": "PETG",
+    "slot_depth_mm": 0.8,
+    "remaining_backing_mm": 1.9,
+    "slot_width_mm": 2.66,
+    "slot_length_from_mouth_mm": 4.28,
+    "slot_end_corner_radius_mm": 0.08,
+    "footprint_mm": [
+      3.9,
+      2.5
+    ],
+    "foot_entry_overlap_below_back_mm": 0.72,
+    "side_clearance_each_mm": 0.08,
+    "end_clearance_mm": 0.08,
+    "adhesive_gap_mm": 0.08,
+    "interpretation": "0.08按单边旷量，槽底同留0.08",
+    "axis_xz_mm": [
+      -41.1,
+      -3.85
+    ],
+    "centers_y_mm": [
+      -48.75,
+      -41.25,
+      -3.75,
+      3.75,
+      41.25,
+      48.75
+    ],
+    "bond_area_each_mm2": 9.75,
+    "entry_from": "screen_mouth",
+    "insertion_direction_xyz": [
+      1,
+      0,
+      0
+    ],
+    "slot_floor_z_mm": 0.7,
+    "ear_bond_face_z_mm": 0.62,
+    "mouth_x_mm": -42.7,
+    "end_x_mm": -38.42,
+    "main_shell_has_integral_fixed_ears": false
+  },
+  "integral_inner_compensation": {
+    "material": "TPU95A，与主框一体",
+    "thickness_mm": 0.2,
+    "scope": "所有原Z2.4平面支承区，含屏窗止挡上侧；不填孔槽",
+    "base_floor_z_mm": 2.4,
+    "phone_seat_z_mm": 2.6,
+    "ordinary_plate_total_mm": 2.7,
+    "rim_top_z_mm": 8.88,
+    "screen_to_lip_gap_mm": 0.38,
+    "stop_underside_z_mm": 1.6,
+    "stop_total_thickness_mm": 1.0,
+    "lid_inner_z_mm": 1.5,
+    "lid_stop_clearance_mm": 0.1,
+    "magnet_floor_z_mm": 1.05,
+    "magnet_depth_mm": 1.55,
+    "magnet_back_skin_mm": 1.15
   }
 }
